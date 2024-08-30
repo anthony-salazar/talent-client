@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.Login-component {
+  display: flex;
+  justify-content: space-between;
+  max-width: 35vw;
+  align-content: end;
+}
+
+.Profile-component {
+  display: flex;
+  flex-direction: column;
+  align-content: end;
+}
+
+.Lc-wrapper {
+  display: flex;
+  justify-content: end;
+}
