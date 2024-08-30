@@ -13,7 +13,7 @@ export default function LoginPage() {
         setUser(user);
         localStorage.setItem("user",JSON.stringify(user));
       };
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if(!username || !password) {
@@ -44,6 +44,6 @@ export default function LoginPage() {
                 <button type="submit">Login</button>
             </form>
         </div>
-        
+
     )
 }
