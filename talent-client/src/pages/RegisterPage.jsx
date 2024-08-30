@@ -22,14 +22,14 @@ export default function RegisterPage() {
         }
     };
 
-
     return (
-        <Container maxWidth="sm" className="registration-container">
+        <Container maxWidth="xs" className="registration-container">
             <Typography variant="h4" component="h2" gutterBottom align="center">Register</Typography>
             <form onSubmit={handleSubmit}>
                 <TextField
                     label="Email"
                     type="email"
+                    fullWidth
                     variant="outlined"
                     margin="normal" 
                     value={email}
@@ -37,6 +37,7 @@ export default function RegisterPage() {
                 />
                 <TextField
                     label="Username"
+                    fullWidth
                     variant="outlined"
                     margin="normal" 
                     value={username}
@@ -45,6 +46,7 @@ export default function RegisterPage() {
                 <TextField
                     label="Password"
                     type="password"
+                    fullWidth
                     variant="outlined"
                     margin="normal" 
                     value={password}
@@ -53,6 +55,7 @@ export default function RegisterPage() {
                 <TextField
                     label="Confirm Password"
                     type="password"
+                    fullWidth
                     variant="outlined"
                     margin="normal" 
                     value={confirmPassword}
