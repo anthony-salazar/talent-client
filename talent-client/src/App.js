@@ -13,7 +13,7 @@ function App() {
          <Route path={RouteConstants.Home} element={<HomePage/>}/>
          <Route path={RouteConstants.Login} element={<LoginPage/>}/>
          <Route path={RouteConstants.Register} element={<RegisterPage/>}/>
-         <Route path='/jobsearch' element={<JobSearchPage />}/>
+         <Route path={RouteConstants.JobSearch} element={<JobSearchPage />}/>
        </Routes>
     </div>
   );
