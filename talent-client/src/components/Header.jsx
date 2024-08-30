@@ -1,13 +1,16 @@
 import React from 'react';
+import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material';
+import LoginComponent from '../components/LoginComponent';
 
 export default function Header() {
     return(
-        <header className='header'>
-            <div className='header-content' >
-                <h1>Talent : Home</h1>
-                {/* TODO: Add functionality page changed. Home will change to something else */}
-
-            </div>
-        </header>
+        <AppBar position="static" color="primary">
+            <Toolbar>
+                <Typography variant="h6" color="inherit" component="div">
+                    Talent App
+                </Typography>
+            </Toolbar>
+        <LoginComponent />
+        </AppBar>
     )
 }
