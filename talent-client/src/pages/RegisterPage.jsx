@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {TextField, Button, Container, Typography, Alert} from '@mui/material';
 
 export default function RegisterPage() {
 
@@ -21,26 +22,48 @@ export default function RegisterPage() {
         }
     };
 
-
     return (
-        <div className="register-container">
-            <h2>Register</h2>
+        <Container maxWidth="xs" className="registration-container">
+            <Typography variant="h4" component="h2" gutterBottom align="center">Register</Typography>
             <form onSubmit={handleSubmit}>
-                <label>Email: </label>
-                <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} required></input>
-                <br></br>
-                <label>Username: </label>
-                <input type="text" id="username" onChange={(e) => setUsername(e.target.value)} required></input>
-                <br></br>
-                <label>Password: </label>
-                <input type="text" id="password" onChange={(e) => setPassword(e.target.value)} required></input>
-                <br></br>
-                <label>Confirm Password: </label>
-                <input type="text" id="confirmPassword" onChange={(e) => setConfirmPassword(e.target.value)} required></input>
-        
-                <br></br>
-                <button type="submit">Register</button>
+                <TextField
+                    label="Email"
+                    type="email"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <TextField
+                    label="Username"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal" 
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <TextField
+                    label="Password"
+                    type="password"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <TextField
+                    label="Confirm Password"
+                    type="password"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal" 
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                <Button type="submit" variant="contained" color="primary">Register</Button>
             </form>
-        </div>
+        </Container>
+        
     )
 }
