@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+<<<<<<< Updated upstream
 import HeaderComponent from './components/Header';
 import FooterComponent from './components/Footer';
 import LoginComponent from './components/LoginComponent';
@@ -38,6 +39,28 @@ function App() {
     , their code and the techniques being used.</p>
       </div>
       <FooterComponent />
+=======
+import JobSearch from './component/JobSearch';
+import list from './jobList.json';
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <JobSearch jobs={list} />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+>>>>>>> Stashed changes
     </div>
   );
 }
