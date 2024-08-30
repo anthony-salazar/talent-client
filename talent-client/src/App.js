@@ -2,13 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import HeaderComponent from './components/Header';
 import FooterComponent from './components/Footer';
-import LoginComponent from './components/Login';
+import LoginComponent from './components/LoginComponent';
 
 function App() {
   return (
     <div className="App">
-      <HeaderComponent />
       <LoginComponent />
+      <HeaderComponent />
       <div>
         <h2>Home Page</h2>
         <p>This is the "Home" page!
