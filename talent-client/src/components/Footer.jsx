@@ -1,18 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {AppBar, Toolbar, Typography} from '@mui/material';
+import App from '../App';
 
 export default function Footer() {
     return(
-        <footer className='footer'>
-            {/* <nav>
-             <Link to="/">Home</Link>
-             <Link to="/admin">Admin</Link>
-             <Link to="/login">Login</Link>
-            </nav> */}
-            {/* link not working only have text only for now */}
-            <div className='footer-content'>
-                <p> reserved for footer links</p>
-            </div>
-        </footer>
+        <AppBar position="static" color="primary">
+            <Toolbar>
+                <Typography variant="body1" color="inherit">
+                    © 2024 Talent app.
+                </Typography>
+            </Toolbar>
+
+        </AppBar>
+
     )
 }

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {TextField, Button, Container, Typography, Alert} from '@mui/material';
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -34,16 +35,29 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="login-container">
-            <h2>Login</h2>
+        <Container maxWidth="xs" className="login-container">
+            <Typography variant="h4" component="h2" gutterBottom align="center">Login</Typography>
             <form onSubmit={handleSubmit}>
-                <label>Username: </label>
-                <input type="text" id="username" onChange={(e) => setUsername(e.target.value)} required></input>
-                <labe>Password: </labe>
-                <input type="text" id="password" onChange={(e) => setPassword(e.target.value)} required></input>
-                <button type="submit">Login</button>
+                <TextField
+                    label="Username"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal" 
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <TextField
+                    label="Password"
+                    type="password"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <Button type="submit" variant="contained" color="primary">Register</Button>
             </form>
-        </div>
+        </Container>
         
     )
 }

@@ -8,7 +8,7 @@ export default function LoginComponent(props) {
         <div className="Lc-wrapper">
             <div className="Login-component">
                 <Typography variant="body1" style={{lineHeight: 2.25}}>{loggedIn ? "User" : "Guest"}</Typography>
-                {(loggedIn) ? (<ProfileComponent setLoggedIn={setLoggedIn}/>) : ( 
+                {(loggedIn) ? (<ProfileComponent setLoggedIn={setLoggedIn}/>) : (
                     <div>
                         <Button>Register</Button>
                         <Button onClick={() => setLoggedIn(true)}>Log In</Button>
