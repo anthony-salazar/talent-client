@@ -1,5 +1,5 @@
+import { AppBar, Toolbar, Typography } from '@mui/material';
 import React from 'react';
-import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material';
 import LoginComponent from '../components/LoginComponent';
 
 export default function Header() {
