@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
            <Link to="/login">Login</Link>
          </li>
          <li>
-           <Link to="/contact">Contact</Link>
+           <Link to="/register">Register</Link>
          </li>
        </ul>
      </nav>
