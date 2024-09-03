@@ -13,7 +13,11 @@ export default function JobSearch() {
                 <Header />
             </div>
             <div className="job-search-page">
+<<<<<<< HEAD
                 <Typography variant="h4" component="h4">Search Jobs</Typography>
+=======
+                <h2>Search Jobs</h2>
+>>>>>>> 17900ebdb4d903c48feb192769bffd1aed8f1780
                 <SearchBar />
                 <JobList jobs={list}/>
             </div>
