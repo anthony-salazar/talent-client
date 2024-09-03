@@ -8,6 +8,7 @@ import NotFoundPage from './pages/Shared/NotFoundPage.jsx';
 import JobSearchPage from './pages/Shared/JobSearchPage.jsx';
 import ApplicationFormPage from './pages/Candidate/ApplicationFormPage.jsx';
 import JobUpdate from './components/JobUpdate.jsx';
+import AdminDash from './pages/Admin/AdminDash.jsx';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
          <Route path={RouteConstants.JobSearch} element={<JobSearchPage />}/>
          <Route path={RouteConstants.PostJob} element={<JobUpdate/>}/>
          <Route path="*" element={<NotFoundPage/>}/>
+         <Route path={RouteConstants.AdminDashboard} element={<AdminDash/>} />
        </Routes>
     </div>
   );
