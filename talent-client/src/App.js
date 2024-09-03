@@ -1,9 +1,11 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/Shared/LoginPage.jsx';
+import RegisterPage from './pages/Shared/RegisterPage.jsx';
 import RouteConstants from './routeConstants';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/Shared/HomePage.jsx';
+import NotFoundPage from './pages/Shared/NotFoundPage.jsx';
+import JobSearchPage from './pages/Shared/JobSearchPage.jsx';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
          <Route path={RouteConstants.Home} element={<HomePage/>}/>
          <Route path={RouteConstants.Login} element={<LoginPage/>}/>
          <Route path={RouteConstants.Register} element={<RegisterPage/>}/>
+         <Route path={RouteConstants.JobSearch} element={<JobSearchPage />}/>
+         <Route path="*" element={<NotFoundPage/>}/>
        </Routes>
     </div>
   );
