@@ -11,7 +11,7 @@ const RouteConstants = {
     ManageApps: '/manage_apps',
     ManageJobs: '/manage_jobs',
 
-
+    NoAccess: "/no_access",
     ApplyJob: "/apply/:jobId"
   };
 
