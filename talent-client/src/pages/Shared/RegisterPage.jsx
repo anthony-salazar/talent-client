@@ -87,7 +87,7 @@ export default function RegisterPage() {
                     </Select>
                 </FormControl>
                 <br></br>
-                <Button type="submit" variant="contained" color="primary" onClick={(e) => handleSubmit(e)}>Register</Button>
+                <Button type="submit" variant="contained" sx={{backgroundColor: '#52A447'}}  onClick={(e) => handleSubmit(e)}>Register</Button>
             </FormControl>
         </Container>
         
