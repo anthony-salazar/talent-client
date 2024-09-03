@@ -6,7 +6,8 @@ const RouteConstants = {
     Register: '/register',
     JobSearch: '/jobsearch',
     PostJob: '/jobupdate',
-    ApplyJob: "/apply"
+    ApplyJob: '/apply',
+    AdminDashboard: '/admin'
   };
 
   export default RouteConstants;

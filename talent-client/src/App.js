@@ -9,6 +9,7 @@ import JobSearchPage from './pages/Shared/JobSearchPage.jsx';
 import ApplicationFormPage from './pages/Candidate/ApplicationFormPage.jsx';
 import JobUpdate from './components/JobUpdate.jsx';
 import JobDetails from './pages/Shared/JobDetails.jsx';
+import AdminDash from './pages/Admin/AdminDash.jsx';
 
 function App() {
   return (
