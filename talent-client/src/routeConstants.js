@@ -3,7 +3,7 @@ const RouteConstants = {
     Login: '/login',
     Register: '/register',
     JobSearch: '/jobsearch',
-    PostJob: '/jobupdate',
+    PostJob: '/jobupdate/:jobId',
     AdminDashboard: '/admin',
     CandidateDashboard: '/candidate',
     ManagerDashboard: '/manager',
