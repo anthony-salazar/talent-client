@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material';
 import ProfileComponent from "./ProfileComponent";
 import RouteConstants from '../routeConstants';
 import { useNavigate } from 'react-router-dom';
+
 export default function Header() {
     console.log(RouteConstants)
     const [loggedIn, setLoggedIn] = useState(false)
