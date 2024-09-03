@@ -10,7 +10,7 @@ function ApplicationFormPage(props) {
                 <Header/>
                 <Container sx={{textAlign: 'left', flexDirection: "column", paddingTop:'2vh', paddingBottom: '2vh'}}>
                     <Typography variant="h3" component="h1">Job Title</Typography>
-                    <Typography variant="body1">LOrem ipsum atajkra lsdghaskflkasf asfmadga.</Typography>
+            <Typography variant="body1">LOrem ipsum atajkra lsdghaskflkasf asfmadga.</Typography>
                     <FormControl onSubmit={(event) => event.preventDefault()} sx={{marginTop: '2vh'}}>
                         <Typography>Cover Letter</Typography>
                         <TextField multiline minRows='5' label="Cover Letter"/>
