@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import {TextField, Button, Container, Typography, Alert, FormControl, createTheme} from '@mui/material';
 
 export default function LoginPage() {
@@ -7,6 +8,7 @@ export default function LoginPage() {
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
+    
 
     const theme = createTheme({
         palette: {
@@ -40,12 +42,12 @@ export default function LoginPage() {
             //   login(user);
             //   navigate("/");
             // }
-            const response = await fetch('/users.json');
+            const response = await fetch('/users.json'); 
             const users = await response.json();
 
             const user = users.find(user => user.username === username && user.password === password);
             if(user) {
-                login(user);
+                //login(user);
                 setError('');
                 Alert('login successful');
                 //needs to be routed to dashboardw

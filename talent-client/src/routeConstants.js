@@ -5,7 +5,7 @@ const RouteConstants = {
     JobSearch: '/jobsearch',
     PostJob: '/jobupdate',
     AdminDashboard: '/admin',
-    CandidateDashboard: '/canidate',
+    CandidateDashboard: '/candidate',
     ManagerDashboard: '/manager',
     ManageUsers: '/manage_users',
     ManageApps: '/manage_apps',
