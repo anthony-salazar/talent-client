@@ -1,9 +1,3 @@
-// create a job update page
-//it has following field, title, description, location, job type, salary, experience, skills
-//it has a submit button
-//it has a cancel button
-//it has a delete button
-
 import React from 'react';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import { useState } from 'react';
