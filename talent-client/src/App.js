@@ -8,6 +8,7 @@ import NotFoundPage from './pages/Shared/NotFoundPage.jsx';
 import JobSearchPage from './pages/Shared/JobSearchPage.jsx';
 import ApplicationFormPage from './pages/Candidate/ApplicationFormPage.jsx';
 import JobUpdate from './components/JobUpdate.jsx';
+import JobDetails from './pages/Shared/JobDetails.jsx';
 import ManageUsersPage from './pages/Admin/ManageUsersPage.jsx';
 import ManageAppsPage from './pages/Admin/ManageAppsPage.jsx';
 import ManageJobsPage from './pages/Admin/ManageJobsPage.jsx';

@@ -1,5 +1,3 @@
-import JobUpdate from "./components/JobUpdate";
-
 const RouteConstants = {
     Home: '/',
     Login: '/login',

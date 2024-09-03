@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const JobCard = (props) => {
     const toJobDetails = () => {
-        console.log('Navigate');
+        props.setjob(props.job);
     }
     return(
         <div className='job-card' onClick={toJobDetails}>
