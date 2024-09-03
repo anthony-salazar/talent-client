@@ -1,4 +1,4 @@
-import JobUpdate from "./components/JobUpdate";
+import JobDetails from "./pages/Shared/JobDetails";
 
 const RouteConstants = {
     Home: '/',
