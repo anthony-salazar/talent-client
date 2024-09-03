@@ -1,0 +1,56 @@
+[
+    {
+        "id": "1",
+        "username": "cindyloo",
+        "password": "cindyloo",
+        "type": "Candidate"
+    },
+    {
+        "id": "2",
+        "username": "edsmith",
+        "password": "edsmith",
+        "type": "Hiring_Manager"
+    },
+    {
+        "id": "3",
+        "username": "admin",
+        "password": "admin",
+        "type": "Administrator"
+    },
+    {
+        "id": "4",
+        "username": "john",
+        "password": "john",
+        "type": "Candidate"
+    },
+    {
+        "id": "5",
+        "username": "jane",
+        "password": "jane",
+        "type": "Candidate"
+    },
+    {
+        "id": "6",
+        "username": "jackson",
+        "password": "jackson",
+        "type": "Candidate"
+    },
+    {
+        "id": "7",
+        "username": "emily",
+        "password": "emily",
+        "type": "Candidate"
+    },
+    {
+        "id": "8",
+        "username": "linda",
+        "password": "linda",
+        "type": "Hiring_Manager"
+    },
+    {
+        "id": "9",
+        "username": "michael",
+        "password": "michael",
+        "type": "Hiring_Manager"
+    }
+]
