@@ -12,7 +12,7 @@ export default function JobSearch() {
                 <Header />
             </div>
             <div className="job-search-page">
-                <h2>Job Search Page</h2>
+                <h2>Search Jobs</h2>
                 <SearchBar />
                 <JobList jobs={list}/>
             </div>

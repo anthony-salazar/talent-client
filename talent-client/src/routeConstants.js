@@ -1,13 +1,17 @@
-import JobDetails from "./pages/Shared/JobDetails";
-
 const RouteConstants = {
     Home: '/',
     Login: '/login',
     Register: '/register',
     JobSearch: '/jobsearch',
     PostJob: '/jobupdate',
-    ApplyJob: '/apply',
-    AdminDashboard: '/admin'
+
+  
+    ManageUsers: '/manage_users',
+    ManageApps: '/manage_apps',
+    ManageJobs: '/manage_jobs',
+
+
+    ApplyJob: "/apply"
   };
 
   export default RouteConstants;
