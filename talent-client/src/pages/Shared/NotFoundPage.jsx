@@ -1,8 +1,8 @@
 import React from "react";
 import {Container, Typography, Link, Box} from '@mui/material';
-import RouteConstants from "../routeConstants";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import RouteConstants from "../../routeConstants";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 
 function NotFoundPage() {
     return (

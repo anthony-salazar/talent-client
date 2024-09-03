@@ -1,5 +1,3 @@
-import JobSearch from "./pages/JobSearchPage";
-
 const RouteConstants = {
     Home: '/',
     Login: '/login',
