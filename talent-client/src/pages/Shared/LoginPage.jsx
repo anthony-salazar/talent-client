@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {TextField, Button, Container, Typography, Alert} from '@mui/material';
+import {TextField, Button, Container, Typography, Alert, FormControl} from '@mui/material';
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -35,9 +35,15 @@ export default function LoginPage() {
     };
 
     return (
-        <Container maxWidth="xs" className="login-container">
+        <Container maxWidth="xs" className="login-container"
+            sx={{backgroundColor: '#f0f0f0',
+                padding: '16px',
+                marginTop: '16px',
+                borderRadius: '8px'
+            }}
+        >
             <Typography variant="h4" component="h2" gutterBottom align="center">Login</Typography>
-            <form onSubmit={handleSubmit}>
+            <FormControl onSubmit={handleSubmit}>
                 <TextField
                     label="Username"
                     fullWidth
@@ -55,8 +61,9 @@ export default function LoginPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <Button type="submit" variant="contained" color="primary">Register</Button>
-            </form>
+                <br></br>
+                <Button type="submit" variant="contained" color="primary">Login</Button>
+            </FormControl>
         </Container>
 
     )
