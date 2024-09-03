@@ -12,6 +12,9 @@ import JobDetails from './pages/Shared/JobDetails.jsx';
 import ManageUsersPage from './pages/Admin/ManageUsersPage.jsx';
 import ManageAppsPage from './pages/Admin/ManageAppsPage.jsx';
 import ManageJobsPage from './pages/Admin/ManageJobsPage.jsx';
+import AdminDash from './pages/Admin/AdminDash.jsx';
+import CandidateDash from './pages/Candidate/CandidateDash.jsx';
+import ManagerDash from './pages/Manager/ManagerDash.jsx';
 
 function App() {
   return (
@@ -25,8 +28,8 @@ function App() {
          <Route path={RouteConstants.ManageUsers} element={<ManageUsersPage/>}/>
          <Route path={RouteConstants.ManageApps} element={<ManageAppsPage/>}/>
          <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage/>}/>
-
-
+         <Route path={RouteConstants.CandidateDashboard} element={<CandidateDash/>}/>
+         <Route path={RouteConstants.ManagerDashboard} element={<ManagerDash/>}/>
          <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage/>}/>
          <Route path="*" element={<NotFoundPage/>}/>
          <Route path={RouteConstants.AdminDashboard} element={<AdminDash/>} />
