@@ -5,7 +5,7 @@ import RegisterPage from './pages/Shared/RegisterPage.jsx';
 import RouteConstants from './routeConstants';
 import HomePage from './pages/Shared/HomePage.jsx';
 import NotFoundPage from './pages/Shared/NotFoundPage.jsx';
-import JobSearchPage from './pages/JobSearchPage.jsx';
+import JobSearchPage from './pages/Shared/JobSearchPage.jsx';
 
 function App() {
   return (
