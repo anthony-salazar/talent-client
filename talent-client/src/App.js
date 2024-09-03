@@ -9,6 +9,9 @@ import JobSearchPage from './pages/Shared/JobSearchPage.jsx';
 import ApplicationFormPage from './pages/Candidate/ApplicationFormPage.jsx';
 import JobUpdate from './components/JobUpdate.jsx';
 import JobDetails from './pages/Shared/JobDetails.jsx';
+import ManageUsersPage from './pages/Admin/ManageUsersPage.jsx';
+import ManageAppsPage from './pages/Admin/ManageAppsPage.jsx';
+import ManageJobsPage from './pages/Admin/ManageJobsPage.jsx';
 
 function App() {
   return (
@@ -19,6 +22,11 @@ function App() {
          <Route path={RouteConstants.Register} element={<RegisterPage/>}/>
          <Route path={RouteConstants.JobSearch} element={<JobSearchPage />}/>
          <Route path={RouteConstants.PostJob} element={<JobUpdate/>}/>
+         <Route path={RouteConstants.ManageUsers} element={<ManageUsersPage/>}/>
+         <Route path={RouteConstants.ManageApps} element={<ManageAppsPage/>}/>
+         <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage/>}/>
+
+
          <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage/>}/>
          <Route path="*" element={<NotFoundPage/>}/>
        </Routes>

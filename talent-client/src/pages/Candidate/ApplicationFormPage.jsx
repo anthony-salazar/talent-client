@@ -2,14 +2,16 @@ import { Label } from "@mui/icons-material";
 import { Container, FormControl, TextField, Typography, Button, Box } from "@mui/material";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { useParams } from "react-router-dom";
 
 function ApplicationFormPage(props) {
-
+    const params = useParams();
+    const id = params.jobId
     return (
             <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
                 <Header/>
                 <Container sx={{textAlign: 'left', flexDirection: "column", paddingTop:'2vh', paddingBottom: '2vh'}}>
-                    <Typography variant="h3" component="h1">Job Title</Typography>
+                    <Typography variant="h3" component="h1">{'Job Title: ' + id}</Typography>
                     <Typography variant="body1">LOrem ipsum atajkra lsdghaskflkasf asfmadga.</Typography>
                     <FormControl onSubmit={(event) => event.preventDefault()} sx={{marginTop: '2vh'}}>
                         <Typography>Cover Letter</Typography>
