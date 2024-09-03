@@ -1,5 +1,3 @@
-import JobDetails from "./pages/Shared/JobDetails";
-
 const RouteConstants = {
     Home: '/',
     Login: '/login',

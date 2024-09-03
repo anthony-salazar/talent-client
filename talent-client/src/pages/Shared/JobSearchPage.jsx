@@ -4,6 +4,7 @@ import JobList from "../../components/JobList";
 import list from '../../joblist.json';
 import '../../App.css';
 import Header from "../../components/Header";
+import {Typography} from "@mui/material";
 
 export default function JobSearch() {
     return(
@@ -12,7 +13,7 @@ export default function JobSearch() {
                 <Header />
             </div>
             <div className="job-search-page">
-                <h2>Job Search Page</h2>
+                <Typography variant="h4" component="h4">Search Jobs</Typography>
                 <SearchBar />
                 <JobList jobs={list}/>
             </div>

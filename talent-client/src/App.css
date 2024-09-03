@@ -160,3 +160,36 @@
   margin-right: 5px;
   object-fit: contain;
 }
+
+.delete-button {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.edit-button {
+  padding: 10px 20px;
+  background-color: rgb(90, 129, 211);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.apply-button {
+  padding: 10px 20px;
+  background-color: #52A447;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 50px;
+}
