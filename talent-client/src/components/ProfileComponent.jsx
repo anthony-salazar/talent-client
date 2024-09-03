@@ -11,8 +11,8 @@ export default function ProfileComponent(props) {
     }
     return (
         <div className=".Profile-component">
-            <IconButton size="large" onClick={event => handleProfileClick(event)}>
-                <AccountCircle fontSize="large"></AccountCircle>
+            <IconButton size="medium" onClick={event => handleProfileClick(event)}>
+                <AccountCircle fontSize="medium"></AccountCircle>
             </IconButton>
             <Menu anchorEl={anchorEl} open={open} onClose={() => setOpen(false)}>
                 <MenuItem>Profile</MenuItem>
