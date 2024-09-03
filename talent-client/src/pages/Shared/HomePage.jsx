@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Box , Typography } from '@mui/material';
-import HeaderComponent from '../components/Header';
-import FooterComponent from '../components/Footer';
+import HeaderComponent from '../../components/Header';
+import FooterComponent from '../../components/Footer';
 
 export default function HomePage() {
     return (
