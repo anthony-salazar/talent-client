@@ -24,18 +24,7 @@ export default function JobSearch() {
     return (
       <div>
         <div>
-<<<<<<< HEAD
           <Header />
-=======
-            <div>
-                <Header />
-            </div>
-            <div className="job-search-page">
-                <h2>Search Jobs</h2>
-                <SearchBar />
-                <JobList jobs={list}/>
-            </div>
->>>>>>> main
         </div>
         <div className="job-search-page">
           <h2>Job Search Page</h2>
