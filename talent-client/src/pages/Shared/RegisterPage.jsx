@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {TextField, Button, Container, Typography, Alert} from '@mui/material';
+import {TextField, Button, Container, Typography, Alert, Select, MenuItem, InputLabel, FormControl} from '@mui/material';
 
 export default function RegisterPage() {
 
@@ -8,6 +8,7 @@ export default function RegisterPage() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [userType, setUserType] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,9 +24,15 @@ export default function RegisterPage() {
     };
 
     return (
-        <Container maxWidth="xs" className="registration-container">
+        <Container maxWidth="xs" className="registration-container"
+            sx={{backgroundColor: '#f0f0f0',
+                padding: '16px',
+                marginTop: '16px',
+                borderRadius: '8px'
+            }}
+        >
             <Typography variant="h4" component="h2" gutterBottom align="center">Register</Typography>
-            <form onSubmit={handleSubmit}>
+            <FormControl onSubmit={handleSubmit}>
                 <TextField
                     label="Email"
                     type="email"
@@ -61,8 +68,23 @@ export default function RegisterPage() {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                 />
+                <FormControl fullWidth margin="normal">
+                    <InputLabel>Account Type</InputLabel>
+                    <Select
+                        value={userType}
+                        fullWidth
+                        margin="normal"
+                        variant="outlined"
+                        label="Account Type"
+                        onChange={(e) => setUserType(e.target.value)}
+                    >
+                        <MenuItem value="candidate">Candidate</MenuItem>
+                        <MenuItem value="manager">Manager</MenuItem>
+                    </Select>
+                </FormControl>
+                <br></br>
                 <Button type="submit" variant="contained" color="primary">Register</Button>
-            </form>
+            </FormControl>
         </Container>
         
     )
