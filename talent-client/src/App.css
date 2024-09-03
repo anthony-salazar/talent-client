@@ -54,3 +54,8 @@
   display: flex;
   justify-content: end;
 }
+
+.Nav-buttons {
+  flex-grow: 1;
+  display: flex
+}
