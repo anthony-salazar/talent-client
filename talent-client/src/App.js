@@ -1,10 +1,10 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/Shared/LoginPage.jsx';
+import RegisterPage from './pages/Shared/RegisterPage.jsx';
 import RouteConstants from './routeConstants';
-import HomePage from './pages/HomePage';
-import NotFoundPage from './pages/NotFoundPage';
+import HomePage from './pages/Shared/HomePage.jsx';
+import NotFoundPage from './pages/Shared/NotFoundPage.jsx';
 import JobSearchPage from './pages/JobSearchPage.jsx';
 
 function App() {
