@@ -11,5 +11,5 @@ export const loginUser = (user) => {
     return fetch(authEndpoints.base + authEndpoints.login, {method: 'POST', 
         headers: {'Content-Type': 'application/json'}, body: JSON.stringify(user)}).then((res) => {
             return res.json();
-        }).then(data => {return data;})
+        }).then(data => {return data.type;})
 }

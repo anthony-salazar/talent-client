@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {TextField, Button, Container, Typography, Alert, FormControl, createTheme} from '@mui/material';
 import { loginUser } from "../../api/authApi";
 
-export default function LoginPage() {
+export default function LoginPage(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isLoggedIn, setLoggedIn] = useState(false);
@@ -34,6 +34,7 @@ export default function LoginPage() {
         }
         
         let user = await loginUser({username, password});
+        props.setUserType(user)
         console.log("USER SUBMIT: ", user)
     };
 
