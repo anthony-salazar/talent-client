@@ -1,14 +1,23 @@
 import React from "react";
+import {Container, Typography, Link, Box} from '@mui/material';
+import RouteConstants from "../../routeConstants";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import DataTable from "../../components/DataTable";
+import applications from "../../data/application.json";
 
-function ManageAppsPage() {
+export default function ManageAppsPage() {
     return (
-        <>
-         <h1>Manage Apps</h1>
+        <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
+            <Header />
+            <Container  sx = {{flex: '1 0 auto'}}>
 
-        </>
+            <Typography variant = 'h3' align = 'center'>Manage Applications Page </Typography>
+            <DataTable data = {applications}/>
+        </Container>
+        <Footer/>
+        </Box>
 
     )
 
 }
-
-export default ManageAppsPage;
