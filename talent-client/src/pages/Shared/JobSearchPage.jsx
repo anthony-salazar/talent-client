@@ -3,13 +3,19 @@ import SearchBar from "../../components/JobSearchBar";
 import JobList from "../../components/JobList";
 import list from '../../joblist.json';
 import '../../App.css';
+import Header from "../../components/Header";
 
 export default function JobSearch() {
     return(
-        <div className="job-search-page">
-            <h2>Job Search Page</h2>
-            <SearchBar />
-            <JobList jobs={list}/>
+        <div>
+            <div>
+                <Header />
+            </div>
+            <div className="job-search-page">
+                <h2>Job Search Page</h2>
+                <SearchBar />
+                <JobList jobs={list}/>
+            </div>
         </div>
     );
 }
