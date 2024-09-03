@@ -14,7 +14,7 @@ export default function LoginPage() {
         setUser(user);
         localStorage.setItem("user",JSON.stringify(user));
       };
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if(!username || !password) {
@@ -48,7 +48,7 @@ export default function LoginPage() {
                     label="Username"
                     fullWidth
                     variant="outlined"
-                    margin="normal" 
+                    margin="normal"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
@@ -57,7 +57,7 @@ export default function LoginPage() {
                     type="password"
                     fullWidth
                     variant="outlined"
-                    margin="normal" 
+                    margin="normal"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
@@ -65,6 +65,6 @@ export default function LoginPage() {
                 <Button type="submit" variant="contained" color="primary">Login</Button>
             </FormControl>
         </Container>
-        
+
     )
 }
