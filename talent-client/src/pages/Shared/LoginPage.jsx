@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {TextField, Button, Container, Typography, Alert, FormControl, createTheme} from '@mui/material';
+import { loginUser } from "../../api/authApi";
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -31,30 +32,9 @@ export default function LoginPage() {
         if(!username || !password) {
             setError('Please enter a username and password.');
         }
-        try {
-            // let fullUrl = "http://localhost:3000/login";
-            // let credentials = { "username": username, "password": password }
-            // const response = await axios.post(fullUrl, credentials);
-            // if(response.status == 200){
-            //   let user = response.data;
-            //   login(user);
-            //   navigate("/");
-            // }
-            const response = await fetch('/users.json');
-            const users = await response.json();
-
-            const user = users.find(user => user.username === username && user.password === password);
-            if(user) {
-                login(user);
-                setError('');
-                Alert('login successful');
-                //needs to be routed to dashboardw
-            } else {
-                setError('User does not exist');
-            }
-          } catch (error) {
-            setError(error.message);
-          }
+        
+        let user = await loginUser({username, password});
+        console.log("USER SUBMIT: ", user)
     };
 
     return (
@@ -66,7 +46,7 @@ export default function LoginPage() {
             }}
         >
             <Typography variant="h4" component="h2" gutterBottom align="center">Login</Typography>
-            <FormControl onSubmit={handleSubmit}>
+            <FormControl>
                 <TextField
                     label="Username"
                     fullWidth
@@ -85,7 +65,7 @@ export default function LoginPage() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <br></br>
-                <Button type="submit" variant="contained" sx={{backgroundColor: '#52A447'}} >Login</Button>
+                <Button type="submit" variant="contained" sx={{backgroundColor: '#52A447'}} onClick={(e) => handleSubmit(e)}>Login</Button>
             </FormControl>
         </Container>
 
