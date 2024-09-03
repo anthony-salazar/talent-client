@@ -1,26 +1,50 @@
 [
     {
-        "id": 0,
-        "title": "Senior Application Developer",
-        "company": "ABC",
-        "location": "Alpharetta, GA"
+        "id" : 0,                 
+        "manager_id": 1,
+        "department": "Human Resources",
+        "listing_title": "HR Manager Position",
+        "date_listed": "2024-08-01 09:00:00",
+        "date_closed": "2024-09-15 17:00:00",
+        "job_title": "HR Manager",
+        "job_description": "Responsible for managing HR processes and overseeing recruitment.",   
+        "additional_information" : "Experience in HR management required. Certification in HR is a plus.",
+        "listing_status": "Open"
     },
     {
-        "id": 1,
-        "title": "Senior Application Developer",
-        "company": "ABC",
-        "location": "Alpharetta, GA"
+        "id" : 2,                 
+        "manager_id": 2,
+        "department": "Software Development",
+        "listing_title": "Senior Software Engineer Role",
+        "date_listed": "2024-08-10 10:00:00",
+        "date_closed": "2024-09-10 17:00:00",
+        "job_title": "Senior Software Engineer",
+        "job_description": "Lead the development of software solutions and mentor junior developers.",   
+        "additional_information" : "Proficiency in Python and Java required. Leadership experience is a plus.",
+        "listing_status": "Open"
     },
     {
-        "id": 2,
-        "title": "Senior Application Developer",
-        "company": "ABC",
-        "location": "Alpharetta, GA"
+        "id" : 3,                 
+        "manager_id": 1,
+        "department": "Human Resources",
+        "listing_title": "HR Manager Position",
+        "date_listed": "2024-08-01 09:00:00",
+        "date_closed": "2024-09-15 17:00:00",
+        "job_title": "HR Manager",
+        "job_description": "Responsible for managing HR processes and overseeing recruitment.",   
+        "additional_information" : "Experience in HR management required. Certification in HR is a plus.",
+        "listing_status": "Open"
     },
     {
-        "id": 3,
-        "title": "Senior Application Developer",
-        "company": "ABC",
-        "location": "Alpharetta, GA"
+        "id" : 4,                 
+        "manager_id": 2,
+        "department": "Software Developmen",
+        "listing_title": "Senior Software Engineer Role",
+        "date_listed": "2024-08-10 10:00:00",
+        "date_closed": "2024-09-10 17:00:00",
+        "job_title": "Senior Software Engineer",
+        "job_description": "Lead the development of software solutions and mentor junior developers.",   
+        "additional_information" : "Proficiency in Python and Java required. Leadership experience is a plus.",
+        "listing_status": "Open"
     }
 ]

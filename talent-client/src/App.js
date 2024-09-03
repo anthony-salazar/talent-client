@@ -26,6 +26,7 @@ function App() {
          <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage/>}/>
 
 
+         <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage/>}/>
          <Route path="*" element={<NotFoundPage/>}/>
        </Routes>
     </div>

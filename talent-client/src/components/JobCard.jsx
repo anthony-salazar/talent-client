@@ -1,14 +1,18 @@
 import React from 'react';
 import '../App.css';
+import { useNavigate } from 'react-router-dom';
 
 const JobCard = (props) => {
+    const toJobDetails = () => {
+        console.log('Navigate');
+    }
     return(
-        <div className='job-card'>
-            <h4 className='job-title'>{props.job.title}</h4>
+        <div className='job-card' onClick={toJobDetails}>
+            <h4 className='job-title'>{props.job.job_title}</h4>
             <div className='job-details'>
-                <p>{props.job.company}</p>
-                <p>{props.job.location}</p>
-                <p>{props.job.type}</p>
+                <p><strong>Department: </strong> {props.job.department}</p>
+                <p><strong>Date Posted: </strong> {props.job.date_listed}</p>
+                <p><strong>Status: </strong> {props.job.listing_status}</p>
             </div>
         </div>
     );

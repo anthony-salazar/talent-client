@@ -1,12 +1,27 @@
-import { Typography } from "@mui/material";
+import { Label } from "@mui/icons-material";
+import { Container, FormControl, TextField, Typography, Button, Box } from "@mui/material";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 function ApplicationFormPage(props) {
 
     return (
-        <div>
-            <Typography variant="h1">Job Title</Typography>
-            <Typography variant="body1">LOrem ipsum atajkra lsdghaskflkasf asfmadga.</Typography>
-        </div>
+            <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
+                <Header/>
+                <Container sx={{textAlign: 'left', flexDirection: "column", paddingTop:'2vh', paddingBottom: '2vh'}}>
+                    <Typography variant="h3" component="h1">Job Title</Typography>
+                    <Typography variant="body1">LOrem ipsum atajkra lsdghaskflkasf asfmadga.</Typography>
+                    <FormControl onSubmit={(event) => event.preventDefault()} sx={{marginTop: '2vh'}}>
+                        <Typography>Cover Letter</Typography>
+                        <TextField multiline minRows='5' label="Cover Letter"/>
+                        <Typography sx={{marginTop: '2vh'}}>Resume</Typography>
+                        <TextField multiline minRows='5' label="Resume"/>
+                        <Button sx={{marginTop: '2vh', maxWidth: '50%'}} type="submit" variant="contained">Submit</Button>
+                    </FormControl>
+                </Container>
+                <Footer/>
+            </Box>
+
     )
 }
 
