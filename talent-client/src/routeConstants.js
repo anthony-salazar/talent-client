@@ -1,11 +1,11 @@
-import JobUpdate from "./components/JobUpdate";
+import JobDetails from "./pages/Shared/JobDetails";
 
 const RouteConstants = {
     Home: '/',
     Login: '/login',
     Register: '/register',
     JobSearch: '/jobsearch',
-    PostJob: '/jobupdate'
+    PostJob: '/jobupdate',
   };
 
   export default RouteConstants;
