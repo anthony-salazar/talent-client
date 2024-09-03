@@ -1,5 +1,4 @@
-import JobUpdate from "./components/JobUpdate";
-import AdminDash from "./pages/Admin/AdminDash";
+import JobDetails from "./pages/Shared/JobDetails";
 
 const RouteConstants = {
     Home: '/',
