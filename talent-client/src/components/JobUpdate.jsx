@@ -2,7 +2,6 @@ import React from 'react';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import JobService from '../services/JobService';
 
 export default function JobUpdate() {
     const [title, setTitle] = useState('');
@@ -13,27 +12,6 @@ export default function JobUpdate() {
     const [experience, setExperience] = useState('');
     const [skills, setSkills] = useState('');
     const navigate = useNavigate();
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         let job = {
-    //             title: title,
-    //             description: description,
-    //             location: location,
-    //             jobType: jobType,
-    //             salary: salary,
-    //             experience: experience,
-    //             skills: skills
-    //         }
-    //         let response = await JobService.createJob(job);
-    //         if(response.status === 200) {
-    //             navigate('/');
-    //         }
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
 
     return (
         <Container maxWidth="xs" className="job-update-container">
