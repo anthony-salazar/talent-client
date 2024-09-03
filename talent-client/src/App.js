@@ -17,7 +17,7 @@ import CandidateDash from './pages/Candidate/CandidateDash.jsx';
 import ManagerDash from './pages/Manager/ManagerDash.jsx';
 
 function App() {
-  const [userType, setUserType] = useState('')
+  //const [userType, setUserType] = useState('')
   return (
     <div className="App">
       <Routes>
