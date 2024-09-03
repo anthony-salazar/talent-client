@@ -31,7 +31,7 @@ export default function Header() {
                     {(loggedIn) ? (<ProfileComponent setLoggedIn={setLoggedIn}/>) : (
                         <div>
                             <Button sx={{color: 'white'}} onClick={() => onNavClick("Register")}>Register</Button>
-                            <Button sx={{color: 'white'}} onClick={() => {onNavClick("Lgogin")}}>Log In</Button>
+                            <Button sx={{color: 'white'}} onClick={() => {onNavClick("Login")}}>Log In</Button>
                         </div>
                         )
                     }
