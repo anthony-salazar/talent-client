@@ -12,6 +12,9 @@ import JobDetails from './pages/Shared/JobDetails.jsx';
 import ManageUsersPage from './pages/Admin/ManageUsersPage.jsx';
 import ManageAppsPage from './pages/Admin/ManageAppsPage.jsx';
 import ManageJobsPage from './pages/Admin/ManageJobsPage.jsx';
+import AdminDash from './pages/Admin/AdminDash.jsx';
+import CandidateDash from './pages/Candidate/CandidateDash.jsx';
+import ManagerDash from './pages/Manager/ManagerDash.jsx';
 import PrivateRoutes from './privateRoutes.js';
 import NoAccessPage from './pages/Shared/NoAccessPage.jsx';
 
@@ -32,10 +35,11 @@ function App() {
           <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage/>}/>
          </Route>
 
-
-
+         <Route path={RouteConstants.CandidateDashboard} element={<CandidateDash/>}/>
+         <Route path={RouteConstants.ManagerDashboard} element={<ManagerDash/>}/>
          <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage/>}/>
          <Route path="*" element={<NotFoundPage/>}/>
+         <Route path={RouteConstants.AdminDashboard} element={<AdminDash/>} />
 
        </Routes>
     </div>

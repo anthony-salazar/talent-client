@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {TextField, Button, Container, Typography, Alert, Select, MenuItem, InputLabel, FormControl} from '@mui/material';
+import { registerUser } from "../../api/authApi";
 
 export default function RegisterPage() {
 
@@ -11,8 +12,9 @@ export default function RegisterPage() {
     const [userType, setUserType] = useState('');
 
     const handleSubmit = (e) => {
+        console.log("SUBMITTING")
         e.preventDefault();
-        if(!email || !username || !password || !confirmPassword) {
+        if(!email || !username || !password || !confirmPassword || !userType) {
             setError('Please enter all fields.');
             return;
         }
@@ -21,6 +23,8 @@ export default function RegisterPage() {
             setError('Passwords must match');
             return;
         }
+        console.log("END SUBMIT")
+        registerUser({username: username, password: password, type: userType})
     };
 
     return (
@@ -32,7 +36,7 @@ export default function RegisterPage() {
             }}
         >
             <Typography variant="h4" component="h2" gutterBottom align="center">Register</Typography>
-            <FormControl onSubmit={handleSubmit}>
+            <FormControl onSubmit={(event) => handleSubmit(event)}>
                 <TextField
                     label="Email"
                     type="email"
@@ -78,12 +82,12 @@ export default function RegisterPage() {
                         label="Account Type"
                         onChange={(e) => setUserType(e.target.value)}
                     >
-                        <MenuItem value="candidate">Candidate</MenuItem>
-                        <MenuItem value="manager">Manager</MenuItem>
+                        <MenuItem value="Candidate">Candidate</MenuItem>
+                        <MenuItem value="Hiring_Manager">Manager</MenuItem>
                     </Select>
                 </FormControl>
                 <br></br>
-                <Button type="submit" variant="contained" color="primary">Register</Button>
+                <Button type="submit" variant="contained" sx={{backgroundColor: '#52A447'}}  onClick={(e) => handleSubmit(e)}>Register</Button>
             </FormControl>
         </Container>
         
