@@ -1,6 +1,9 @@
 import React from 'react';
+import '../../App.css';
+import { useNavigate } from 'react-router-dom';
 
 const JobDetails = (props) => {
+    const navigateApply = useNavigate();
     return(
         <div>
             <p><strong>Job ID:</strong> {props.job.id}</p>
@@ -10,6 +13,10 @@ const JobDetails = (props) => {
             <p><strong>Job Status:</strong> {props.job.listing_status}</p>
             <p><strong>Job Description:</strong> {props.job.job_description}</p>
             <p><strong>Additional Information:</strong> {props.job.additional_information}</p>
+
+            <button className="edit-button" onClick={() => navigateApply('/jobupdate/'+ props.job.id)}>Edit</button>
+            <button className="delete-button">Delete</button>
+            <button className="apply-button" onClick={() => navigateApply('/apply/'+ props.job.id)}>Apply</button>
         </div>
     );
 }
