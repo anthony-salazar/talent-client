@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import SearchBar from "../../components/JobSearchBar";
 import JobList from "../../components/JobList";
 import list from '../../joblist.json';

@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import list from '../joblist.json';
 // import JobService from '../services/JobService';
 
 export default function JobUpdate() {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [location, setLocation] = useState('');
-    const [jobType, setJobType] = useState('');
-    const [salary, setSalary] = useState('');
-    const [experience, setExperience] = useState('');
-    const [skills, setSkills] = useState('');
+    const params = useParams();
+    const id = params.jobId;
+    const [data, setData] = useState(null);
+    useEffect(()=> {
+        if(id){
+            const filteredData = list.find((item) => item.id === id);
+            if(filteredData){
+                setData(filteredData);
+            }
+            else{
+                console.log('NO Match Found');
+            }
+        }
+    }, [id]);
+    const [jobID, setJobID] = useState(data != null ? data.id : '');
+    const [description, setDescription] = useState(data != null ? data.job_title : '');
+    const [addInfo, setAddInfo] = useState('');
+    const [listingTitle, setListingTitle] = useState('');
+    const [managerID, setManagerID] = useState('');
+    const [jobTitle, setJobTitle] = useState('');
+    const [listingStatus, setListingStatus] = useState('');
+    const [department, setDepartment] = useState('');
     const navigate = useNavigate();
-
+    
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
     //     try {
@@ -40,15 +56,47 @@ export default function JobUpdate() {
             <Typography variant="h4" component="h2" gutterBottom align="center">Job Update</Typography>
             <form>
                 <TextField
-                    label="Title"
+                    label="JOB ID"
                     fullWidth
                     variant="outlined"
                     margin="normal"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    value={jobID}
+                    onChange={(e) => setJobID(e.target.value)}
                 />
                 <TextField
-                    label="Description"
+                    label="Manager ID"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal"
+                    value={managerID}
+                    onChange={(e) => setManagerID(e.target.value)}
+                />
+                <TextField
+                    label="Department"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal"
+                    value={department}
+                    onChange={(e) => setDepartment(e.target.value)}
+                />
+                <TextField
+                    label="Listing Title"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal"
+                    value={listingTitle}
+                    onChange={(e) => setListingTitle(e.target.value)}
+                />
+                <TextField
+                    label="Job Title"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal"
+                    value={jobTitle}
+                    onChange={(e) => setJobTitle(e.target.value)}
+                />
+                <TextField
+                    label="Job Descripiton"
                     fullWidth
                     variant="outlined"
                     margin="normal"
@@ -56,44 +104,20 @@ export default function JobUpdate() {
                     onChange={(e) => setDescription(e.target.value)}
                 />
                 <TextField
-                    label="Location"
+                    label="Additional Informaiton"
                     fullWidth
                     variant="outlined"
                     margin="normal"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                    value={addInfo}
+                    onChange={(e) => setAddInfo(e.target.value)}
                 />
                 <TextField
-                    label="Job Type"
+                    label="Listing Status"
                     fullWidth
                     variant="outlined"
                     margin="normal"
-                    value={jobType}
-                    onChange={(e) => setJobType(e.target.value)}
-                />
-                <TextField
-                    label="Salary"
-                    fullWidth
-                    variant="outlined"
-                    margin="normal"
-                    value={salary}
-                    onChange={(e) => setSalary(e.target.value)}
-                />
-                <TextField
-                    label="Experience"
-                    fullWidth
-                    variant="outlined"
-                    margin="normal"
-                    value={experience}
-                    onChange={(e) => setExperience(e.target.value)}
-                />
-                <TextField
-                    label="Skills"
-                    fullWidth
-                    variant="outlined"
-                    margin="normal"
-                    value={skills}
-                    onChange={(e) => setSkills(e.target.value)}
+                    value={listingStatus}
+                    onChange={(e) => setListingStatus(e.target.value)}
                 />
 
                 <Button variant="contained" >Submit</Button>
