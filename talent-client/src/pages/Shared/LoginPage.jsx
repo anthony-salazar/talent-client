@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {TextField, Button, Container, Typography, Alert, FormControl} from '@mui/material';
+import {TextField, Button, Container, Typography, Alert, FormControl, createTheme} from '@mui/material';
 
 export default function LoginPage() {
     const [username, setUsername] = useState('');
@@ -7,6 +7,17 @@ export default function LoginPage() {
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
+
+    const theme = createTheme({
+        palette: {
+          ochre: {
+            main: '#E3D026',
+            light: '#E9DB5D',
+            dark: '#A29415',
+            contrastText: '#242105',
+          },
+        },
+      });
 
     const login = (user) => {
         setLoggedIn(true);
@@ -21,14 +32,26 @@ export default function LoginPage() {
             setError('Please enter a username and password.');
         }
         try {
-            //let fullUrl = "http://localhost:8080/login";
-            //let credentials = { "username": username, "password": password }
-            //const response = await axios.post(fullUrl, credentials);
+            // let fullUrl = "http://localhost:3000/login";
+            // let credentials = { "username": username, "password": password }
+            // const response = await axios.post(fullUrl, credentials);
             // if(response.status == 200){
             //   let user = response.data;
             //   login(user);
             //   navigate("/");
             // }
+            const response = await fetch('/users.json');
+            const users = await response.json();
+
+            const user = users.find(user => user.username === username && user.password === password);
+            if(user) {
+                login(user);
+                setError('');
+                Alert('login successful');
+                //needs to be routed to dashboardw
+            } else {
+                setError('User does not exist');
+            }
           } catch (error) {
             setError(error.message);
           }
@@ -62,7 +85,7 @@ export default function LoginPage() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <br></br>
-                <Button type="submit" variant="contained" color="primary">Login</Button>
+                <Button type="submit" variant="contained" sx={{backgroundColor: '#52A447'}} >Login</Button>
             </FormControl>
         </Container>
 

@@ -4,13 +4,14 @@ const RouteConstants = {
     Register: '/register',
     JobSearch: '/jobsearch',
     PostJob: '/jobupdate/:jobId',
-
-  
+    AdminDashboard: '/admin',
+    CandidateDashboard: '/canidate',
+    ManagerDashboard: '/manager',
     ManageUsers: '/manage_users',
     ManageApps: '/manage_apps',
     ManageJobs: '/manage_jobs',
 
-
+    NoAccess: "/no_access",
     ApplyJob: "/apply/:jobId"
   };
 
