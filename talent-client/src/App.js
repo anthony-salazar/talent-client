@@ -6,6 +6,7 @@ import RouteConstants from './routeConstants';
 import HomePage from './pages/Shared/HomePage.jsx';
 import NotFoundPage from './pages/Shared/NotFoundPage.jsx';
 import JobSearchPage from './pages/Shared/JobSearchPage.jsx';
+import ApplicationFormPage from './pages/Candidate/ApplicationFormPage.jsx';
 
 function App() {
   return (
