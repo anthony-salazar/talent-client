@@ -16,13 +16,15 @@ import CandidateDash from './pages/Candidate/CandidateDash.jsx';
 import ManagerDash from './pages/Manager/ManagerDash.jsx';
 import PrivateRoutes from './privateRoutes.js';
 import NoAccessPage from './pages/Shared/NoAccessPage.jsx';
+import { useState } from 'react';
 
 function App() {
+  const [userType, setUserType] = useState('')
   return (
     <div className="App">
       <Routes>
          <Route path={RouteConstants.Home} element={<HomePage/>}/>
-         <Route path={RouteConstants.Login} element={<LoginPage/>}/>
+         <Route path={RouteConstants.Login} element={<LoginPage setUserType={setUserType}/>}/>
          <Route path={RouteConstants.Register} element={<RegisterPage/>}/>
          <Route path={RouteConstants.JobSearch} element={<JobSearchPage />}/>
          <Route path={RouteConstants.PostJob} element={<JobUpdate/>}/>
