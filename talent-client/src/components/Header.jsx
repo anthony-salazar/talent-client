@@ -8,7 +8,7 @@ export default function Header() {
     console.log(RouteConstants)
     const [loggedIn, setLoggedIn] = useState(false)
     const navigate = useNavigate()
-    const navOptions = Object.keys(RouteConstants).filter(page => (page !== "Register" && page !== "Login"))
+    const navOptions = ["Home", "JobSearch"]
     const onNavClick = (id) => {
         navigate(RouteConstants[id])
     }

@@ -1,9 +1,11 @@
+import React from "react";
 import React, {useEffect, useState} from "react";
 import SearchBar from "../../components/JobSearchBar";
 import JobList from "../../components/JobList";
 import list from '../../joblist.json';
 import '../../App.css';
 import Header from "../../components/Header";
+import {Typography} from "@mui/material";
 import axios from 'axios';
 
 export default function JobSearch() {
@@ -25,7 +27,7 @@ export default function JobSearch() {
                 <Header />
             </div>
             <div className="job-search-page">
-                <h2>Search Jobs</h2>
+                <Typography variant="h4" component="h4">Search Jobs</Typography>
                 <SearchBar setJobs={setJobs}/>
                 <JobList jobs={jobs}/>
             </div>
