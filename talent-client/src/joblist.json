@@ -14,7 +14,7 @@
     {
         "id" : 2,                 
         "manager_id": 2,
-        "department": "Software Developmen",
+        "department": "Software Development",
         "listing_title": "Senior Software Engineer Role",
         "date_listed": "2024-08-10 10:00:00",
         "date_closed": "2024-09-10 17:00:00",

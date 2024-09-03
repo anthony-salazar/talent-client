@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import SearchBar from "../components/JobSearchBar";
-import JobList from "../components/JobList";
-import list from '../joblist.json';
-import '../App.css';
-import Header from "../components/Header";
+import SearchBar from "../../components/JobSearchBar";
+import JobList from "../../components/JobList";
+import list from '../../joblist.json';
+import '../../App.css';
+import Header from "../../components/Header";
 
 export default function JobSearch() {
     return(
