@@ -11,7 +11,7 @@ const RouteConstants = {
     ManageJobs: '/manage_jobs',
 
 
-    ApplyJob: "/apply"
+    ApplyJob: "/apply/:jobId"
   };
 
   export default RouteConstants;
