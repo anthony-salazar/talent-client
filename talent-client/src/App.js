@@ -5,6 +5,7 @@ import RegisterPage from './pages/RegisterPage';
 import RouteConstants from './routeConstants';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
+import JobSearchPage from './pages/JobSearchPage.jsx';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
          <Route path={RouteConstants.Home} element={<HomePage/>}/>
          <Route path={RouteConstants.Login} element={<LoginPage/>}/>
          <Route path={RouteConstants.Register} element={<RegisterPage/>}/>
+         <Route path={RouteConstants.JobSearch} element={<JobSearchPage />}/>
          <Route path="*" element={<NotFoundPage/>}/>
        </Routes>
     </div>
