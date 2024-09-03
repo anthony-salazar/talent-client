@@ -83,7 +83,7 @@ export default function RegisterPage() {
                     </Select>
                 </FormControl>
                 <br></br>
-                <Button type="submit" variant="contained" color="primary">Register</Button>
+                <Button type="submit" variant="contained" sx={{backgroundColor: '#52A447'}}>Register</Button>
             </FormControl>
         </Container>
         
