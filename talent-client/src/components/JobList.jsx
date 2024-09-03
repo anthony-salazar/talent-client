@@ -6,8 +6,10 @@ const JobList = (props) => {
     return(
         <div>
             <div className='job-list'>
-                {props.jobs.length > 0 ? 
-                (props.jobs.map(job => <JobCard key={job.id} job={job}/>)) : (<p>No Job Found</p>)}
+                <div>
+                    {props.jobs.length > 0 ? 
+                    (props.jobs.map(job => <JobCard key={job.id} job={job}/>)) : (<p>No Job Found</p>)}
+                </div>
             </div>
         </div>
     );
