@@ -4,18 +4,7 @@ import '../App.css';
 import JobDetails from '../pages/Shared/JobDetails';
 
 const JobList = (props) => {
-    const blankJob = {
-        "id" : '',                 
-        "manager_id": '',
-        "department": "",
-        "listing_title": "",
-        "date_listed": "",
-        "date_closed": "",
-        "job_title": "",
-        "job_description": "",   
-        "additional_information" : "",
-        "listing_status": ""};
-    const [selectedjob, setjob] = useState(blankJob);
+    const [selectedjob, setjob] = useState(props.jobs[0]);
     return(
         <div className='job-container'>
             <div className='column'>
