@@ -53,7 +53,7 @@ const DataForm = ({ open, onClose, onSave, onDelete, data, fields, modalTitle })
       <DialogActions>
         <Button onClick={() => onSave(formData)} color="primary">Save</Button>
         <Button onClick={onClose} color="secondary">Cancel</Button>
-        <Button onClick={onDelete} color="secondary">Delete</Button>
+        <Button onClick={() => onDelete(formData)} color="secondary">Delete</Button>
       </DialogActions>
     </Dialog>
   );
