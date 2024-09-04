@@ -1,6 +1,5 @@
 import React from "react";
-import {Container, Typography, Link, Box} from '@mui/material';
-import RouteConstants from "../../routeConstants";
+import {Container, Typography, Box} from '@mui/material';
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import DataTable from "../../components/DataTable";
@@ -13,7 +12,7 @@ export default function ManageAppsPage(props) {
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>Manage Applications Page </Typography>
-            <DataTable data = {applications}/>
+            <DataTable data = {applications} modalTitle="Application Details" buttonLabel="Create Application"/>
         </Container>
         <Footer/>
         </Box>
