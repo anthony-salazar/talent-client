@@ -43,7 +43,7 @@ export default function JobUpdate( {job, onClose } ) {
 
     return (
         <Container maxWidth="xs" className="job-update-container">
-            <Typography variant="h4" component="h2" gutterBottom align="center">Job Update</Typography>
+            <Typography variant="h4" component="h2" gutterBottom align="center">Job Information</Typography>
             <form>
                 <TextField
                     label="JOB ID"
@@ -110,7 +110,7 @@ export default function JobUpdate( {job, onClose } ) {
                     onChange={(e) => setListingStatus(e.target.value)}
                 />
 
-                <Button variant="contained" >Submit</Button>
+                <Button variant="contained" sx={{ backgroundColor: 'green', color: 'white' , margin: '0 auto'}}>Submit</Button>
             </form>
         </Container>
     );
