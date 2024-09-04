@@ -1,0 +1,1 @@
+export const USER_TYPES = ['Candidate', 'Hiring_Manager', 'Administrator'];
