@@ -6,7 +6,7 @@ import Header from "../../components/Header";
 import {Typography} from "@mui/material";
 import axios from 'axios';
 
-export default function JobSearch() {
+export default function JobSearch(props) {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
@@ -23,7 +23,7 @@ export default function JobSearch() {
     return (
         <div>
             <div>
-                <Header />
+                <Header user={props.user}/>
             </div>
             <div className="job-search-page">
                 <Typography variant="h4" component="h4">Search Jobs</Typography>

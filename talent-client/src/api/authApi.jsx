@@ -6,10 +6,10 @@ export const registerUser = (user) => {
         headers: {'Content-Type': 'application/json'}, body: JSON.stringify(user)})
 }
 
-export const loginUser = (user) => {
+export const loginUser = (user, setVisible) => {
     console.log("LOGIN: ", user)
     return fetch(authEndpoints.base + authEndpoints.login, {method: 'POST', 
         headers: {'Content-Type': 'application/json'}, body: JSON.stringify(user)}).then((res) => {
             return res.json();
-        }).then(data => {return data.type;})
+        }).then(data => {setVisible(false); return {name: data.username, type: data.type};}).catch((err) => setVisible(true))
 }

@@ -1,9 +1,8 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import RouteConstants from './routeConstants'
-const PrivateRoutes = ({requiredUserType}) => {
+const PrivateRoutes = ({requiredUserType, userType}) => {
 
   const isAuthenticated = true;
-  const userType = 'admin';
   console.log("user type");
   console.log(userType);
 

@@ -1,47 +1,187 @@
 [
     {
-        "id": "1",
-        "user_id": "1",
-        "job_id": "2",
-        "date_applied": "2024-08-25 10:00:00",
-        "cover_letter": "I am very interested in the Software Engineer role. My experience in web development and software engineering makes me a strong candidate.",
-        "custom_resume": "Experienced software developer with a background in web development. Proficient in Python and Java.",
-        "application_status": "Under Review"
+      "id": 1,
+      "user": {
+        "id": 1,
+        "username": "cindyloo",
+        "password": "cindyloo",
+        "type": "Candidate"
+      },
+      "job": {
+        "id": 2,
+        "manager": {
+          "id": 2,
+          "user": {
+            "id": 9,
+            "username": "michael",
+            "password": "michael",
+            "type": "Hiring_Manager"
+          },
+          "full_name": "Michael Johnson",
+          "email": "michael@example.com",
+          "department": "Engineering",
+          "phone": "555-3434"
+        },
+        "department": "Software Development",
+        "listing_title": "Senior Software Engineer Role",
+        "date_listed": "2024-08-10T10:00:00",
+        "date_closed": "2024-09-10T17:00:00",
+        "job_title": "Senior Software Engineer",
+        "job_description": "Lead the development of software solutions and mentor junior developers.",
+        "additional_information": "Proficiency in Python and Java required. Leadership experience is a plus.",
+        "listing_status": "Open"
+      },
+      "date_applied": "2024-08-25T10:00:00",
+      "cover_letter": "I am very interested in the Software Engineer role. My experience in web development and software engineering makes me a strong candidate.",
+      "custom_resume": "Experienced software developer with a background in web development. Proficient in Python and Java.",
+      "application_status": "Under Review"
     },
     {
-        "id": "2",
-        "user_id": "6",
-        "job_id": "4",
-        "date_applied": "2024-08-28 09:00:00",
-        "cover_letter": "I am applying for the DevOps Engineer position. My extensive experience in project management and IT infrastructure aligns well with this role.",
-        "custom_resume": "Project manager with 5 years of experience in the IT industry. Specialized in DevOps practices.",
-        "application_status": "Closed"
+      "id": 2,
+      "user": {
+        "id": 6,
+        "username": "jackson",
+        "password": "jackson",
+        "type": "Candidate"
+      },
+      "job": {
+        "id": 4,
+        "manager": {
+          "id": 2,
+          "user": {
+            "id": 9,
+            "username": "michael",
+            "password": "michael",
+            "type": "Hiring_Manager"
+          },
+          "full_name": "Michael Johnson",
+          "email": "michael@example.com",
+          "department": "Engineering",
+          "phone": "555-3434"
+        },
+        "department": "Engineering",
+        "listing_title": "DevOps Engineer Position",
+        "date_listed": "2024-08-05T09:30:00",
+        "date_closed": "2024-09-20T17:00:00",
+        "job_title": "DevOps Engineer",
+        "job_description": "Implement CI/CD pipelines and manage infrastructure.",
+        "additional_information": "Experience with Jenkins, Docker, and Kubernetes required.",
+        "listing_status": "Closed"
+      },
+      "date_applied": "2024-08-28T09:00:00",
+      "cover_letter": "I am applying for the DevOps Engineer position. My extensive experience in project management and IT infrastructure aligns well with this role.",
+      "custom_resume": "Project manager with 5 years of experience in the IT industry. Specialized in DevOps practices.",
+      "application_status": "Closed"
     },
     {
-        "id": "3",
-        "user_id": "4",
-        "job_id": "3",
-        "date_applied": "2024-08-20 14:00:00",
-        "cover_letter": "I am excited about the Sales Executive Opportunity. My skills in data analysis and client relationship management will contribute to the sales targets.",
-        "custom_resume": "Junior data analyst with proficiency in Python and SQL. Strong interpersonal skills.",
-        "application_status": "Under Review"
+      "id": 3,
+      "user": {
+        "id": 4,
+        "username": "john",
+        "password": "john",
+        "type": "Candidate"
+      },
+      "job": {
+        "id": 3,
+        "manager": {
+          "id": 3,
+          "user": {
+            "id": 2,
+            "username": "edsmith",
+            "password": "edsmith",
+            "type": "Hiring_Manager"
+          },
+          "full_name": "Edward Smith",
+          "email": "edsmith@example.com",
+          "department": "Sales",
+          "phone": "555-5656"
+        },
+        "department": "Sales and Marketing",
+        "listing_title": "Sales and Marketing Executive",
+        "date_listed": "2024-08-15T11:00:00",
+        "date_closed": "2024-09-15T17:00:00",
+        "job_title": "Sales and Marketing Executive",
+        "job_description": "Develop and implement marketing strategies, manage client relationships.",
+        "additional_information": "Experience in digital marketing and client management required.",
+        "listing_status": "Open"
+      },
+      "date_applied": "2024-08-20T14:00:00",
+      "cover_letter": "I am excited about the Sales Executive Opportunity. My skills in data analysis and client relationship management will contribute to the sales targets.",
+      "custom_resume": "Junior data analyst with proficiency in Python and SQL. Strong interpersonal skills.",
+      "application_status": "Under Review"
     },
     {
-        "id": "4",
-        "user_id": "5",
-        "job_id": "1",
-        "date_applied": "2024-08-22 12:30:00",
-        "cover_letter": "I am enthusiastic about the HR Manager Position. My experience in digital campaigns and marketing can bring fresh perspectives to HR processes.",
-        "custom_resume": "Marketing specialist with a focus on digital campaigns and SEO.",
-        "application_status": "Under Review"
+      "id": 4,
+      "user": {
+        "id": 5,
+        "username": "jane",
+        "password": "jane",
+        "type": "Candidate"
+      },
+      "job": {
+        "id": 1,
+        "manager": {
+          "id": 1,
+          "user": {
+            "id": 8,
+            "username": "linda",
+            "password": "linda",
+            "type": "Hiring_Manager"
+          },
+          "full_name": "Linda Thompson",
+          "email": "linda@example.com",
+          "department": "Human Resources",
+          "phone": "555-1212"
+        },
+        "department": "Human Resources",
+        "listing_title": "HR Manager Position",
+        "date_listed": "2024-08-01T09:00:00",
+        "date_closed": "2024-09-15T17:00:00",
+        "job_title": "HR Manager",
+        "job_description": "Responsible for managing HR processes and overseeing recruitment.",
+        "additional_information": "Experience in HR management required. Certification in HR is a plus.",
+        "listing_status": "Open"
+      },
+      "date_applied": "2024-08-22T12:30:00",
+      "cover_letter": "I am enthusiastic about the HR Manager Position. My experience in digital campaigns and marketing can bring fresh perspectives to HR processes.",
+      "custom_resume": "Marketing specialist with a focus on digital campaigns and SEO.",
+      "application_status": "Under Review"
     },
     {
-        "id": "5",
-        "user_id": "7",
-        "job_id": "5",
-        "date_applied": "2024-08-30 15:45:00",
-        "cover_letter": "I am interested in the Recruitment Specialist Role. My background in graphic design allows me to bring creative solutions to recruitment strategies.",
-        "custom_resume": "Graphic designer with a passion for creating visually appealing content. Experience in corporate branding.",
-        "application_status": "Open"
+      "id": 5,
+      "user": {
+        "id": 7,
+        "username": "emily",
+        "password": "emily",
+        "type": "Candidate"
+      },
+      "job": {
+        "id": 5,
+        "manager": {
+          "id": 1,
+          "user": {
+            "id": 8,
+            "username": "linda",
+            "password": "linda",
+            "type": "Hiring_Manager"
+          },
+          "full_name": "Linda Thompson",
+          "email": "linda@example.com",
+          "department": "Human Resources",
+          "phone": "555-1212"
+        },
+        "department": "Human Resources",
+        "listing_title": "Recruitment Specialist Role",
+        "date_listed": "2024-08-20T12:00:00",
+        "date_closed": "2024-09-20T17:00:00",
+        "job_title": "Recruitment Specialist",
+        "job_description": "Handle end-to-end recruitment processes and onboarding.",
+        "additional_information": "Strong communication skills and experience in recruitment required.",
+        "listing_status": "Open"
+      },
+      "date_applied": "2024-08-30T15:45:00",
+      "cover_letter": "I am interested in the Recruitment Specialist Role. My background in graphic design allows me to bring creative solutions to recruitment strategies.",
+      "custom_resume": "Graphic designer with a passion for creating visually appealing content. Experience in corporate branding.",
+      "application_status": "Open"
     }
-]
+  ]

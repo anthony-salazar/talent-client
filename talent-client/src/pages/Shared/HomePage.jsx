@@ -3,10 +3,10 @@ import { Container, Box , Typography } from '@mui/material';
 import HeaderComponent from '../../components/Header';
 import FooterComponent from '../../components/Footer';
 
-export default function HomePage() {
+export default function HomePage(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <HeaderComponent />
+            <HeaderComponent user={props.user}/>
             <Container sx = {{flex: '1 0 auto'}}>
                 <Typography variant = 'h2' align = 'center'>Home Page</Typography>
                 <Typography align = 'center'>This is the "Home" page!
