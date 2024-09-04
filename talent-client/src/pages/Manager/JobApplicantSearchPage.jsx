@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ApplicantList from "../../components/ApplicantList";
+import CandidateListSearch from '../../components/CandidateListSearch';
 import axios from 'axios';
 
 const JobApplicantPage = (props) => {
@@ -21,6 +22,7 @@ const JobApplicantPage = (props) => {
     return(
         <div>
             <div>
+                <CandidateListSearch applicationList={applicationList}/>
             </div>
             <div>
                 <ApplicantList applicationList={applicationList}/>
