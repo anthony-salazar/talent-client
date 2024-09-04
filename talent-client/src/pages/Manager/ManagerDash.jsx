@@ -5,9 +5,20 @@ import jobs from "../../data/jobs.json";
 import HeaderComponent from '../../components/Header';
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import WorkIcon from '@mui/icons-material/Work';
-import {Box, Container, Typography, Button} from '@mui/material';
+import JobUpdate from "../../components/JobUpdate";
+
+import { Box, Container, Typography,Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@mui/material';
+
 
 export default function ManagerDash() {
+    const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    }
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
             <HeaderComponent />
@@ -37,9 +48,9 @@ export default function ManagerDash() {
                         <DisplaySettingsIcon sx={{fontSize: 40}}/>
                         <Typography variant="button">View Applications For Your Postings</Typography>
                     </Button>
-                    <Button
-                        component={Link}
-                        to="/jobupate"
+        
+                <Button
+                        onClick={handleClickOpen}
                         variant="contained"
                         sx={{
                             display:'flex',
@@ -53,6 +64,17 @@ export default function ManagerDash() {
                         <WorkIcon sx={{fontSize: 40}}/>
                         <Typography variant="button">Create A New Job Posting</Typography>
                     </Button>
+                    <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
+                    <DialogTitle>Create Job</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        <JobUpdate onClose={handleClose}/>
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                </DialogActions>
+            </Dialog>
                 </Box>
                 
                 
