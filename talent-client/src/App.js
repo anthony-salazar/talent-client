@@ -17,6 +17,7 @@ import ManagerDash from './pages/Manager/ManagerDash.jsx';
 import PrivateRoutes from './privateRoutes.js';
 import NoAccessPage from './pages/Shared/NoAccessPage.jsx';
 import JobApplicantSearchPage from './pages/Manager/JobApplicantSearchPage.jsx'
+import ManagerJobsPage from './pages/Shared/ManageJobsPage.jsx';
 import { useState, useEffect } from 'react';
 
 function App() {

@@ -34,7 +34,7 @@ export default function ManagerDash(props) {
                 >
                     <Button
                         component={Link}
-                        to="/manage_apps"
+                        to={`/manager/1`} /*change 1 to be props.user.id */
                         variant="contained"
                         sx={{
                             display:'flex',
@@ -46,7 +46,7 @@ export default function ManagerDash(props) {
                         }}
                     >
                         <DisplaySettingsIcon sx={{fontSize: 40}}/>
-                        <Typography variant="button">View Applications For Your Postings</Typography>
+                        <Typography variant="button">View Your Postings</Typography>
                     </Button>
         
                 <Button
@@ -62,7 +62,7 @@ export default function ManagerDash(props) {
                         }}
                     >
                         <WorkIcon sx={{fontSize: 40}}/>
-                        <Typography variant="button">Create A New Job Posting</Typography>
+                        <Typography variant="button">Create A New Posting</Typography>
                     </Button>
                     <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
                     <DialogTitle>Create Job</DialogTitle>

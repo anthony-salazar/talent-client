@@ -10,7 +10,7 @@ const ApplicantCard = (props) => {
     useEffect(() => {
         const fetchData = async () => {
             try{
-                const response = await axios.get('http://localhost:8080/candidates/'+ props.application.user.id).then(res => {return res.data});
+                const response = await axios.get('http://localhost:8080/candidates/getcandidate/'+ props.application.user.id).then(res => {return res.data});
                 setApplicant(response);
             }
             catch(err){
@@ -24,9 +24,9 @@ const ApplicantCard = (props) => {
         <div className='job-card' onClick={toApplicationDetails}>
             <h4 className='job-title'>Name: {applicant.full_name}</h4>
             <div className='job-details'>
-                <p><strong>Email: </strong> </p>
-                <p><strong>Phone: </strong> </p>
-                <p><strong>Application Status: </strong> </p>
+                <p><strong>Email: </strong> {applicant.email}</p>
+                <p><strong>Phone: </strong> {applicant.phone}</p>
+                <p><strong>Application Status: </strong> {props.application.application_status}</p>
             </div>
         </div>
     );
