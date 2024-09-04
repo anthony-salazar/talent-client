@@ -111,8 +111,6 @@ export default function JobUpdate( {job, onClose } ) {
                 />
 
                 <Button variant="contained" >Submit</Button>
-                <Button variant="contained" onClick={() => navigate('/')}>Cancel</Button>
-                <Button variant="contained" >Delete</Button>
             </form>
         </Container>
     );
