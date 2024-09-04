@@ -1,0 +1,1 @@
+export const STATUS_TYPES = ['Open', 'Closed', 'Under Review'];
