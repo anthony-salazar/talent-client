@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
 import {TextField, Button, Container, Typography, Alert, FormControl, createTheme} from '@mui/material';
 import { loginUser } from "../../api/authApi";
 import { ErrorOutline } from "@mui/icons-material";
