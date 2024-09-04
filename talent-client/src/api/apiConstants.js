@@ -3,3 +3,7 @@ export const authEndpoints = {
     login: "login",
     registration: "registration"
 }
+
+export const applicationEndpoints = {
+    
+}
