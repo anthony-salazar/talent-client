@@ -3,7 +3,7 @@ import {DataGrid} from '@mui/x-data-grid';
 import { Container, Box , Typography, Dialog, DialogActions, DialogContent, Button, TextField, DialogTitle } from '@mui/material';
 
 
-const DataTable = ({data, modalTitle}) => {
+const DataTable = ({data, modalTitle, buttonLabel}) => {
     const [cols, setCols] = useState([]);
     const [rows, setRows] = useState([]);
 
@@ -54,6 +54,18 @@ const DataTable = ({data, modalTitle}) => {
     return (
         <Container>
             <Box sx={{height: 400, width: '100%'}}>
+                <Box sx={{display: 'flex', justifyContent: 'flex-end', mb: 2}}>
+                    {buttonLabel && (
+                          <Button
+                          variant='contained'
+                          color="primary"
+  
+                      >
+                          {buttonLabel}
+                      </Button>
+
+                    )}
+                </Box>
                 <DataGrid
                     rows = {rows}
                     columns = {cols}

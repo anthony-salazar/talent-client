@@ -12,7 +12,7 @@ export default function ManageAppsPage() {
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>Manage Applications Page </Typography>
-            <DataTable data = {applications} modalTitle="Application Details"/>
+            <DataTable data = {applications} modalTitle="Application Details" buttonLabel="Create Application"/>
         </Container>
         <Footer/>
         </Box>

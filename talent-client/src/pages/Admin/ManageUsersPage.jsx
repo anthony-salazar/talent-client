@@ -13,7 +13,7 @@ export default function ManageUsersPage() {
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>Manage Users Page </Typography>
-            <DataTable data = {users} modalTitle="User Details"/>
+            <DataTable data = {users} modalTitle="User Details"  buttonLabel="Create User"/>
         </Container>
         <Footer/>
         </Box>
