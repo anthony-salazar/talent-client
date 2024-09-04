@@ -25,7 +25,7 @@ const JobList = (props) => {
             </div>
             </div>
             <div className='column'>
-                <JobDetails job={selectedjob} />
+                <JobDetails job={selectedjob} refresh={props.refresh} setRefresh={props.setRefresh}/>
             </div>
 
         </div>

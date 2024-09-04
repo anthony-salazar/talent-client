@@ -8,7 +8,7 @@ import axios from 'axios';
 
 export default function JobSearch() {
     const [jobs, setJobs] = useState([]);
-
+    const [refresh, setRefresh] = useState(false);
     useEffect(() => {
         axios.get('http://localhost:8080/jobs')
             .then(response => {
@@ -17,7 +17,7 @@ export default function JobSearch() {
             .catch(error => {
                 console.error('There was an error!', error);
             });
-    }, []);
+    }, [refresh]);
 
     return (
         <div>
@@ -27,7 +27,7 @@ export default function JobSearch() {
             <div className="job-search-page">
                 <Typography variant="h4" component="h4">Search Jobs</Typography>
                 <SearchBar setJobs={setJobs}/>
-                <JobList jobs={jobs}/>
+                <JobList jobs={jobs} refresh={refresh} setRefresh={setRefresh}/>
             </div>
         </div>
     );

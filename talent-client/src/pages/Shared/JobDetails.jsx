@@ -3,6 +3,7 @@ import '../../App.css';
 import { useNavigate } from 'react-router-dom';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@mui/material';
 import JobUpdate from "../../components/JobUpdate";
+import axios from 'axios';
 
 const JobDetails = (props) => {
     const navigateApply = useNavigate();
@@ -13,6 +14,16 @@ const JobDetails = (props) => {
 
     const handleClose = () => {
         setOpen(false);
+    }
+    const handleDelete = () => {
+        axios.delete('http://localhost:8080/jobs/' + props.job.id)
+            .then(response => {
+                console.log(response);
+                props.setRefresh(!props.refresh);
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
     }
 
     return(
@@ -27,7 +38,7 @@ const JobDetails = (props) => {
 
             <button className="edit-button" onClick={handleClickOpen}>Update</button>
             {/* <button className="edit-button" onClick={() => navigateApply('/jobupdate/'+ props.job.id)}>Edit</button> */}
-            <button className="delete-button">Delete</button>
+            <button className="delete-button" onClick={handleDelete}>Delete</button>
             <button className="apply-button" onClick={() => navigateApply('/apply/'+ props.job.id)}>Apply</button>
 
             <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
