@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Container, Typography, Box} from '@mui/material';
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import DataTable from "../../components/DataTable";
-import applications from "../../data/application.json";
+//import applications from "../../data/application.json";
 import {STATUS_TYPES} from "../../Status";
+import axios from 'axios';
 
 export default function ManageAppsPage(props) {
 
+    const [applications, setApplications] = useState([]);
+    useEffect(()=>{
+        const fetchApplications = async()=>{
+            const response = await axios.get("http://localhost:8080/applications").then(res => {return res.data});
+            //console.log("resp:" + JSON.stringify(response));
+            setApplications(response);
+        };
+        fetchApplications();
+    }, [applications]);
     const fields = [
         { name: 'user', label: 'User ID', type: 'text', readonly: true },
         { name: 'job', label: 'Job ID', type: 'text', readonly: true },
