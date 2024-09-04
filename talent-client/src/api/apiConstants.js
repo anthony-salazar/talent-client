@@ -4,6 +4,7 @@ export const authEndpoints = {
     registration: "registration"
 }
 
-export const applicationEndpoints = {
+export const candidateEndpoints = {
+    base: "http://localhost:8080/candidates",
     
 }
