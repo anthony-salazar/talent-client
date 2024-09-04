@@ -11,7 +11,7 @@ const PrivateRoutes = ({requiredUserType, userType}) => {
     return <Navigate to ={RouteConstants.Login}/>
   }
 
-  if (requiredUserType && userType !== requiredUserType) {
+  if (requiredUserType && !requiredUserType.includes(userType)) {
 
     return <Navigate to={RouteConstants.NoAccess}/>
   }

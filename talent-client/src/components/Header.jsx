@@ -13,7 +13,7 @@ export default function Header(props) {
     const onNavClick = (id) => {
         navigate(RouteConstants[id])
     }
-    useEffect(() => {if (props.user.name && props.user.type){
+    useEffect(() => {if (props.user.username && props.user.type){
         setLoggedIn(true)
     } else {
         setLoggedIn(false)
@@ -31,9 +31,9 @@ export default function Header(props) {
                     
                 </Box>
                 <Typography variant="h6" color="inherit" component="div">
-                        {loggedIn ? props.user.name : "Guest"}
+                        {loggedIn ? props.user.username : "Guest"}
                 </Typography>
-                    {(loggedIn) ? (<ProfileComponent setLoggedIn={setLoggedIn} initial={props.user.name[0]}/>) : (
+                    {(loggedIn) ? (<ProfileComponent setLoggedIn={setLoggedIn} initial={props.user.username[0]}/>) : (
                         <div>
                             <Button sx={{color: 'white'}} onClick={() => onNavClick("Register")}>Register</Button>
                             <Button sx={{color: 'white'}} onClick={() => {onNavClick("Login")}}>Log In</Button>
