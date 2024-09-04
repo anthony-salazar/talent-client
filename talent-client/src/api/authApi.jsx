@@ -11,5 +11,5 @@ export const loginUser = (user, setVisible) => {
     return fetch(authEndpoints.base + authEndpoints.login, {method: 'POST', 
         headers: {'Content-Type': 'application/json'}, body: JSON.stringify(user)}).then((res) => {
             return res.json();
-        }).then(data => {setVisible(false); return {name: data.username, type: data.type};}).catch((err) => setVisible(true))
+        }).then(data => {setVisible(false); return data;}).catch((err) => setVisible(true))
 }
