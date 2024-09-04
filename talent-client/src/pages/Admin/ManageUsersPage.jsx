@@ -7,6 +7,11 @@ import DataTable from "../../components/DataTable";
 import users from "../../data/users.json";
 import { USER_TYPES } from '../../userTypes';
 export default function ManageUsersPage(props) {
+    const columns = [
+        { field: 'id', headerName: 'ID', width: 150 },
+        { field: 'username', headerName: 'Username', width: 150 },
+        { field: 'password', headerName: 'Password', width: 150 },
+    ];
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
             <Header user={props.user}/>
@@ -22,7 +27,8 @@ export default function ManageUsersPage(props) {
               { name: 'username', label: 'Username', type: 'text' },
               { name: 'password', label: 'Password', type: 'text' },
               { name: 'type', label: 'Type', type: 'select', options: USER_TYPES},
-            ]}>
+            ]}
+            cols={columns}>
                 
             </DataTable>
         </Container>
