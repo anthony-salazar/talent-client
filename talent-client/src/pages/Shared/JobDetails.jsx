@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../App.css';
 import { useNavigate } from 'react-router-dom';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@mui/material';
+import JobUpdate from "../../components/JobUpdate";
 
 const JobDetails = (props) => {
     const navigateApply = useNavigate();
+    const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    }
+
     return(
         <div>
             <p><strong>Job ID:</strong> {props.job.id}</p>
@@ -14,9 +25,22 @@ const JobDetails = (props) => {
             <p><strong>Job Description:</strong> {props.job.job_description}</p>
             <p><strong>Additional Information:</strong> {props.job.additional_information}</p>
 
-            <button className="edit-button" onClick={() => navigateApply('/jobupdate/'+ props.job.id)}>Edit</button>
+            <button className="edit-button" onClick={handleClickOpen}>Update</button>
+            {/* <button className="edit-button" onClick={() => navigateApply('/jobupdate/'+ props.job.id)}>Edit</button> */}
             <button className="delete-button">Delete</button>
             <button className="apply-button" onClick={() => navigateApply('/apply/'+ props.job.id)}>Apply</button>
+
+            <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
+                <DialogTitle>Update Job</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        <JobUpdate job={props.job} onClose={handleClose}/>
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 }
