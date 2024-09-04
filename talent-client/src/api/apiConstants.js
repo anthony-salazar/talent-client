@@ -1,10 +1,9 @@
 export const authEndpoints = {
     base: "http://localhost:8080/",
     login: "login",
-    registration: "registration"
-}
+    registration: "registration",
+    jobs: "jobs"
 
 export const candidateEndpoints = {
-    base: "http://localhost:8080/candidates",
-    
+    base: "http://localhost:8080/candidates"
 }

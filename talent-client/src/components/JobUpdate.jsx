@@ -110,7 +110,7 @@ export default function JobUpdate( {job, onClose } ) {
                     onChange={(e) => setListingStatus(e.target.value)}
                 />
 
-                <Button variant="contained" >Submit</Button>
+                <Button variant="contained" sx={{ backgroundColor: 'green', color: 'white' , margin: '0 auto'}}>Submit</Button>
             </form>
         </Container>
     );
