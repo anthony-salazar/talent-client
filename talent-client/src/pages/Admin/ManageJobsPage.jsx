@@ -7,10 +7,10 @@ import DataTable from "../../components/DataTable";
 import JobList from "../../components/JobList";
 import jobs from "../../data/jobs.json";
 
-export default function ManageJobsPage() {
+export default function ManageJobsPage(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <Header />
+            <Header user={props.user}/>
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>Manage Jobs Page </Typography>

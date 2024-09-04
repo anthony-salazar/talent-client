@@ -6,10 +6,10 @@ import {Box, Container, Typography, Button} from '@mui/material';
 import { Link } from "react-router-dom";
 
 
-export default function CandidateDash() {
+export default function CandidateDash(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <HeaderComponent />
+            <HeaderComponent user={props.user}/>
             <Container sx = {{flex: '1 0 auto', padding:'10px'}}>
                 <Typography variant = 'h4' align = 'center'>Welcome, Candidate</Typography>
                 <DataTable data = {applications}/>

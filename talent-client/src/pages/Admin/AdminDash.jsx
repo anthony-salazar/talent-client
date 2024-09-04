@@ -7,10 +7,10 @@ import ManageAppsPage from "./ManageAppsPage";
 import ManageJobsPage from "./ManageJobsPage";
 import { Link } from "react-router-dom";
 
-export default function AdminDash() {
+export default function AdminDash(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <HeaderComponent />
+            <HeaderComponent user={props.user}/>
             <Container sx = {{flex: '1 0 auto', padding:'10px'}}>
                 <Typography variant = 'h4' align = 'center'>Welcome, Admin</Typography>
                 <Button component={Link} to="/manage_apps">Manage Applications</Button>

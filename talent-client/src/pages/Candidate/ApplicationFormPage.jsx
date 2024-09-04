@@ -9,7 +9,7 @@ function ApplicationFormPage(props) {
     const id = params.jobId
     return (
             <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-                <Header/>
+                <Header user={props.user}/>
                 <Container sx={{textAlign: 'left', flexDirection: "column", paddingTop:'2vh', paddingBottom: '2vh'}}>
                     <Typography variant="h3" component="h1">{'Job Title: ' + id}</Typography>
                     <Typography variant="body1">LOrem ipsum atajkra lsdghaskflkasf asfmadga.</Typography>

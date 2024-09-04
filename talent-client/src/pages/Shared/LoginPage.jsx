@@ -1,6 +1,9 @@
 import React, {useState} from "react";
 import {TextField, Button, Container, Typography, Alert, FormControl, createTheme} from '@mui/material';
 import { loginUser } from "../../api/authApi";
+import { ErrorOutline } from "@mui/icons-material";
+import { Route, useNavigate } from "react-router-dom";
+import RouteConstants from "../../routeConstants";
 
 export default function LoginPage(props) {
     const [username, setUsername] = useState('');
@@ -8,6 +11,8 @@ export default function LoginPage(props) {
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
+    const [isVisible, setVisible] = useState(false);
+    const navigate = useNavigate();
 
     const theme = createTheme({
         palette: {
@@ -33,8 +38,25 @@ export default function LoginPage(props) {
             setError('Please enter a username and password.');
         }
         
-        let user = await loginUser({username, password});
-        props.setUserType(user)
+        let user = await loginUser({username, password}, setVisible);
+        if (user) {
+            props.setUserType(user.type)
+            props.setUsername(user.name)
+            switch (user.type) {
+                case 'Administrator':
+                    navigate(RouteConstants.AdminDashboard)
+                    break;
+                case 'Hiring_Manager':
+                    navigate(RouteConstants.ManagerDashboard)
+                    break;
+                case 'Candidate':
+                    navigate(RouteConstants.CandidateDashboard)
+                    break;
+                default:
+                    navigate('/')
+                    break;
+            }
+        }
         console.log("USER SUBMIT: ", user)
     };
 
@@ -67,6 +89,7 @@ export default function LoginPage(props) {
                 />
                 <br></br>
                 <Button type="submit" variant="contained" sx={{backgroundColor: '#52A447'}} onClick={(e) => handleSubmit(e)}>Login</Button>
+                <Alert sx={{marginTop: '1vh', visibility: (isVisible) ? 'visible' : 'collapse'}} icon={<ErrorOutline/>} severity='error'>Login failed. Try again.</Alert>
             </FormControl>
         </Container>
 
