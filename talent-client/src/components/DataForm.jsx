@@ -40,8 +40,8 @@ const DataForm = ({ open, onClose, onSave, onDelete, data, fields, modalTitle })
                 fullWidth
                 margin="dense"
                 type={field.type}
-                multiline={field.type === 'textarea'}
-                rows={field.type === 'textarea' ? 2 : undefined}
+                multiline={field.type === 'text' && field.rows > 0} // Set multiline if type is text and rows is defined
+                rows={field.rows || undefined} // Use rows if defined
                 InputProps={{
                   readOnly: field.readonly // Set input to readOnly if readonly
                 }}

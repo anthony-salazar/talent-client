@@ -7,15 +7,16 @@ import applications from "../../data/application.json";
 import {STATUS_TYPES} from "../../Status";
 
 export default function ManageAppsPage(props) {
-    
+
     const fields = [
         { name: 'user', label: 'User ID', type: 'text', readonly: true },
         { name: 'job', label: 'Job ID', type: 'text', readonly: true },
         { name: 'date_applied', label: 'Date Applied', type: 'text', readonly: true },
-        { name: 'cover_letter', label: 'Cover Letter', type: 'text' },
-        { name: 'custom_resume', label: 'Custom Resume', type: 'text' },
-        { name: 'application_status', label: 'Application Status', type: 'select', options: STATUS_TYPES},
+        { name: 'cover_letter', label: 'Cover Letter', type: 'text', rows: 4 }, // Added rows property
+        { name: 'custom_resume', label: 'Custom Resume', type: 'text', rows: 4 }, // Added rows property
+        { name: 'application_status', label: 'Application Status', type: 'select', options: STATUS_TYPES },
     ];
+    
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 150 },
@@ -32,7 +33,6 @@ export default function ManageAppsPage(props) {
             headerName: 'Job ID',
             width: 150,
             valueGetter: (params) => {
-                console.log('param' + JSON.stringify(params)); // Log the row data
                 return params.id || '';
             },
         },
@@ -48,7 +48,6 @@ export default function ManageAppsPage(props) {
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>Manage Applications Page </Typography>
-            {/* <DataTable data = {applications} modalTitle="Application Details" buttonLabel="Create Application"/> */}
             <DataTable
             data={applications}
             cols = {columns}
