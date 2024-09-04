@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import DataTable from "../../components/DataTable";
 import users from "../../data/users.json";
-
+import { USER_TYPES } from '../../userTypes';
 export default function ManageUsersPage() {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
@@ -13,7 +13,18 @@ export default function ManageUsersPage() {
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>Manage Users Page </Typography>
-            <DataTable data = {users} modalTitle="User Details"  buttonLabel="Create User"/>
+            {/* <DataTable data = {users} modalTitle="User Details"  buttonLabel="Create User"/> */}
+            <DataTable
+            data={users}
+            modalTitle="User Details"
+            buttonLabel="Add New"
+            fields={[
+              { name: 'username', label: 'Username', type: 'text' },
+              { name: 'password', label: 'Password', type: 'text' },
+              { name: 'type', label: 'Type', type: 'select', options: USER_TYPES},
+            ]}>
+                
+            </DataTable>
         </Container>
         <Footer/>
         </Box>
