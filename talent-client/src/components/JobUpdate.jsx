@@ -2,27 +2,24 @@ import React, { useEffect } from 'react';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import list from '../joblist.json';
-import { getJobByID } from '../api/jobAPI';
-// import JobService from '../services/JobService';
 
-export default function JobUpdate() {
-    const params = useParams();
-    const id = params.jobId;
-    const [data, setData] = useState(null);
-    useEffect(()=> {
-        if(id){
-            const filteredData = getJobByID(id);
-            if(filteredData){
-                console.log(filteredData);
-            }
-            else{
-                console.log('NO Match Found');
-            }
-        }
-    }, [id]);
-    const [jobID, setJobID] = useState(data != null ? data.id : '');
-    const [description, setDescription] = useState(data != null ? data.job_title : '');
+export default function JobUpdate( {job, onClose } ) {
+    // const params = useParams();
+    // const id = params.jobId;
+    // const [data, setData] = useState(null);
+    // useEffect(()=> {
+    //     if(id){
+    //         const filteredData = list.find((item) => item.id === id);
+    //         if(filteredData){
+    //             setData(filteredData);
+    //         }
+    //         else{
+    //             console.log('NO Match Found');
+    //         }
+    //     }
+    // }, [id]);
+    const [jobID, setJobID] = useState('');
+    const [description, setDescription] = useState('');
     const [addInfo, setAddInfo] = useState('');
     const [listingTitle, setListingTitle] = useState('');
     const [managerID, setManagerID] = useState('');
@@ -30,27 +27,19 @@ export default function JobUpdate() {
     const [listingStatus, setListingStatus] = useState('');
     const [department, setDepartment] = useState('');
     const navigate = useNavigate();
-    
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         let job = {
-    //             title: title,
-    //             description: description,
-    //             location: location,
-    //             jobType: jobType,
-    //             salary: salary,
-    //             experience: experience,
-    //             skills: skills
-    //         }
-    //         let response = await JobService.createJob(job);
-    //         if(response.status === 200) {
-    //             navigate('/');
-    //         }
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
+
+    useEffect(() => {
+        if(job){
+            setJobID(job.id || '')
+            setManagerID(job.manager_id || '')
+            setDepartment(job.department || '')
+            setListingTitle(job.listing_title || '')
+            setJobTitle(job.job_title || '')
+            setDescription(job.job_description || '')
+            setAddInfo(job.additional_information || '')
+            setListingStatus(job.listing_status || '')
+        }
+    }, [job])
 
     return (
         <Container maxWidth="xs" className="job-update-container">
@@ -122,8 +111,6 @@ export default function JobUpdate() {
                 />
 
                 <Button variant="contained" >Submit</Button>
-                <Button variant="contained" onClick={() => navigate('/')}>Cancel</Button>
-                <Button variant="contained" >Delete</Button>
             </form>
         </Container>
     );
