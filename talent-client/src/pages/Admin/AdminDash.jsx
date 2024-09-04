@@ -11,10 +11,10 @@ import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import WorkIcon from '@mui/icons-material/Work';
 
-export default function AdminDash() {
+export default function AdminDash(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <HeaderComponent />
+            <HeaderComponent user={props.user}/>
             <Container sx = {{flex: '1 0 auto', padding:'10px'}}>
                 <Typography variant = 'h4' align = 'center'>Welcome, Admin</Typography>
                 <Box

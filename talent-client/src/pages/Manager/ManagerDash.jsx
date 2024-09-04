@@ -10,7 +10,7 @@ import JobUpdate from "../../components/JobUpdate";
 import { Box, Container, Typography,Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@mui/material';
 
 
-export default function ManagerDash() {
+export default function ManagerDash(props) {
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
         setOpen(true);
@@ -21,7 +21,7 @@ export default function ManagerDash() {
     }
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <HeaderComponent />
+            <HeaderComponent user={props.user}/>
             <Container sx = {{flex: '1 0 auto', padding:'10px'}}>
                 <Typography variant = 'h4' align = 'center'>Welcome, Hiring Manager</Typography>
                 <Box

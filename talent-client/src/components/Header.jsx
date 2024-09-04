@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material';
 import ProfileComponent from "./ProfileComponent";
 import RouteConstants from '../routeConstants';
 import { useNavigate } from 'react-router-dom';
 
-export default function Header() {
+export default function Header(props) {
+    console.log(props.user)
     console.log(RouteConstants)
     const [loggedIn, setLoggedIn] = useState(false)
     const navigate = useNavigate()
@@ -12,7 +13,11 @@ export default function Header() {
     const onNavClick = (id) => {
         navigate(RouteConstants[id])
     }
-    console.log("NavOptions: ", navOptions)
+    useEffect(() => {if (props.user.name && props.user.type){
+        setLoggedIn(true)
+    } else {
+        setLoggedIn(false)
+    }}, [props.user])
     return(
         <AppBar position="static" color="primary">
             <Toolbar>
@@ -26,9 +31,9 @@ export default function Header() {
                     
                 </Box>
                 <Typography variant="h6" color="inherit" component="div">
-                        {loggedIn ? "FirstName LastName" : "Guest"}
+                        {loggedIn ? props.user.name : "Guest"}
                 </Typography>
-                    {(loggedIn) ? (<ProfileComponent setLoggedIn={setLoggedIn}/>) : (
+                    {(loggedIn) ? (<ProfileComponent setLoggedIn={setLoggedIn} initial={props.user.name[0]}/>) : (
                         <div>
                             <Button sx={{color: 'white'}} onClick={() => onNavClick("Register")}>Register</Button>
                             <Button sx={{color: 'white'}} onClick={() => {onNavClick("Login")}}>Log In</Button>
