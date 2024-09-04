@@ -3,7 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Container, Box, Button } from '@mui/material';
 import DataForm from './DataForm';  // Adjust the import path if necessary
 
-const DataTable = ({ data, modalTitle, buttonLabel, fields }) => {
+const DataTable = ({ data, modalTitle, buttonLabel, fields, onButtonClick }) => {
     const [cols, setCols] = useState([]);
     const [rows, setRows] = useState([]);
 
@@ -46,7 +46,7 @@ const DataTable = ({ data, modalTitle, buttonLabel, fields }) => {
             <Box sx={{ height: 400, width: '100%' }}>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
                     {buttonLabel && (
-                        <Button variant='contained' color="primary">
+                        <Button onClick={onButtonClick} variant='contained' color="primary">
                             {buttonLabel}
                         </Button>
                     )}
