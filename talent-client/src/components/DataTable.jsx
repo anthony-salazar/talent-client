@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Container, Box, Button } from '@mui/material';
 import DataForm from './DataForm';  // Adjust the import path if necessary
+import axios from 'axios';
 
-const DataTable = ({ data, modalTitle, buttonLabel, fields, cols }) => {
+const DataTable = ({ data, modalTitle, buttonLabel, fields, cols, onDelete }) => {
     // const [cols, setCols] = useState([]);
     const [rows, setRows] = useState([]);
 
     const [selectedRow, setSelectedRow] = useState(null);
+    const [rowIsSelected, setRowIsSelected] = useState(false);
     const [openModal, setOpenModal] = useState(false);   
 
     useEffect(() => {
@@ -18,22 +20,57 @@ const DataTable = ({ data, modalTitle, buttonLabel, fields, cols }) => {
     console.log(cols);
 
     const handleRowClick = (params) => {
+        console.log("params.row:" + JSON.stringify(params.row));
+        setRowIsSelected(true);
         setSelectedRow(params.row);
+        console.log("selected row:" + JSON.stringify(selectedRow));
         setOpenModal(true);
     };
 
     const handleClose = () => {
+        setRowIsSelected(false);
         setOpenModal(false);
     };
 
-    const handleSave = (formData) => {
+    const handleSave = async (formData) => {
         console.log("Saved data:", formData);
         // Implement save logic here
+        if (modalTitle === "Application Details"){
+            const res = await axios.put(
+                "http://localhost:8080/applications/" + formData["id"],
+                formData, {
+                    headers: {
+                        'Content-Type' : 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    }
+                }
+            );
+            console.log(res.data);
+        }
+        // Implement delete logic here
         setOpenModal(false);
     };
 
-    const handleDelete = () => {
+    const handleDelete = (formData) => {
         console.log("Delete button clicked");
+        console.log("Form:"  +formData);
+        if (modalTitle === "Application Details"){
+            const deleteApplication = async()=>{
+                const response = await axios.delete("http://localhost:8080/applications/" + formData["id"]).then(res => {return res.data});
+                //console.log("resp:" + JSON.stringify(response));
+                //setApplications(response);
+                console.log("delete response:" + response);
+            };
+            deleteApplication();
+        } else if (modalTitle === "User Details"){
+            const deleteUser = async()=>{
+                const response = await axios.delete("http://localhost:8080/users/" + formData["id"]).then(res => {return res.data});
+                //console.log("resp:" + JSON.stringify(response));
+                //setApplications(response);
+                console.log("delete response:" + response);
+            };
+            deleteUser();
+        }
         // Implement delete logic here
         setOpenModal(false);
     };
@@ -58,7 +95,7 @@ const DataTable = ({ data, modalTitle, buttonLabel, fields, cols }) => {
                 />
             </Box>
 
-            {selectedRow && (
+            {rowIsSelected && (
                 <DataForm
                     open={openModal}
                     onClose={handleClose}
