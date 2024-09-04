@@ -25,10 +25,10 @@ const JobApplicationDetails = (props) => {
             <p><strong>Job Description:</strong> {props.job.job_description}</p>
             <p><strong>Additional Information:</strong> {props.job.additional_information}</p>
 
-            <button className="edit-button" onClick={handleClickOpen}>Update</button>
+            <Button variant="contained" onClick={handleClickOpen}>Update</Button>
             {/* <button className="edit-button" onClick={() => navigateApply('/jobupdate/'+ props.job.id)}>Edit</button> */}
-            <button className="delete-button">Delete</button>
-            <button className="apply-button" onClick={() => navigateCandidates('/application/job/'+ props.job.id)}>View Applicants</button>
+            <Button variant="contained" sx={{ backgroundColor: 'red', color: 'white' , marginLeft: 2}}>Delete</Button>
+            <Button variant="contained" sx={{ backgroundColor: 'green', color: 'white' , marginLeft: 12}} >View Applicants</Button>
 
             <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
                 <DialogTitle>Update Job</DialogTitle>

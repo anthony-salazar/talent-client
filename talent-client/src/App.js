@@ -16,6 +16,7 @@ import CandidateDash from './pages/Candidate/CandidateDash.jsx';
 import ManagerDash from './pages/Manager/ManagerDash.jsx';
 import PrivateRoutes from './privateRoutes.js';
 import NoAccessPage from './pages/Shared/NoAccessPage.jsx';
+import ManagerJobsPage from './pages/Shared/ManageJobsPage.jsx';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
           <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage user={user}/>}/>
          </Route>
 
-        <Route path={RouteConstants.ManageMyApps} element={<ManageJobsPage user={user}/>}/>                                         
+        <Route path={RouteConstants.ManageMyApps} element={<ManagerJobsPage user={user}/>}/>                                         
          <Route path={RouteConstants.CandidateDashboard} element={<CandidateDash user={user}/>}/>
          <Route path={RouteConstants.ManagerDashboard} element={<ManagerDash user={user}/>}/>
          <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage user={user}/>}/>

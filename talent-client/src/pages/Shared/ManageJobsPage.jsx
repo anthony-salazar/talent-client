@@ -6,7 +6,7 @@ import Header from "../../components/Header";
 import {Typography} from "@mui/material";
 import axios from 'axios';
 
-export default function ManageJobsPage(props) {
+export default function ManagerJobsPage(props) {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
@@ -24,9 +24,9 @@ export default function ManageJobsPage(props) {
             <div>
                 <Header user={props.user}/>
             </div>
-            <div className="job-search-page">
-                <Typography variant="h4" component="h4">Job Postings</Typography>
-                <SearchBar setJobs={setJobs}/>
+            <div >
+                <Typography variant="h4" component="h4">Your Job Postings</Typography>
+                {/* <SearchBar setJobs={setJobs}/> */}
                 <ManagerJobList jobs={jobs}/>
             </div>
         </div>
