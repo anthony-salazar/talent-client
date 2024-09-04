@@ -10,7 +10,7 @@ const RouteConstants = {
     ManageUsers: '/manage_users',
     ManageApps: '/manage_apps',
     ManageJobs: '/manage_jobs',
-    ManageMyApps: '/manager/1',
+    JobApplicantSearchPage: '/applicant_list',    ManageMyApps: '/manager/1',
     NoAccess: "/no_access",
     ApplyJob: "/apply/:jobId"
   };
