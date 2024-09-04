@@ -28,7 +28,7 @@ export default function JobSearch(props) {
             <div className="job-search-page">
                 <Typography variant="h4" component="h4">Search Jobs</Typography>
                 <SearchBar setJobs={setJobs}/>
-                <JobList jobs={jobs}/>
+                <JobList user={props.user} jobs={jobs}/>
             </div>
         </div>
     );
