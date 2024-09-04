@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IconButton, Menu, MenuItem } from "@mui/material";
+import { Avatar, IconButton, Menu, MenuItem } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 
 export default function ProfileComponent(props) {
@@ -12,7 +12,7 @@ export default function ProfileComponent(props) {
     return (
         <div className=".Profile-component">
             <IconButton size="medium" onClick={event => handleProfileClick(event)}>
-                <AccountCircle fontSize="medium"></AccountCircle>
+                <Avatar fontSize="medium">{props.initial}</Avatar>
             </IconButton>
             <Menu anchorEl={anchorEl} open={open} onClose={() => setOpen(false)}>
                 <MenuItem>Profile</MenuItem>

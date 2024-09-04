@@ -6,10 +6,10 @@ import HeaderComponent from '../../components/Header';
 
 import {Box, Container, Typography, Button} from '@mui/material';
 
-export default function ManagerDash() {
+export default function ManagerDash(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <HeaderComponent />
+            <HeaderComponent user={props.user}/>
             <Container sx = {{flex: '1 0 auto', padding:'10px'}}>
                 <Typography variant = 'h4' align = 'center'>Welcome, Hiring Manager</Typography>
                 <DataTable data = {jobs}/>
