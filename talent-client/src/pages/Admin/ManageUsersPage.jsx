@@ -6,10 +6,10 @@ import Header from "../../components/Header";
 import DataTable from "../../components/DataTable";
 import users from "../../data/users.json";
 import { USER_TYPES } from '../../userTypes';
-export default function ManageUsersPage() {
+export default function ManageUsersPage(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <Header />
+            <Header user={props.user}/>
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>Manage Users Page </Typography>

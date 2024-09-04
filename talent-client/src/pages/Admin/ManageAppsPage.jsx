@@ -6,7 +6,7 @@ import DataTable from "../../components/DataTable";
 import applications from "../../data/application.json";
 import {STATUS_TYPES} from "../../Status";
 
-export default function ManageAppsPage() {
+export default function ManageAppsPage(props) {
     const fields = [
         { name: 'user_id', label: 'User ID', type: 'text', readonly: true },
         { name: 'job_id', label: 'Job ID', type: 'text', readonly: true },
@@ -17,7 +17,7 @@ export default function ManageAppsPage() {
       ];
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <Header />
+            <Header user={props.user} />
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>Manage Applications Page </Typography>
