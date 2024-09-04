@@ -3,22 +3,19 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Container, Box, Button } from '@mui/material';
 import DataForm from './DataForm';  // Adjust the import path if necessary
 
-const DataTable = ({ data, modalTitle, buttonLabel, fields }) => {
-    const [cols, setCols] = useState([]);
+const DataTable = ({ data, modalTitle, buttonLabel, fields, cols }) => {
+    // const [cols, setCols] = useState([]);
     const [rows, setRows] = useState([]);
 
     const [selectedRow, setSelectedRow] = useState(null);
-    const [openModal, setOpenModal] = useState(false);
+    const [openModal, setOpenModal] = useState(false);   
 
     useEffect(() => {
-        const generatedCols = Object.keys(data[0]).map((key) => ({
-            field: key,
-            headerName: key.charAt(0).toUpperCase() + key.slice(1),
-            width: 150,
-        }));
-        setCols(generatedCols);
         setRows(data);
     }, [data]);
+
+    console.log("Hi");
+    console.log(cols);
 
     const handleRowClick = (params) => {
         setSelectedRow(params.row);

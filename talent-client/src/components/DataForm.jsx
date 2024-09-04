@@ -33,7 +33,9 @@ const DataForm = ({ open, onClose, onSave, onDelete, data, fields, modalTitle })
             ) : (
               <TextField
                 label={field.label}
-                value={formData[field.name] || ''}
+                value={typeof formData[field.name] === 'object' && formData[field.name] !== null 
+                    ? formData[field.name]['id'] 
+                    : formData[field.name] || ''}
                 onChange={(e) => !field.readonly && handleFieldChange(e, field.name)} // Handle change only if not readonly
                 fullWidth
                 margin="dense"
