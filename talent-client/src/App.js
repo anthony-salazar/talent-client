@@ -37,7 +37,7 @@ function App() {
          <Route path={RouteConstants.PostJob} element={<JobUpdate user={user}/>}/>
          <Route path={RouteConstants.NoAccess} element={<NoAccessPage user={user}/>} />
 
-         <Route element={<PrivateRoutes requiredUserType="admin" userType={userType} />}>
+         <Route element={<PrivateRoutes requiredUserType="Administrator" userType={userType} />}>
           <Route path={RouteConstants.ManageUsers} element={<ManageUsersPage user={user}/>}/>
           <Route path={RouteConstants.ManageApps} element={<ManageAppsPage user={user}/>}/>
           <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage user={user}/>}/>
