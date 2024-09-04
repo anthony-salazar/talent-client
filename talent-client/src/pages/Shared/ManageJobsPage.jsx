@@ -1,35 +1,33 @@
 import React, {useEffect, useState} from "react";
 import SearchBar from "../../components/JobSearchBar";
-import JobList from "../../components/JobList";
+import ManagerJobList from "../../components/ManagerJobList";
 import '../../App.css';
 import Header from "../../components/Header";
 import {Typography} from "@mui/material";
 import axios from 'axios';
-import JobDetails from "./JobDetails";
 
-export default function JobSearch(props) {
+export default function ManagerJobsPage(props) {
     const [jobs, setJobs] = useState([]);
-    const [refresh, setRefresh] = useState(false);
+
     useEffect(() => {
         axios.get('http://localhost:8080/jobs')
             .then(response => {
                 setJobs(response.data);
-                console.log(jobs);
             })
             .catch(error => {
                 console.error('There was an error!', error);
             });
-    }, [refresh]);
+    }, []);
 
     return (
         <div>
             <div>
                 <Header user={props.user}/>
             </div>
-            <div className="job-search-page">
-                <Typography variant="h4" component="h4">Search Jobs</Typography>
-                <SearchBar setJobs={setJobs}/>
-                <JobList jobs={jobs} refresh={refresh} setRefresh={setRefresh}/>
+            <div >
+                <Typography variant="h4" component="h4">Your Job Postings</Typography>
+                {/* <SearchBar setJobs={setJobs}/> */}
+                <ManagerJobList jobs={jobs}/>
             </div>
         </div>
     );
