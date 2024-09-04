@@ -3,6 +3,7 @@ import '../../App.css';
 import { useNavigate } from 'react-router-dom';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@mui/material';
 import JobUpdate from "../../components/JobUpdate";
+import RouteConstants from '../../routeConstants';
 
 const JobApplicationDetails = (props) => {
     const navigateCandidates = useNavigate();
@@ -28,7 +29,7 @@ const JobApplicationDetails = (props) => {
             <Button variant="contained" onClick={handleClickOpen}>Update</Button>
             {/* <button className="edit-button" onClick={() => navigateApply('/jobupdate/'+ props.job.id)}>Edit</button> */}
             <Button variant="contained" sx={{ backgroundColor: 'red', color: 'white' , marginLeft: 2}}>Delete</Button>
-            <Button variant="contained" sx={{ backgroundColor: 'green', color: 'white' , marginLeft: 12}} >View Applicants</Button>
+            <Button variant="contained" sx={{ backgroundColor: 'green', color: 'white' , marginLeft: 12}} onClick={() => navigateCandidates(RouteConstants.JobApplicantSearchPage)}>View Applicants</Button>
 
             <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
                 <DialogTitle>Update Job</DialogTitle>

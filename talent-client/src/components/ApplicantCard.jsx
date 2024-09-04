@@ -10,7 +10,7 @@ const ApplicantCard = (props) => {
     useEffect(() => {
         const fetchData = async () => {
             try{
-                const response = await axios.get('http://localhost:8080/candidates/'+ props.application.user.id).then(res => {return res.data});
+                const response = await axios.get('http://localhost:8080/candidates/getcandidate/'+ props.application.user.id).then(res => {return res.data});
                 setApplicant(response);
             }
             catch(err){
