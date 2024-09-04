@@ -4,10 +4,10 @@ import RouteConstants from "../../routeConstants";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
-function NoAccessPage() {
+function NoAccessPage(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <Header />
+            <Header user={props.user}/>
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>This Page is Restricted </Typography>
