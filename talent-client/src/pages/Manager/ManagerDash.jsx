@@ -34,7 +34,7 @@ export default function ManagerDash(props) {
                 >
                     <Button
                         component={Link}
-                        to="/manage_apps"
+                        to={`/manager/1`} /*change 1 to be props.user.id */
                         variant="contained"
                         sx={{
                             display:'flex',

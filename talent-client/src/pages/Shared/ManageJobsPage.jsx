@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
 import SearchBar from "../../components/JobSearchBar";
-import JobList from "../../components/JobList";
+import ManagerJobList from "../../components/ManagerJobList";
 import '../../App.css';
 import Header from "../../components/Header";
 import {Typography} from "@mui/material";
 import axios from 'axios';
-import JobDetails from "./JobDetails";
 
-export default function JobSearch(props) {
+export default function ManageJobsPage(props) {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
@@ -26,9 +25,9 @@ export default function JobSearch(props) {
                 <Header user={props.user}/>
             </div>
             <div className="job-search-page">
-                <Typography variant="h4" component="h4">Search Jobs</Typography>
+                <Typography variant="h4" component="h4">Job Postings</Typography>
                 <SearchBar setJobs={setJobs}/>
-                <JobList jobs={jobs}/>
+                <ManagerJobList jobs={jobs}/>
             </div>
         </div>
     );

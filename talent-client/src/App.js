@@ -43,6 +43,7 @@ function App() {
           <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage user={user}/>}/>
          </Route>
 
+        <Route path={RouteConstants.ManageMyApps} element={<ManageJobsPage user={user}/>}/>                                         
          <Route path={RouteConstants.CandidateDashboard} element={<CandidateDash user={user}/>}/>
          <Route path={RouteConstants.ManagerDashboard} element={<ManagerDash user={user}/>}/>
          <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage user={user}/>}/>
