@@ -5,6 +5,7 @@ import JobDetails from '../pages/Shared/JobDetails';
 
 const JobList = (props) => {
     const [selectedjob, setjob] = useState(props.jobs[0]);
+
     return(
         <div className='job-container'>
             <div className='column'>
@@ -16,6 +17,7 @@ const JobList = (props) => {
             <div className='column'>
                 <JobDetails job={selectedjob} />
             </div>
+            {}
             
         </div>
     );

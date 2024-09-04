@@ -3,6 +3,7 @@ import { TextField, Button, Container, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import list from '../joblist.json';
+import { getJobByID } from '../api/jobAPI';
 // import JobService from '../services/JobService';
 
 export default function JobUpdate() {
@@ -11,9 +12,9 @@ export default function JobUpdate() {
     const [data, setData] = useState(null);
     useEffect(()=> {
         if(id){
-            const filteredData = list.find((item) => item.id === id);
+            const filteredData = getJobByID(id);
             if(filteredData){
-                setData(filteredData);
+                console.log(filteredData);
             }
             else{
                 console.log('NO Match Found');
