@@ -14,6 +14,7 @@ export default function JobSearch(props) {
         axios.get('http://localhost:8080/jobs')
             .then(response => {
                 setJobs(response.data);
+                console.log(jobs);
             })
             .catch(error => {
                 console.error('There was an error!', error);
