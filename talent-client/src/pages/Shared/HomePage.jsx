@@ -145,7 +145,7 @@ export default function HomePage(props) {
 
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <HeaderComponent user={props.user}/>
+            <HeaderComponent user={props.user} specificUser={props.specificUser}/>
             <Container sx = {{flex: '1 0 auto'}}>
                 <Typography variant = 'h2' align = 'center'>Home Page</Typography>
                 <Typography align = 'center'>This is the "Home" page!

@@ -95,7 +95,7 @@ export default function ManageUsersPage(props) {
     ];
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <Header user={props.user}/>
+            <Header user={props.user} specificUser={props.specificUser} />
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>Manage Users Page </Typography>
