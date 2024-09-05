@@ -7,6 +7,8 @@ import axios from 'axios';
 import DataForm from '../../components/DataForm';
 
 const JobDetails = (props) => {
+    console.log('user');
+    console.log(props.job);
     const navigateApply = useNavigate();
     const [open, setOpen] = React.useState(false);
     // const [userType, setUserType] = React.useState('candidate'); // Dummy usertype constant
@@ -61,7 +63,7 @@ const JobDetails = (props) => {
             <p><strong>Job Status:</strong> {props.job.listing_status}</p>
             <p><strong>Job Description:</strong> {props.job.job_description}</p>
             <p><strong>Additional Information:</strong> {props.job.additional_information}</p>
-
+            
             <Button variant="contained" disabled={!allowClick} onClick={handleClickOpen} sx={{ visibility: allowEditDelete? 'visible' : 'hidden'}}>Update</Button>
             <Button variant="contained" disabled={!allowClick} sx={{ backgroundColor: 'red', color: 'white' , marginLeft: 2, visibility: allowEditDelete? 'visible' : 'hidden'}} onClick={handleDelete}>Delete</Button>
             <Button variant="contained" disabled={!allowClick} sx={{ backgroundColor: 'green', color: 'white' , marginLeft: 12, visibility: allowApply? 'visible' : 'hidden'}} onClick={() => navigateApply('/apply/'+ props.job.id)}>Apply</Button>
