@@ -112,7 +112,7 @@ const JobApplicationDetails = (props) => {
           variant="contained"
           sx={{ backgroundColor: "green", color: "white", marginLeft: 12 }}
           onClick={() =>
-            navigateCandidates(RouteConstants.JobApplicantSearchPage)
+            navigateCandidates('/applicant_list/' + props.job.id)
           }
         >
           View Applicants

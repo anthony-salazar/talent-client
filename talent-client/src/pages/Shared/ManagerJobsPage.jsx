@@ -24,7 +24,7 @@ export default function ManagerJobsPage(props) {
     return (
         <div>
             <div>
-                <Header user={props.user}/>
+                <Header user={props.user} specificUser={props.specificUser} />
             </div>
             <div >
                 <Typography variant="h4" component="h4">Your Job Postings</Typography>
