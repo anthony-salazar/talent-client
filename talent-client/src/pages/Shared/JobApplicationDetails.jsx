@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 
 const JobApplicationDetails = (props) => {
   const navigateApply = useNavigate();
+  const managerObject = props.specificUser;
 
   const handleDelete = async () => {
     try {

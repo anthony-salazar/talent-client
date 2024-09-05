@@ -16,19 +16,27 @@ const JobList = (props) => {
         "additional_information" : "",
         "listing_status": ""};
     const [selectedjob, setjob] = useState(blankJob);
-    return(
-        <div className='job-container'>
-            <div className='column'>
-            <div className='job-list'>
-                {props.jobs.length > 0 ?
-                (props.jobs.map(job => <JobCard key={job.id} job={job} setjob={setjob}/>)) : (<p>No Job Found</p>)}
-            </div>
-            </div>
-            <div className='column'>
-                <JobDetails user={props.user} job={selectedjob} />
-            </div>
-
+    return (
+      <div className="job-container">
+        <div className="column">
+          <div className="job-list">
+            {props.jobs.length > 0 ? (
+              props.jobs.map((job) => (
+                <JobCard key={job.id} job={job} setjob={setjob} />
+              ))
+            ) : (
+              <p>No Job Found</p>
+            )}
+          </div>
         </div>
+        <div className="column">
+          <JobDetails
+            user={props.user}
+            specificUser={props.specificUser}
+            job={selectedjob}
+          />
+        </div>
+      </div>
     );
 }
 

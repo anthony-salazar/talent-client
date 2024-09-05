@@ -32,20 +32,20 @@ function App() {
         <Route path={RouteConstants.JobSearch} element={<JobSearchPage user={user} specificUser={specificUser}/>}/>
         <Route path={RouteConstants.NoAccess} element={<NoAccessPage user={user} specificUser={specificUser}/>} />
         <Route path="*" element={<NotFoundPage user={user} specificUser={specificUser}/>}/>
-        
-        
+
+
         <Route element={<PrivateRoutes requiredUserType={["Administrator"]} userType={user.type} />}>
           <Route path={RouteConstants.ManageUsers} element={<ManageUsersPage user={user} specificUser={specificUser}/>}/> {/*only admin */}
           <Route path={RouteConstants.ManageApps} element={<ManageAppsPage user={user} specificUser={specificUser}/>}/> {/*only admin */}
           <Route path={RouteConstants.AdminDashboard} element={<AdminDash user={user} specificUser={specificUser}/>} /> {/*admin*/}
         </Route>
-      
+
         <Route element={<PrivateRoutes requiredUserType={["Administrator", "Candidate"]} userType={user.type} />}>
           <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage user={user} specificUser={specificUser}/>}/> {/*candidate*/}
           <Route path={RouteConstants.CandidateDashboard} element={<CandidateDash user={user} specificUser={specificUser}/>}/> {/*candidate */}
         </Route>
         <Route element={<PrivateRoutes requiredUserType={["Administrator", "Hiring_Manager"]} userType={user.type} />}>
-          <Route path={RouteConstants.PostJob} element={<JobUpdate user={user} specificUser={specificUser}/>}/> 
+          {/* <Route path={RouteConstants.PostJob} element={<JobUpdate user={user} specificUser={specificUser}/>}/>  */}
           <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage user={user} specificUser={specificUser}/>}/>
           <Route path={RouteConstants.JobApplicantSearchPage} element={<JobApplicantSearchPage user={user} specificUser={specificUser}/>}/>
           <Route path={RouteConstants.ManagerDashboard} element={<ManagerDash user={user} specificUser={specificUser}/>}/>
