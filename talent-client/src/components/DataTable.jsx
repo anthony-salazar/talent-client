@@ -86,6 +86,7 @@ const DataTable = ({ data, modalTitle, buttonLabel, fields, cols, onDataChange, 
         // Implement delete logic here
         onDataChange();
         setOpenModal(false);
+        handleClose();
     };
 
     return (
