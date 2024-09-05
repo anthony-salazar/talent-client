@@ -32,7 +32,7 @@ function ApplicationFormPage(props) {
         }}, [])
     return (
             <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-                <Header user={props.user} specificUser={props.specificUser} />
+                <Header user={props.user} specificUser={props.specificUser} logOut={props.logOut}/>
                 <Container sx={{textAlign: 'left', flexDirection: "column", paddingTop:'2vh', paddingBottom: '2vh'}}>
                     <Typography variant="h3" component="h1">{job.listing_title}</Typography>
                     <Grid container spacing={1}>

@@ -10,7 +10,7 @@ import jobs from "../../data/jobs.json";
 export default function ManageJobsPage(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <Header user={props.user} specificUser={props.specificUser} />
+            <Header user={props.user} specificUser={props.specificUser} logOut={props.logOut}/>
             <Container  sx = {{flex: '1 0 auto'}}>
 
             <Typography variant = 'h3' align = 'center'>Manage Jobs Page </Typography>

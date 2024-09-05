@@ -22,6 +22,7 @@ export default function Header(props) {
         setLoggedIn(true)
     } else {
         setLoggedIn(false)
+        props.logOut()
     }}, [props.user])
     return(
         <AppBar position="static" color="primary">
@@ -38,7 +39,7 @@ export default function Header(props) {
                 <Typography variant="h6" color="inherit" component="div">
                         {loggedIn ? props.user.username : "Guest"}
                 </Typography>
-                    {(loggedIn) ? (<ProfileComponent setLoggedIn={setLoggedIn} initial={props.user.username[0]}/>) : (
+                    {(loggedIn) ? (<ProfileComponent setLoggedIn={setLoggedIn} initial={props.user.username[0]} logOut={props.logOut}/>) : (
                         <div>
                             <Button sx={{color: 'white'}} onClick={() => navigate(RouteConstants.Register)}>Register</Button>
                             <Button sx={{color: 'white'}} onClick={() => {navigate(RouteConstants.Login)}}>Log In</Button>
