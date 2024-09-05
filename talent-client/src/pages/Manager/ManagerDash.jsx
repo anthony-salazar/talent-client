@@ -68,7 +68,7 @@ export default function ManagerDash(props) {
                     <DialogTitle>Create Job</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        <JobUpdate onClose={handleClose}/>
+                        <JobUpdate onClose={handleClose} specificUser={props.specificUser}/>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

@@ -37,7 +37,7 @@ const JobDetails = (props) => {
                 <DialogTitle>Update Job</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        <JobUpdate job={props.job} onClose={handleClose}/>
+                        <JobUpdate job={props.job} onClose={handleClose} specificUser={props.specificUser}/>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
