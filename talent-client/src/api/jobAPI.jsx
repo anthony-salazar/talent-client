@@ -24,7 +24,7 @@ export const getOpenJobs = async () => {
 }
 
 export const getOpenJobsByManager = async (manager_id) => {
-    const jobs = await axios.get(`${authEndpoints.base}${authEndpoints.jobs}/open/${manager_id}`)
+    const jobs = await axios.get(`${authEndpoints.base}${authEndpoints.jobs}/open/manager/${manager_id}`)
     .then((res) => {return res.data}).catch(err => console.log(err))
     return jobs;
 }
