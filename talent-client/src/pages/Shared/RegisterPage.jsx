@@ -9,7 +9,12 @@ export default function RegisterPage() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [phone, setPhone] = useState('');
     const [userType, setUserType] = useState('');
+    const [fullName, setFullName] = useState('');
+    const [department, setDepartment] = useState('');
+    const [address, setAddress] = useState('');
+    const [resume, setResume] = useState('');
 
     const handleSubmit = (e) => {
         console.log("SUBMITTING")
@@ -24,7 +29,7 @@ export default function RegisterPage() {
             return;
         }
         console.log("END SUBMIT")
-        registerUser({username: username, password: password, type: userType})
+        registerUser({username: username, password: password, type: userType, email: email, phone: phone, full_name: fullName, department: department, address: address, resume: resume})
     };
 
     return (
@@ -72,6 +77,22 @@ export default function RegisterPage() {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                 />
+                <TextField
+                    label="Phone Number"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal" 
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                />
+                <TextField
+                    label="Full Name"
+                    fullWidth
+                    variant="outlined"
+                    margin="normal" 
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                />
                 <FormControl fullWidth margin="normal">
                     <InputLabel>Account Type</InputLabel>
                     <Select
@@ -85,6 +106,40 @@ export default function RegisterPage() {
                         <MenuItem value="Candidate">Candidate</MenuItem>
                         <MenuItem value="Hiring_Manager">Manager</MenuItem>
                     </Select>
+                    { 
+                        userType === 'Hiring_Manager' &&
+                         <>
+                        <TextField
+                            label="Department"
+                            fullWidth
+                            variant="outlined"
+                            margin="normal" 
+                            value={department}
+                            onChange={(e) => setDepartment(e.target.value)}
+                        />
+                        </>
+                    }
+                    {
+                        userType === 'Candidate' && 
+                        <>
+                        <TextField
+                            label="Address"
+                            fullWidth
+                            variant="outlined"
+                            margin="normal" 
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                        />
+                        <TextField
+                            label="Resume"
+                            fullWidth
+                            variant="outlined"
+                            margin="normal" 
+                            value={resume}
+                            onChange={(e) => setResume(e.target.value)}
+                        />
+                        </>
+                    }
                 </FormControl>
                 <br></br>
                 <Button type="submit" variant="contained" sx={{backgroundColor: '#52A447'}}  onClick={(e) => handleSubmit(e)}>Register</Button>
