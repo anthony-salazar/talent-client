@@ -15,18 +15,19 @@ const JobDetails = (props) => {
     const handleClose = () => {
         setOpen(false);
     }
-    const handleDelete = () => {
-        axios.delete('http://localhost:8080/jobs/' + props.job.id)
-            .then(response => {
-                console.log(response);
-                props.setRefresh(!props.refresh);
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-            });
+    const handleDelete = async () => {
+        try {
+            await axios.delete('http://localhost:8080/jobs/' + props.job.id, { headers: {
+                'Content-Type' : 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }});
+            props.
+        } catch (error) {
+            console.error('Error deleting job:', error);
+        }
     }
 
-    return(
+    return (
         <div>
             <p><strong>Job ID:</strong> {props.job.id}</p>
             <p><strong>Job Title:</strong> {props.job.job_title}</p>
@@ -38,7 +39,7 @@ const JobDetails = (props) => {
 
             <Button variant="contained" onClick={handleClickOpen}>Update</Button>
             {/* <button className="edit-button" onClick={() => navigateApply('/jobupdate/'+ props.job.id)}>Edit</button> */}
-            <Button variant="contained" sx={{ backgroundColor: 'red', color: 'white' , marginLeft: 2}}>Delete</Button>
+            <Button variant="contained" sx={{ backgroundColor: 'red', color: 'white' , marginLeft: 2}} onClick={handleDelete}>Delete</Button>
             <Button variant="contained" sx={{ backgroundColor: 'green', color: 'white' , marginLeft: 12}} onClick={() => navigateApply('/apply/'+ props.job.id)}>Apply</Button>
 
             <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>

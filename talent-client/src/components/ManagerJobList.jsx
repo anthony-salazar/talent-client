@@ -26,7 +26,7 @@ const ManagerJobList = (props) => {
             </div>
             </div>
             <div className='column'>
-                <JobApplicationDetails job={selectedjob}/>
+                <JobApplicationDetails job={selectedjob} refresh={props.refresh} setRefresh={props.setRefresh}/>
             </div>
 
         </div>
