@@ -25,7 +25,7 @@ export default function ManageCandidateApps(props) {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-            <Header user={props.user} />
+            <Header user={props.user} specificUser={props.specificUser} logOut={props.logOut}/>
             <Container sx={{ flex: '1 0 auto' }}>
                 <Typography variant='h3' align='center'>Manage Applications Page</Typography>
                 <TableContainer component={Paper} sx={{ mt: 3 }}>

@@ -14,7 +14,7 @@ import WorkIcon from '@mui/icons-material/Work';
 export default function AdminDash(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <HeaderComponent user={props.user} specificUser={props.specificUser}/>
+            <HeaderComponent user={props.user} specificUser={props.specificUser} logOut={props.logOut}/>
             <Container sx = {{flex: '1 0 auto', padding:'10px'}}>
                 <Typography variant = 'h4' align = 'center'>Welcome, Admin</Typography>
                 <Box
