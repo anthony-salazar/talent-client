@@ -18,14 +18,7 @@ const JobDetails = (props) => {
     const handleClose = () => {
         setOpen(false);
     }
-<<<<<<< HEAD
-    console.log(props.user.id);
-    console.log(props.job.manager.user.id);
     const allowEditDelete = ((props.user.type === "Hiring_Manager" && props.user.id === props.job.manager.user.id) || props.user.type === "Administrator" ) ? true : false;
-=======
-    console.log(props.user)
-    const allowEditDelete = (props.user.type === "Hiring_Manager" || props.user.type === "Administrator" ) ? true : false;
->>>>>>> 35c29b95f8290a1c36d9039242c860e4effefd2c
     const allowApply = (props.user.type === "Candidate" || props.user.type === "Administrator" ) ? true : false;
     const allowClick = (props.job.id >= 0) ? true : false;
     const handleDelete = async () => {
