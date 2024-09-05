@@ -24,7 +24,7 @@ export default function CandidateDash(props) {
                 >
                     <Button
                         component={Link}
-                        to="/manage_apps"
+                        to="/candidate_jobs"
                         variant="contained"
                         sx={{
                             display:'flex',

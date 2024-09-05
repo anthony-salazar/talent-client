@@ -3,12 +3,14 @@ import ApplicantList from "../../components/ApplicantList";
 import CandidateListSearch from '../../components/CandidateListSearch';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import Header from "../../components/Header";
+import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const JobApplicantPage = (props) => {
     const params = useParams();
     const jobID = params.jobId;
     const [applicationList, setApplicationlist] = useState([]);
-
+    const [job, setjob] = useState({});
     useEffect(() => {
         const fetchData = async () => {
             try{
@@ -21,11 +23,27 @@ const JobApplicantPage = (props) => {
         };
         fetchData();
     }, []);
-
+    useEffect(() => {
+        const fetchData = async () => {
+            try{
+                const response = await axios.get('http://localhost:8080/jobs/' + jobID).then(res => {return res.data});
+                setjob(response);
+            }
+            catch(err){
+                throw new Error('There error in Job Applicant Search Page');
+            }
+        };
+        fetchData();
+    }, []);
     return(
         <div className="job-search-page">
-                <p>Job</p>
-                <CandidateListSearch applicationList={applicationList}/>
+                <Header user={props.user}/>
+                <div className="job-card-list">
+                <div>
+                    <p><strong>Job Title:</strong> {job.job_title}</p>
+                    <p><strong>Job Description:</strong> {job.job_description}</p>
+                </div>
+                </div>
                 <ApplicantList applicationList={applicationList}/>
         </div>
     );
