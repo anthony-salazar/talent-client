@@ -63,11 +63,10 @@
 .job-search-page {
   background-color: #fff;
   color: black;
-  min-height: 100vh;
+  min-height: 90%;
   min-width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -129,9 +128,20 @@
   margin-bottom: 15px;
 }
 
+.job-card-list {
+  background-color: #e0e0e0;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 88%;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
 .job-container {
   display: flex;
   width: 90%;
+  border: 2px solid #000;
 }
 .column {
   flex: 1;
