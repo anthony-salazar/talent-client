@@ -4,13 +4,14 @@ import CandidateListSearch from '../../components/CandidateListSearch';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
-import {Box } from "@mui/material";
+import {Box, Typography } from "@mui/material";
 
 const JobApplicantPage = (props) => {
     const params = useParams();
     const jobID = params.jobId;
     const [applicationList, setApplicationlist] = useState([]);
     const [job, setjob] = useState({});
+    const [refresh, setRefresh] = useState(false);
     useEffect(() => {
         const fetchData = async () => {
             try{
@@ -22,7 +23,7 @@ const JobApplicantPage = (props) => {
             }
         };
         fetchData();
-    }, []);
+    }, [refresh]);
     useEffect(() => {
         const fetchData = async () => {
             try{
@@ -35,17 +36,15 @@ const JobApplicantPage = (props) => {
         };
         fetchData();
     }, []);
+    const refreshList = () => {
+        setRefresh(!refresh);
+    };
     return(
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
             <Header user={props.user}/>
             <div className="job-search-page">
-                    <div className="job-card-list">
-                    <div>
-                        <p><strong>Job Title:</strong> {job.job_title}</p>
-                        <p><strong>Job Description:</strong> {job.job_description}</p>
-                    </div>
-                    </div>
-                    <ApplicantList applicationList={applicationList}/>
+                    <Typography variant="h4" component="h4">Applications for {job.job_title} (Job ID: {job.id})</Typography>
+                    <ApplicantList refreshList={refreshList} applicationList={applicationList}/>
             </div>
         </Box>
     );

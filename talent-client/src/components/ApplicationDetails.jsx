@@ -31,13 +31,16 @@ const ApplicantDetails = (props) => {
               "Access-Control-Allow-Origin": "*",
             },
           }
-        );
+        ).then(() => handleRefresh(updateApplication));
         handleClose();
       } catch (error) {
         console.error("Error updating job:", error);
       }
     };
-
+    const handleRefresh = (updateApplication) => {
+      props.refreshList();
+      props.setApplication(updateApplication);
+    }
     //create field for dataForm using the fields from the job object
     const fields = [
       {
