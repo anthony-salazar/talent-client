@@ -12,7 +12,7 @@ const DataForm = ({ open, onClose, onSave, onDelete, data, fields, modalTitle })
   };
 
   return (
-    <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
+    <Dialog open={open} onClose={onClose} onDelete={onDelete} maxWidth="md" fullWidth>
       <DialogTitle>{modalTitle}</DialogTitle>
       <DialogContent>
         {fields.map((field) => (
@@ -53,7 +53,7 @@ const DataForm = ({ open, onClose, onSave, onDelete, data, fields, modalTitle })
       <DialogActions>
         <Button onClick={() => onSave(formData)} color="primary">Save</Button>
         <Button onClick={onClose} color="secondary">Cancel</Button>
-        <Button onClick={() => onDelete(formData)} color="secondary">Delete</Button>
+        {onDelete && <Button onClick={() => onDelete(formData)} color="secondary">Delete</Button>}
       </DialogActions>
     </Dialog>
   );
