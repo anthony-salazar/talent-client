@@ -1,25 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../App.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import DataForm from "../../components/DataForm";
 import Button from "@mui/material/Button";
 
-const JobApplicationDetails = (props) => {
-  const navigateApply = useNavigate();
-  const managerObject = props.specificUser;
+const RouteConstants = {
+  JobApplicantSearchPage: "/job-applicants",
+};
 
-  const handleDelete = async () => {
-    try {
-      await axios.delete("http://localhost:8080/jobs/" + props.job.id, {
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
-    } catch (error) {
-      console.error("Error deleting job:", error);
-    }
+const JobApplicationDetails = (props) => {
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   const handleSave = async (updatedJob) => {
@@ -38,6 +37,24 @@ const JobApplicationDetails = (props) => {
       console.error("Error updating job:", error);
     }
   };
+
+  const navigateCandidates = (path) => {
+    navigate(path);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axios.delete("http://localhost:8080/jobs/" + props.job.id, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      });
+    } catch (error) {
+      console.error("Error deleting job:", error);
+    }
+  };
+
 
   const fields = [
     { name: "job_title", label: "Job Title", type: "text", readonly: false },
