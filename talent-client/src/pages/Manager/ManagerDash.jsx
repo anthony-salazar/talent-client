@@ -47,7 +47,7 @@ export default function ManagerDash(props) {
         { name: 'additional_information', label: 'Additional Information', type: 'text', rows: 4 },
         { name: 'listing_status', label: 'Job Status', type: 'select', options: ['OPEN', 'CLOSED'] }
     ]
-
+    console.log(props)
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
             <HeaderComponent user={props.user} />

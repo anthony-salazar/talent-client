@@ -14,7 +14,9 @@ const JobList = (props) => {
         "job_title": "",
         "job_description": "",
         "additional_information" : "",
-        "listing_status": ""};
+        "listing_status": "",
+        "manager": {"user": {"id": ''}}
+        };
     const [selectedjob, setjob] = useState(blankJob);
     return (
       <div className="job-container">

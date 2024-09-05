@@ -57,6 +57,11 @@ export default function ManageUsersPage(props) {
     const closeRegisterDialog = () => {
         console.log("in closedialog");
         setButtonClicked(false);
+        setUsername("");
+        setConfirmPassword("");
+        setUserType('');
+        setPassword('');
+        setEmail('');
     }
 
     const handleSubmit = (e) => {
