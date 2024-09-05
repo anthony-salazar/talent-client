@@ -7,13 +7,11 @@ import WorkIcon from '@mui/icons-material/Work';
 import HeaderComponent from "../../components/Header";
 import axios from 'axios';
 
-const manager = {
-    id: 1,
-    name: "John Doe",
-    email: "john.doe@example.com"
-};
 
 export default function ManagerDash(props) {
+
+    const manager = props.specificUser;
+
     const [open, setOpen] = useState(false);
     const handleClickOpen = () => {
         setOpen(true);
