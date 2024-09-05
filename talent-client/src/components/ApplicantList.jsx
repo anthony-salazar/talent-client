@@ -23,7 +23,7 @@ const ApplicantList = (props) => {
             </div>
             </div>
             <div className='column'>
-                {selectedApplication.id > 0 ? (<ApplicantDetails candidate={selectedCandidate} application={selectedApplication} />) :(<p>Select an Application</p>) }
+                {selectedApplication.id > 0 ? (<ApplicantDetails refreshList={props.refreshList}  candidate={selectedCandidate} application={selectedApplication} setApplication={setApplication}/>) :(<p>Select an Application</p>) }
             </div>
         </div>
     );
