@@ -14,6 +14,8 @@ export default function Header(props) {
     const onNavClick = (id) => {
         if (id === 'My Postings') {
             navigate(userNavs[localType][id] + props.specificUser.id)
+        } else  {
+            navigate(userNavs[localType][id])
         }
     }
     useEffect(() => {if (props.user.username && props.user.type){
