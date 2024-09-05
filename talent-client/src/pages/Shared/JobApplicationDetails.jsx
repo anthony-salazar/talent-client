@@ -4,10 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import DataForm from "../../components/DataForm";
 import Button from "@mui/material/Button";
-
-const RouteConstants = {
-  JobApplicantSearchPage: "/job-applicants",
-};
+import RouteConstants from "../../routeConstants";
 
 const JobApplicationDetails = (props) => {
   const navigate = useNavigate();

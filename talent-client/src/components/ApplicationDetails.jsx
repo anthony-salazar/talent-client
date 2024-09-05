@@ -21,6 +21,7 @@ const ApplicantDetails = (props) => {
 
     const handleSave = async (updateApplication) => {
       try {
+        console.log(updateApplication);
         await axios.put(
           "http://localhost:8080/applications/" + props.application.id,
           updateApplication,
@@ -40,10 +41,10 @@ const ApplicantDetails = (props) => {
     //create field for dataForm using the fields from the job object
     const fields = [
       {
-        name: "listing_status",
+        name: "application_status",
         label: "Job Status",
         type: "select",
-        options: ["OPEN", "CLOSED"],
+        options: ["OPEN", "CLOSED", "UNDER REVIEW"],
       },
     ];
     return (
@@ -84,8 +85,8 @@ const ApplicantDetails = (props) => {
               open={open}
               onClose={handleClose}
               onSave={handleSave}
-              onDelete={{}} // No delete functionality
-              data={props.job}
+            //   onDelete={{}} // No delete functionality
+              data={props.application}
               fields={fields}
               modalTitle="Job Details"
             />
