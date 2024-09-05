@@ -115,6 +115,7 @@
   overflow-x: auto;
   padding-right: 10px;
   align-items: center;
+  border-right: 2px solid #000;
 }
 
 .job-card {
@@ -128,24 +129,16 @@
   margin-bottom: 15px;
 }
 
-.job-card-list {
-  background-color: #e0e0e0;
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 88%;
-  margin: 0 auto;
-  margin-bottom: 15px;
-}
-
 .job-container {
   display: flex;
   width: 90%;
-  border: 2px solid #000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  min-height: 70%;
 }
 .column {
   flex: 1;
-  padding: 5px;
+  padding: 10px;
 }
 
 .job-title {
