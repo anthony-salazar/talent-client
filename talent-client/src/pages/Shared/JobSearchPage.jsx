@@ -26,7 +26,7 @@ export default function JobSearch(props) {
     return (
         <div>
             <div>
-                <Header user={props.user}/>
+                <Header user={props.user} specificUser={props.specificUser}/>
             </div>
             <div className="job-search-page">
                 <Typography variant="h4" component="h4">Search Jobs</Typography>
