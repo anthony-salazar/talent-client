@@ -2,43 +2,12 @@ import React from 'react';
 import { Container, Box , Typography } from '@mui/material';
 import HeaderComponent from '../../components/Header';
 import FooterComponent from '../../components/Footer';
-import { getAllApplications, getApplicationById, getApplicationByJobId, getApplicationByManagerId, getApplicationByUserId } from '../../api/applicationApi';
+import { getAllApplications, getApplicationById, getApplicationByJobId, 
+    getApplicationByManagerId, getApplicationByUserId,addApplication, 
+    updateApplication, deleteApplicationById} from '../../api/applicationApi';
 import { useEffect } from 'react';
 
 export default function HomePage(props) {
-
-    const applications = async () => {
-        let temp = getAllApplications();
-        console.log(temp)
-    };
-    const applicationByID = async () => {
-        let temp = getApplicationById(1);
-        console.log("applicationByID ",temp)
-    };
-
-    const applicationByMangerID = async () => {
-        let temp = getApplicationByManagerId(1);
-        console.log("applicationByManagerID ",temp)
-    };
-
-    const applicationByJobID = async () => {
-        let temp = getApplicationByJobId(1);
-        console.log("applicationByJobID ",temp)
-    };
-
-    const applicationByUserID = async () => {
-        let temp = getApplicationByUserId(1);
-        console.log("applicationByUserID ",temp)
-    };
-
-    useEffect(() => {
-        applications();
-        applicationByID();
-        applicationByUserID();
-        applicationByJobID();
-        applicationByMangerID();
-    });
-    //useEffect(() => applications(),[]);
 
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>

@@ -10,7 +10,6 @@ export const getAllApplications = async() =>{
         return response.data;
     }catch(error){
         console.error(error);
-        //throw error;
     }
 };
 
@@ -18,9 +17,10 @@ export const getAllApplications = async() =>{
 export const getApplicationById = async(id) =>{
     try{
         const response = await axios.get(`${baseApplicationURL}/${id}`);
-        console.log("Get Application by ID ",response.data);
+        console.log("Get Application by ID ",response);
+        return response.data;
     }catch(error){
-        throw error;
+        console.log(error);
     }
 
 };
@@ -30,8 +30,9 @@ export const getApplicationByManagerId = async(manager_id) =>{
     try{
         const response = await axios.get(`${baseApplicationURL}/manager/${manager_id}`);
         console.log("Get Application by Manager ID ",response.data);
+        return response.data;
     }catch(error){
-        throw error;
+        console.log(error);
     }
 
 };
@@ -41,8 +42,9 @@ export const getApplicationByJobId = async(job_id) =>{
     try{
         const response = await axios.get(`${baseApplicationURL}/job/${job_id}`);
         console.log("Get Application by Job ID ",response.data);
+        return response.data;
     }catch(error){
-        throw error;
+        console.log(error);
     }
 };
 
@@ -51,39 +53,60 @@ export const getApplicationByUserId = async(user_id) =>{
     try{
         const response = await axios.get(`${baseApplicationURL}/user/${user_id}`);
         console.log("Get Application by User ID ",response.data);
+        return response.data;
     }catch(error){
-        throw error;
+        console.log(error);
     }
 };
 
 //Delete application by ID
 export const deleteApplicationById = async(id) =>{
     try{
-        const response = await axios.delete(`${baseApplicationURL}/${id}`);
+        console.log(`${baseApplicationURL}/${id}`)
+        const response = await axios.delete(`${baseApplicationURL}/${id}`,{
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        });
         console.log("Delete flag ",response.data);
+        return response.data;
     }catch(error){
-        throw error;
+        //throw error;
+        console.log(error);
     }
 };
 
 //Add application 
 export const addApplication = async(application) =>{
-    try{
-        const response = await axios.post(`${baseApplicationURL}`, application);
-        //response.status
-        console.log("Add Application ",response.data);
-    }catch(error){
-        throw error;
-    }
+    fetch(baseApplicationURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(application),
+      })
+        .then(response => { return response.json().then(data => {
+            console.log(data);
+            return data;
+        })}
+            )
+        .catch(error => {
+            console.log(error);
+        });
 };
 
 //Update application 
 export const updateApplication = async(id, application) =>{
-    try{
-        const response = await axios.put(`${baseApplicationURL}/${id}`, application);
-        //response.status
-        console.log("Update Application ",response.data);
-    }catch(error){
-        throw error;
-    }
+        const response = await axios.put(`${baseApplicationURL}/${id}`, 
+            application,{
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            }).then(response => response).then(data => {
+                return data;
+            }).catch(error => {
+                console.log(error);
+            });
 };
