@@ -36,7 +36,7 @@ function App() {
         <Route path={RouteConstants.Login} element={<LoginPage setUser={setUser} setSpecificUser={setSpecificUser}/>}/>
         <Route path={RouteConstants.Register} element={<RegisterPage/>}/>
         <Route path={RouteConstants.JobSearch} element={<JobSearchPage user={user} specificUser={specificUser} logOut={logOutUser}/>}/>
-        <Route path={RouteConstants.NoAccess} element={<NoAccessPage user={user} specificUser={specificUser} logOut={logOutUser}/>} />
+        {/*<Route path={RouteConstants.NoAccess} element={<NoAccessPage user={user} specificUser={specificUser} logOut={logOutUser}/>} />*/}
         <Route path="*" element={<NotFoundPage user={user} specificUser={specificUser} logOut={logOutUser}/>}/>
 
 

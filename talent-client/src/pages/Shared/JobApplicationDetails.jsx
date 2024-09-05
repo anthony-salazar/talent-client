@@ -7,6 +7,19 @@ import Button from "@mui/material/Button";
 import RouteConstants from "../../routeConstants";
 
 const JobApplicationDetails = (props) => {
+    const blankJob = {
+        "id" : '',
+        "manager_id": '',
+        "department": "",
+        "listing_title": "",
+        "date_listed": "",
+        "date_closed": "",
+        "job_title": "",
+        "job_description": "",
+        "additional_information" : "",
+        "listing_status": "",
+        "manager": {"user": {"id": ''}}
+    };
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
@@ -17,6 +30,15 @@ const JobApplicationDetails = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleRefresh = (updateJob) => {
+    props.refreshJobs()
+    if (updateJob) {
+        props.setSelectedJob(updateJob)
+    } else {
+        props.setSelectedJob(blankJob)
+    }
+  }
 
   const handleSave = async (updatedJob) => {
     try {
@@ -29,7 +51,8 @@ const JobApplicationDetails = (props) => {
             "Access-Control-Allow-Origin": "*",
           },
         }
-      );
+      ).then(() => handleRefresh(updatedJob));
+      handleClose();
     } catch (error) {
       console.error("Error updating job:", error);
     }
@@ -46,7 +69,8 @@ const JobApplicationDetails = (props) => {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
         },
-      });
+      }).then(() => handleRefresh());
+      handleClose()
     } catch (error) {
       console.error("Error deleting job:", error);
     }

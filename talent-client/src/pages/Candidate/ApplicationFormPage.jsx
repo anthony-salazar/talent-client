@@ -2,13 +2,15 @@ import { Label } from "@mui/icons-material";
 import { Container, FormControl, TextField, Typography, Button, Box } from "@mui/material";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getJobByID } from "../../api/jobAPI";
 import Grid from '@mui/material/Grid2'
 import { addApplication } from "../../api/applicationApi";
+import RouteConstants from "../../routeConstants";
 
 function ApplicationFormPage(props) {
+    const navigate = useNavigate()
     const params = useParams();
     const id = params.jobId
     const [coverLetter, setCL] = useState('')
@@ -24,6 +26,7 @@ function ApplicationFormPage(props) {
     const submitApplication = () => {
         const application = {user: props.user, job: job, cover_letter: coverLetter, custom_resume: resume, application_status: "Open"}
         addApplication(application)
+        navigate(RouteConstants.JobSearch)
     }
     useEffect(() => {fetchJob(); 
         if (props.user.type === "Candidate") {

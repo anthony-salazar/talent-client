@@ -14,7 +14,11 @@ export default function JobSearch(props) {
             const response = await axios.get("http://localhost:8080/jobs").then(res => {
                 return res.data
             });
-            setJobs(response);
+            if (!response) {
+                setJobs([])
+            } else {
+                setJobs(response);
+            }
         };
         fetchJobs();
     }, [refresh]);
@@ -31,7 +35,7 @@ export default function JobSearch(props) {
             <div className="job-search-page">
                 <Typography variant="h4" component="h4">Search Jobs</Typography>
                 <SearchBar setJobs={setJobs}/>
-                <JobList user={props.user} jobs={jobs} refreshJobList={refreshJobList}/>
+                <JobList user={props.user} jobs={jobs} refreshJobList={refreshJobList} refresh={refresh}/>
             </div>
         </div>
     );

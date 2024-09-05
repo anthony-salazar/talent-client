@@ -4,9 +4,23 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import DataForm from '../../components/DataForm';
 import Button from '@mui/material/Button';
+import { updateJob } from '../../api/jobAPI';
 
 const JobDetails = (props) => {
     // console.log(props.user);
+    const blankJob = {
+        "id" : '',
+        "manager_id": '',
+        "department": "",
+        "listing_title": "",
+        "date_listed": "",
+        "date_closed": "",
+        "job_title": "",
+        "job_description": "",
+        "additional_information" : "",
+        "listing_status": "",
+        "manager": {"user": {"id": ''}}
+        };
     const navigateApply = useNavigate();
     const [open, setOpen] = React.useState(false);
     // const [userType, setUserType] = React.useState('candidate'); // Dummy usertype constant
@@ -18,6 +32,14 @@ const JobDetails = (props) => {
     const handleClose = () => {
         setOpen(false);
     }
+    const handleRefresh = (updateJob) => {
+        props.refreshJobs()
+        if (updateJob) {
+            props.setSelectedJob(updateJob)
+        } else {
+            props.setSelectedJob(blankJob)
+        }
+    }
     const allowEditDelete = ((props.user.type === "Hiring_Manager" && props.user.id === props.job.manager.user.id) || props.user.type === "Administrator" ) ? true : false;
     const allowApply = (props.user.type === "Candidate" || props.user.type === "Administrator" ) ? true : false;
     const allowClick = (props.job.id >= 0) ? true : false;
@@ -26,7 +48,7 @@ const JobDetails = (props) => {
             await axios.delete('http://localhost:8080/jobs/' + props.job.id, { headers: {
                 'Content-Type' : 'application/json',
                 'Access-Control-Allow-Origin': '*'
-            }});
+            }}).then(() => handleRefresh());
         } catch (error) {
             console.error('Error deleting job:', error);
         }
@@ -37,7 +59,7 @@ const JobDetails = (props) => {
             await axios.put('http://localhost:8080/jobs/' + props.job.id, updatedJob, { headers: {
                 'Content-Type' : 'application/json',
                 'Access-Control-Allow-Origin': '*'
-            }});
+            }}).then(() => handleRefresh(updatedJob));
             handleClose();
         } catch (error) {
             console.error('Error updating job:', error);

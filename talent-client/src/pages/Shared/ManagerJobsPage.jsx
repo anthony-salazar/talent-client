@@ -11,15 +11,21 @@ import { getOpenJobsByManager } from "../../api/jobAPI";
 export default function ManagerJobsPage(props) {
     const [jobs, setJobs] = useState([]);
     const params = useParams();
-    const id = params.managerId
+    const id = params.managerId;
+    const [refresh, setRefresh] = useState(false);
+    const refreshJobList = () => {
+        setRefresh(!refresh);
+    };
     useEffect(() => {
         const managerJobs = async () => {
-            const temp = await getOpenJobsByManager(id)
-            console.log(temp)
+            let temp = await getOpenJobsByManager(id)
+            if (!temp) {
+                temp = []
+            }
             setJobs(temp)
         }
         managerJobs()
-    }, []);
+    }, [refresh]);
 
     return (
         <div>
@@ -29,7 +35,7 @@ export default function ManagerJobsPage(props) {
             <div >
                 <Typography variant="h4" component="h4">Your Job Postings</Typography>
                 {/* <SearchBar setJobs={setJobs}/> */}
-                <ManagerJobList jobs={jobs} user={props.user} specificUser={props.specificUser}/>
+                <ManagerJobList jobs={jobs} user={props.user} specificUser={props.specificUser} refresh={refresh} refreshJobs={refreshJobList}/>
             </div>
         </div>
     );

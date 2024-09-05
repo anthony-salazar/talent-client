@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import {TextField, Button, Container, Typography, Alert, Select, MenuItem, InputLabel, FormControl} from '@mui/material';
 import { registerUser } from "../../api/authApi";
+import { useNavigate } from "react-router-dom";
+import RouteConstants from "../../routeConstants";
 
 export default function RegisterPage() {
 
@@ -15,7 +17,7 @@ export default function RegisterPage() {
     const [department, setDepartment] = useState('');
     const [address, setAddress] = useState('');
     const [resume, setResume] = useState('');
-
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         console.log("SUBMITTING")
         e.preventDefault();
@@ -30,6 +32,7 @@ export default function RegisterPage() {
         }
         console.log("END SUBMIT")
         registerUser({username: username, password: password, type: userType, email: email, phone: phone, full_name: fullName, department: department, address: address, resume: resume})
+        navigate(RouteConstants.Login)
     };
 
     return (
