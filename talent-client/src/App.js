@@ -16,39 +16,40 @@ import CandidateDash from './pages/Candidate/CandidateDash.jsx';
 import ManagerDash from './pages/Manager/ManagerDash.jsx';
 import PrivateRoutes from './privateRoutes.js';
 import NoAccessPage from './pages/Shared/NoAccessPage.jsx';
+import JobApplicantSearchPage from './pages/Manager/JobApplicantSearchPage.jsx'
+import ManagerJobsPage from './pages/Shared/ManageJobsPage.jsx';
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [userType, setUserType] = useState('')
-  const [username, setUsername] = useState('')
-  const [user, setUser] = useState({name: username, type: userType})
-  useEffect(() => {if (userType && username) {
-      setUser({name: username, type: userType})
-    } else {
-      setUser({name: '', type: ''})
-    }}, [userType, username]);
+  const [specificUser, setSpecificUser] = useState({name: '', type: ''})
+  const [user, setUser] = useState({name: '', type: ''})
   return (
     <div className="App">
       <Routes>
-         <Route path={RouteConstants.Home} element={<HomePage user={user}/>}/>
-         <Route path={RouteConstants.Login} element={<LoginPage setUsername={setUsername} setUserType={setUserType}/>}/>
-         <Route path={RouteConstants.Register} element={<RegisterPage/>}/>
-         <Route path={RouteConstants.JobSearch} element={<JobSearchPage user={user}/>}/>
-         <Route path={RouteConstants.PostJob} element={<JobUpdate user={user}/>}/>
-         <Route path={RouteConstants.NoAccess} element={<NoAccessPage user={user}/>} />
-
-         <Route element={<PrivateRoutes requiredUserType="Administrator" userType={userType} />}>
-          <Route path={RouteConstants.ManageUsers} element={<ManageUsersPage user={user}/>}/>
-          <Route path={RouteConstants.ManageApps} element={<ManageAppsPage user={user}/>}/>
+        <Route path={RouteConstants.Home} element={<HomePage user={user}/>}/>
+        <Route path={RouteConstants.Login} element={<LoginPage setUser={setUser} setSpecificUser={setSpecificUser}/>}/>
+        <Route path={RouteConstants.Register} element={<RegisterPage/>}/>
+        <Route path={RouteConstants.JobSearch} element={<JobSearchPage user={user}/>}/>
+        <Route path={RouteConstants.NoAccess} element={<NoAccessPage user={user}/>} />
+        <Route path="*" element={<NotFoundPage user={user}/>}/>
+        
+        
+        <Route element={<PrivateRoutes requiredUserType={["Administrator"]} userType={user.type} />}>
+          <Route path={RouteConstants.ManageUsers} element={<ManageUsersPage user={user}/>}/> {/*only admin */}
+          <Route path={RouteConstants.ManageApps} element={<ManageAppsPage user={user}/>}/> {/*only admin */}
+          <Route path={RouteConstants.AdminDashboard} element={<AdminDash user={user}/>} /> {/*admin*/}
+        </Route>
+      
+        <Route element={<PrivateRoutes requiredUserType={["Administrator", "Candidate"]} userType={user.type} />}>
+          <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage user={user}/>}/> {/*candidate*/}
+          <Route path={RouteConstants.CandidateDashboard} element={<CandidateDash user={user}/>}/> {/*candidate */}
+        </Route>
+        <Route element={<PrivateRoutes requiredUserType={["Administrator", "Hiring_Manager"]} userType={user.type} />}>
+          <Route path={RouteConstants.PostJob} element={<JobUpdate user={user}/>}/> 
           <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage user={user}/>}/>
-         </Route>
-
-         <Route path={RouteConstants.CandidateDashboard} element={<CandidateDash user={user}/>}/>
-         <Route path={RouteConstants.ManagerDashboard} element={<ManagerDash user={user}/>}/>
-         <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage user={user}/>}/>
-         <Route path="*" element={<NotFoundPage user={user}/>}/>
-         <Route path={RouteConstants.AdminDashboard} element={<AdminDash user={user}/>} />
-
+          <Route path={RouteConstants.JobApplicantSearchPage} element={<JobApplicantSearchPage user={user}/>}/>
+          <Route path={RouteConstants.ManagerDashboard} element={<ManagerDash user={user}/>}/>
+        </Route>
        </Routes>
     </div>
   );

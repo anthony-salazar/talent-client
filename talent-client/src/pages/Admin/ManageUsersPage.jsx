@@ -28,12 +28,13 @@ export default function ManageUsersPage(props) {
         };
     
         fetchUsers();
-      }, []); // Empty array to run effect only once on component mount
+      }, [users]); // Empty array to run effect only once on component mount
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 150 },
         { field: 'username', headerName: 'Username', width: 150 },
         { field: 'password', headerName: 'Password', width: 150 },
+        { field: 'type', headerName: 'Type', width: 150}
     ];
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
