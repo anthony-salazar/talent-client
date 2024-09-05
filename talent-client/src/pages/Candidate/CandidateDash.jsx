@@ -6,7 +6,7 @@ import {Box, Container, Typography, Button} from '@mui/material';
 import { Link } from "react-router-dom";
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import WorkIcon from '@mui/icons-material/Work';
-
+import Footer from "../../components/Footer";
 
 export default function CandidateDash(props) {
     return (
@@ -57,6 +57,7 @@ export default function CandidateDash(props) {
                 </Box>
                 
             </Container>
+            <Footer/>
         </Box>
     )
 }
