@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import '../../App.css';
 import { useNavigate } from 'react-router-dom';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@mui/material';
-// import JobUpdate from "../../components/JobUpdate";
 import axios from 'axios';
 import DataForm from '../../components/DataForm';
+import Button from '@mui/material/Button';
 
 const JobDetails = (props) => {
-    console.log(props.user);
+    // console.log(props.user);
     const navigateApply = useNavigate();
     const [open, setOpen] = React.useState(false);
     // const [userType, setUserType] = React.useState('candidate'); // Dummy usertype constant

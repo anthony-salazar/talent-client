@@ -15,7 +15,7 @@ export default function ManageJobsPage(props) {
 
             <Typography variant = 'h3' align = 'center'>Manage Jobs Page </Typography>
             {/* <DataTable data = {jobs}/> */}
-            <JobList jobs={jobs}/>
+            <JobList jobs={jobs} user={props.user}/>
         </Container>
         <Footer/>
         </Box>
