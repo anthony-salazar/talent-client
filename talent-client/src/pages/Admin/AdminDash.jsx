@@ -10,6 +10,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import WorkIcon from '@mui/icons-material/Work';
+import Footer from "../../components/Footer";
 
 export default function AdminDash(props) {
     return (
@@ -76,14 +77,7 @@ export default function AdminDash(props) {
                 </Box>
                 
             </Container>
-            <Container sx={{padding:'10px'}}>
-            <footer>
-                <Typography variant='h6' align='center'>Click Below to Change Views</Typography>
-                <Button component={Link} to='/candidate'>Candidate View</Button>
-                <Button component={Link} to='/manager'>Manager View</Button>
-            </footer>
-            </Container>
-            
+            <Footer/>
         </Box>
     )
 }
