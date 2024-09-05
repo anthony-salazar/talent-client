@@ -14,6 +14,8 @@ const ApplicantList = (props) => {
     };
     const [selectedApplication, setApplication] = useState({});
     const [selectedCandidate, setSelectedCandidate] = useState(blankCandidate);
+    const [searchTerm, setSearch] = useState("");
+    
     return(
         <div className='job-container'>
             <div className='column'>
@@ -23,9 +25,8 @@ const ApplicantList = (props) => {
             </div>
             </div>
             <div className='column'>
-                <ApplicantDetails candidate={selectedCandidate} application={selectedApplication} />
+                {selectedApplication.id > 0 ? (<ApplicantDetails candidate={selectedCandidate} application={selectedApplication} />) :(<p>Select an Application</p>) }
             </div>
-
         </div>
     );
 }

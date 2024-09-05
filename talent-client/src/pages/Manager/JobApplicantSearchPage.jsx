@@ -3,6 +3,7 @@ import ApplicantList from "../../components/ApplicantList";
 import CandidateListSearch from '../../components/CandidateListSearch';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import Header from "../../components/Header";
 
 const JobApplicantPage = (props) => {
     const params = useParams();
@@ -24,7 +25,9 @@ const JobApplicantPage = (props) => {
 
     return(
         <div className="job-search-page">
-                <p>Job</p>
+                <Header user={props.user}/>
+                <p>Job Details</p>
+                <p></p>
                 <CandidateListSearch applicationList={applicationList}/>
                 <ApplicantList applicationList={applicationList}/>
         </div>
