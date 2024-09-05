@@ -26,29 +26,29 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path={RouteConstants.Home} element={<HomePage user={user}/>}/>
+        <Route path={RouteConstants.Home} element={<HomePage user={user} specificUser={specificUser}/>}/>
         <Route path={RouteConstants.Login} element={<LoginPage setUser={setUser} setSpecificUser={setSpecificUser}/>}/>
         <Route path={RouteConstants.Register} element={<RegisterPage/>}/>
-        <Route path={RouteConstants.JobSearch} element={<JobSearchPage user={user}/>}/>
-        <Route path={RouteConstants.NoAccess} element={<NoAccessPage user={user}/>} />
-        <Route path="*" element={<NotFoundPage user={user}/>}/>
+        <Route path={RouteConstants.JobSearch} element={<JobSearchPage user={user} specificUser={specificUser}/>}/>
+        <Route path={RouteConstants.NoAccess} element={<NoAccessPage user={user} specificUser={specificUser}/>} />
+        <Route path="*" element={<NotFoundPage user={user} specificUser={specificUser}/>}/>
         
         
         <Route element={<PrivateRoutes requiredUserType={["Administrator"]} userType={user.type} />}>
-          <Route path={RouteConstants.ManageUsers} element={<ManageUsersPage user={user}/>}/> {/*only admin */}
-          <Route path={RouteConstants.ManageApps} element={<ManageAppsPage user={user}/>}/> {/*only admin */}
-          <Route path={RouteConstants.AdminDashboard} element={<AdminDash user={user}/>} /> {/*admin*/}
+          <Route path={RouteConstants.ManageUsers} element={<ManageUsersPage user={user} specificUser={specificUser}/>}/> {/*only admin */}
+          <Route path={RouteConstants.ManageApps} element={<ManageAppsPage user={user} specificUser={specificUser}/>}/> {/*only admin */}
+          <Route path={RouteConstants.AdminDashboard} element={<AdminDash user={user} specificUser={specificUser}/>} /> {/*admin*/}
         </Route>
       
         <Route element={<PrivateRoutes requiredUserType={["Administrator", "Candidate"]} userType={user.type} />}>
-          <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage user={user}/>}/> {/*candidate*/}
-          <Route path={RouteConstants.CandidateDashboard} element={<CandidateDash user={user}/>}/> {/*candidate */}
+          <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage user={user} specificUser={specificUser}/>}/> {/*candidate*/}
+          <Route path={RouteConstants.CandidateDashboard} element={<CandidateDash user={user} specificUser={specificUser}/>}/> {/*candidate */}
         </Route>
         <Route element={<PrivateRoutes requiredUserType={["Administrator", "Hiring_Manager"]} userType={user.type} />}>
-          <Route path={RouteConstants.PostJob} element={<JobUpdate user={user}/>}/> 
-          <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage user={user}/>}/>
-          <Route path={RouteConstants.JobApplicantSearchPage} element={<JobApplicantSearchPage user={user}/>}/>
-          <Route path={RouteConstants.ManagerDashboard} element={<ManagerDash user={user}/>}/>
+          <Route path={RouteConstants.PostJob} element={<JobUpdate user={user} specificUser={specificUser}/>}/> 
+          <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage user={user} specificUser={specificUser}/>}/>
+          <Route path={RouteConstants.JobApplicantSearchPage} element={<JobApplicantSearchPage user={user} specificUser={specificUser}/>}/>
+          <Route path={RouteConstants.ManagerDashboard} element={<ManagerDash user={user} specificUser={specificUser}/>}/>
         </Route>
        </Routes>
     </div>
