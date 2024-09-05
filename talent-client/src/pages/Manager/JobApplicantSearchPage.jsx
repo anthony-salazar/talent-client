@@ -4,7 +4,7 @@ import CandidateListSearch from '../../components/CandidateListSearch';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header";
-import { alignProperty } from "@mui/material/styles/cssUtils";
+import {Box } from "@mui/material";
 
 const JobApplicantPage = (props) => {
     const params = useParams();
@@ -36,16 +36,18 @@ const JobApplicantPage = (props) => {
         fetchData();
     }, []);
     return(
-        <div className="job-search-page">
-                <Header user={props.user}/>
-                <div className="job-card-list">
-                <div>
-                    <p><strong>Job Title:</strong> {job.job_title}</p>
-                    <p><strong>Job Description:</strong> {job.job_description}</p>
-                </div>
-                </div>
-                <ApplicantList applicationList={applicationList}/>
-        </div>
+        <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
+            <Header user={props.user}/>
+            <div className="job-search-page">
+                    <div className="job-card-list">
+                    <div>
+                        <p><strong>Job Title:</strong> {job.job_title}</p>
+                        <p><strong>Job Description:</strong> {job.job_description}</p>
+                    </div>
+                    </div>
+                    <ApplicantList applicationList={applicationList}/>
+            </div>
+        </Box>
     );
 
 
