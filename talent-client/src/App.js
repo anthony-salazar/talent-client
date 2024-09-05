@@ -10,6 +10,7 @@ import ApplicationFormPage from './pages/Candidate/ApplicationFormPage.jsx';
 import JobUpdate from './components/JobUpdate.jsx';
 import ManageUsersPage from './pages/Admin/ManageUsersPage.jsx';
 import ManageAppsPage from './pages/Admin/ManageAppsPage.jsx';
+import ManageCandidateApps from './pages/Candidate/ManageCandidateAppsPage.jsx';
 import ManageJobsPage from './pages/Admin/ManageJobsPage.jsx';
 import AdminDash from './pages/Admin/AdminDash.jsx';
 import CandidateDash from './pages/Candidate/CandidateDash.jsx';
@@ -44,7 +45,9 @@ function App() {
         <Route element={<PrivateRoutes requiredUserType={["Administrator", "Candidate"]} userType={user.type} />}>
           <Route path={RouteConstants.ApplyJob} element={<ApplicationFormPage user={user} specificUser={specificUser}/>}/> {/*candidate*/}
           <Route path={RouteConstants.CandidateDashboard} element={<CandidateDash user={user} specificUser={specificUser}/>}/> {/*candidate */}
+          <Route path={RouteConstants.CandidateViewJobs} element={<ManageCandidateApps user={user} specificUser={specificUser}/>}/> {/*candidate */}
         </Route>
+
         <Route element={<PrivateRoutes requiredUserType={["Administrator", "Hiring_Manager"]} userType={user.type} />}>
           {/* <Route path={RouteConstants.PostJob} element={<JobUpdate user={user} specificUser={specificUser}/>}/>  */}
           <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage user={user} specificUser={specificUser}/>}/>

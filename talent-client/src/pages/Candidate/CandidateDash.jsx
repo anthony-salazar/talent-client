@@ -11,7 +11,7 @@ import WorkIcon from '@mui/icons-material/Work';
 export default function CandidateDash(props) {
     return (
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <HeaderComponent user={props.user}/>
+            <HeaderComponent user={props.user} specificUser={props.specificUser}/>
             <Container sx = {{flex: '1 0 auto', padding:'10px'}}>
                 <Typography variant = 'h4' align = 'center'>Welcome, Candidate</Typography>
                 <Box
@@ -24,7 +24,7 @@ export default function CandidateDash(props) {
                 >
                     <Button
                         component={Link}
-                        to="/manage_apps"
+                        to="/candidate_jobs"
                         variant="contained"
                         sx={{
                             display:'flex',

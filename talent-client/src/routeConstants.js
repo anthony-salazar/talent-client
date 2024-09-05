@@ -6,6 +6,7 @@ const RouteConstants = {
     PostJob: '/jobupdate/:jobId',
     AdminDashboard: '/admin',
     CandidateDashboard: '/candidate',
+    CandidateViewJobs: '/candidate_jobs',
     ManagerDashboard: '/manager',
     ManageUsers: '/manage_users',
     ManageApps: '/manage_apps',
@@ -15,6 +16,9 @@ const RouteConstants = {
     NoAccess: "/no_access",
     ApplyJob: "/apply/:jobId"
   };
+
+  
+  
 
 
 export default RouteConstants;
