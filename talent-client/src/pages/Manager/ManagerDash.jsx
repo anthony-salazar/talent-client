@@ -63,7 +63,7 @@ export default function ManagerDash(props) {
                 >
                     <Button
                         component={Link}
-                        to={`/manager/${props.user.id}`}
+                        to={`/manager/${props.specificUser.id}`}
                         variant="contained"
                         sx={{
                             display: 'flex',

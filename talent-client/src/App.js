@@ -17,7 +17,7 @@ import ManagerDash from './pages/Manager/ManagerDash.jsx';
 import PrivateRoutes from './privateRoutes.js';
 import NoAccessPage from './pages/Shared/NoAccessPage.jsx';
 import JobApplicantSearchPage from './pages/Manager/JobApplicantSearchPage.jsx'
-import ManagerJobsPage from './pages/Shared/ManageJobsPage.jsx';
+import ManagerJobsPage from './pages/Shared/ManagerJobsPage.jsx';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -49,6 +49,7 @@ function App() {
           <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage user={user} specificUser={specificUser}/>}/>
           <Route path={RouteConstants.JobApplicantSearchPage} element={<JobApplicantSearchPage user={user} specificUser={specificUser}/>}/>
           <Route path={RouteConstants.ManagerDashboard} element={<ManagerDash user={user} specificUser={specificUser}/>}/>
+          <Route path={RouteConstants.ManageMyJobs} element={<ManagerJobsPage user={user} specificUser={specificUser}/>}/>
         </Route>
        </Routes>
     </div>
