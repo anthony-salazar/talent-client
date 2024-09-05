@@ -11,6 +11,7 @@ const JobApplicantPage = (props) => {
     const jobID = params.jobId;
     const [applicationList, setApplicationlist] = useState([]);
     const [job, setjob] = useState({});
+    const [refresh, setRefresh] = useState(false);
     useEffect(() => {
         const fetchData = async () => {
             try{
@@ -22,7 +23,7 @@ const JobApplicantPage = (props) => {
             }
         };
         fetchData();
-    }, []);
+    }, [refresh]);
     useEffect(() => {
         const fetchData = async () => {
             try{
@@ -35,12 +36,15 @@ const JobApplicantPage = (props) => {
         };
         fetchData();
     }, []);
+    const refreshList = () => {
+        setRefresh(!refresh);
+    };
     return(
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
             <Header user={props.user}/>
             <div className="job-search-page">
                     <Typography variant="h4" component="h4">Applications for {job.job_title} (Job ID: {job.id})</Typography>
-                    <ApplicantList applicationList={applicationList}/>
+                    <ApplicantList refreshList={refreshList} applicationList={applicationList}/>
             </div>
         </Box>
     );
