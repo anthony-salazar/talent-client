@@ -22,7 +22,7 @@ export default function JobSearch(props) {
     const refreshJobList = () => {
         setRefresh(!refresh);
     };
-
+    console.log(props)
     return (
         <div>
             <div>
@@ -31,7 +31,7 @@ export default function JobSearch(props) {
             <div className="job-search-page">
                 <Typography variant="h4" component="h4">Search Jobs</Typography>
                 <SearchBar setJobs={setJobs}/>
-                <JobList user={props.user} jobs={jobs} refreshJobList={refreshJobList}/>
+                <JobList user={props.user} jobs={jobs} refreshJobList={refreshJobList} specificUser={props.specificUser}/>
             </div>
         </div>
     );
