@@ -16,8 +16,8 @@ const DataTable = ({ data, modalTitle, buttonLabel, fields, cols, onDelete, onBu
         setRows(data);
     }, [data]);
 
-    console.log("Hi");
-    console.log(cols);
+    // console.log("Hi");
+    // console.log(cols);
 
     const handleRowClick = (params) => {
         console.log("params.row:" + JSON.stringify(params.row));
