@@ -63,11 +63,10 @@
 .job-search-page {
   background-color: #fff;
   color: black;
-  min-height: 100vh;
+  min-height: 90%;
   min-width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -130,7 +129,6 @@
 }
 
 .job-card-list {
-  margin-top: 20px;
   background-color: #e0e0e0;
   padding: 10px 20px;
   border-radius: 8px;
