@@ -6,7 +6,7 @@ import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import WorkIcon from '@mui/icons-material/Work';
 import HeaderComponent from "../../components/Header";
 import axios from 'axios';
-
+import Footer from "../../components/Footer";
 
 export default function ManagerDash(props) {
 
@@ -98,20 +98,16 @@ export default function ManagerDash(props) {
                             <DataForm
                                 open={open}
                                 onClose={handleClose}
-                                onSave={handleSave}
-                                onDelete={() => {}} // Empty onDelete function
+                                onSave={handleSave}// Empty onDelete function
                                 data={{}}
                                 fields={fields}
                                 modelTitle="Create New Job"
                             />
-
                         )
                     }
                 </Box>
-
-
             </Container>
-
+            <Footer/>
         </Box>
     )
 }
