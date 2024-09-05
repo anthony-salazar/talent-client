@@ -23,9 +23,7 @@ const JobList = (props) => {
         <div className="column">
           <div className="job-list">
             {props.jobs.length > 0 ? (
-              props.jobs.map((job) => (
-                <JobCard key={job.id} job={job} setjob={setjob} />
-              ))
+              props.jobs.map((job) => (<JobCard key={job.id} job={job} setjob={setjob} />))
             ) : (
               <p>No Job Found</p>
             )}
@@ -36,6 +34,8 @@ const JobList = (props) => {
             user={props.user}
             specificUser={props.specificUser}
             job={selectedjob}
+            refreshJobs={props.refreshJobList}
+            setSelectedJob={setjob}
           />
         </div>
       </div>
