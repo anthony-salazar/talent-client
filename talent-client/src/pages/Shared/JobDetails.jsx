@@ -84,6 +84,7 @@ const JobDetails = (props) => {
                         modalTitle="Job Details"
                     />
                 )         }
+
         </div>
     );
 }
