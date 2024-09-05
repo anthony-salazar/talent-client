@@ -15,7 +15,6 @@ export default function ProfileComponent(props) {
                 <Avatar fontSize="medium">{props.initial}</Avatar>
             </IconButton>
             <Menu anchorEl={anchorEl} open={open} onClose={() => setOpen(false)}>
-                <MenuItem>Profile</MenuItem>
                 <MenuItem onClick={() => {props.setLoggedIn(false); props.logOut()}}>Log Out</MenuItem>
             </Menu>
         </div>
