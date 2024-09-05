@@ -10,7 +10,7 @@ const JobDetails = (props) => {
     console.log(props.user);
     const navigateApply = useNavigate();
     const [open, setOpen] = React.useState(false);
-    const [userType, setUserType] = React.useState('candidate'); // Dummy usertype constant
+    // const [userType, setUserType] = React.useState('candidate'); // Dummy usertype constant
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -21,7 +21,8 @@ const JobDetails = (props) => {
     }
     const allowEditDelete = (props.user.type === "Hiring_Manager" || props.user.type === "Administrator" ) ? true : false;
     const allowApply = (props.user.type === "Candidate" || props.user.type === "Administrator" ) ? true : false;
-    const allowClick = (props.job.id >= 0) ? true : false;    const handleDelete = async () => {
+    const allowClick = (props.job.id >= 0) ? true : false;
+    const handleDelete = async () => {
         try {
             await axios.delete('http://localhost:8080/jobs/' + props.job.id, { headers: {
                 'Content-Type' : 'application/json',
@@ -62,12 +63,12 @@ const JobDetails = (props) => {
             <p><strong>Job Description:</strong> {props.job.job_description}</p>
             <p><strong>Additional Information:</strong> {props.job.additional_information}</p>
 
-            {userType === 'manager' || userType === 'admin' ? (
+
                 <>
                     <Button variant="contained" onClick={handleClickOpen} sx={{ visibility: allowEditDelete? 'visible' : 'hidden'}}>Update</Button>
                     <Button variant="contained" sx={{ backgroundColor: 'red', color: 'white' , marginLeft: 2, visibility: allowEditDelete? 'visible' : 'hidden'}} onClick={handleDelete}>Delete</Button>
                 </>
-            ) : null}
+
 
             <Button variant="contained" sx={{ backgroundColor: 'green', color: 'white' , marginLeft: 12, visibility: allowApply? 'visible' : 'hidden'}} onClick={() => navigateApply('/apply/'+ props.job.id)}>Apply</Button>
             {
