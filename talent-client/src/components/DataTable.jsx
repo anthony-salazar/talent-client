@@ -4,7 +4,7 @@ import { Container, Box, Button } from '@mui/material';
 import DataForm from './DataForm';  // Adjust the import path if necessary
 
 const DataTable = ({ data, modalTitle, buttonLabel, fields, cols }) => {
-    // const [cols, setCols] = useState([]);
+
     const [rows, setRows] = useState([]);
 
     const [selectedRow, setSelectedRow] = useState(null);
