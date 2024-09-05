@@ -11,6 +11,7 @@ export default function JobSearch(props) {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
+        const asyncFn = async() => {
         axios.get('http://localhost:8080/jobs')
             .then(response => {
                 setJobs(response.data);
@@ -19,6 +20,8 @@ export default function JobSearch(props) {
             .catch(error => {
                 console.error('There was an error!', error);
             });
+        }
+        asyncFn()
     }, []);
 
     return (
