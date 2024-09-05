@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ApplicantList from "../../components/ApplicantList";
+import CandidateListSearch from '../../components/CandidateListSearch';
 import axios from 'axios';
 
 const JobApplicantPage = (props) => {
@@ -19,12 +20,10 @@ const JobApplicantPage = (props) => {
     }, []);
 
     return(
-        <div>
-            <div>
-            </div>
-            <div>
+        <div className="job-search-page">
+                <p>Job</p>
+                <CandidateListSearch applicationList={applicationList}/>
                 <ApplicantList applicationList={applicationList}/>
-            </div>
         </div>
     );
 

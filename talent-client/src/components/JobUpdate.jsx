@@ -4,20 +4,6 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function JobUpdate( {job, onClose } ) {
-    // const params = useParams();
-    // const id = params.jobId;
-    // const [data, setData] = useState(null);
-    // useEffect(()=> {
-    //     if(id){
-    //         const filteredData = list.find((item) => item.id === id);
-    //         if(filteredData){
-    //             setData(filteredData);
-    //         }
-    //         else{
-    //             console.log('NO Match Found');
-    //         }
-    //     }
-    // }, [id]);
     const [jobID, setJobID] = useState('');
     const [description, setDescription] = useState('');
     const [addInfo, setAddInfo] = useState('');
@@ -30,8 +16,8 @@ export default function JobUpdate( {job, onClose } ) {
 
     useEffect(() => {
         if(job){
-            setJobID(job.id || '')
-            setManagerID(job.manager_id || '')
+        //     setJobID(job.id || '')
+        //     setManagerID(job.manager_id || '')
             setDepartment(job.department || '')
             setListingTitle(job.listing_title || '')
             setJobTitle(job.job_title || '')
@@ -45,7 +31,7 @@ export default function JobUpdate( {job, onClose } ) {
         <Container maxWidth="xs" className="job-update-container">
             <Typography variant="h4" component="h2" gutterBottom align="center">Job Information</Typography>
             <form>
-                <TextField
+                {/* <TextField
                     label="JOB ID"
                     fullWidth
                     variant="outlined"
@@ -60,7 +46,7 @@ export default function JobUpdate( {job, onClose } ) {
                     margin="normal"
                     value={managerID}
                     onChange={(e) => setManagerID(e.target.value)}
-                />
+                /> */}
                 <TextField
                     label="Department"
                     fullWidth
@@ -102,13 +88,15 @@ export default function JobUpdate( {job, onClose } ) {
                     onChange={(e) => setAddInfo(e.target.value)}
                 />
                 <TextField
+                    select
                     label="Listing Status"
                     fullWidth
                     variant="outlined"
                     margin="normal"
                     value={listingStatus}
                     onChange={(e) => setListingStatus(e.target.value)}
-                />
+                >
+                </TextField>
 
                 <Button variant="contained" sx={{ backgroundColor: 'green', color: 'white' , margin: '0 auto'}}>Submit</Button>
             </form>
