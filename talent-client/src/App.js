@@ -38,6 +38,7 @@ function App() {
           <Route path={RouteConstants.ManageUsers} element={<ManageUsersPage user={user} specificUser={specificUser}/>}/> {/*only admin */}
           <Route path={RouteConstants.ManageApps} element={<ManageAppsPage user={user} specificUser={specificUser}/>}/> {/*only admin */}
           <Route path={RouteConstants.AdminDashboard} element={<AdminDash user={user} specificUser={specificUser}/>} /> {/*admin*/}
+          <Route path={RouteConstants.ManageJobs} element={<ManageJobsPage user={user} specificUser={specificUser}/>} /> {/*admin*/}
         </Route>
 
         <Route element={<PrivateRoutes requiredUserType={["Administrator", "Candidate"]} userType={user.type} />}>
