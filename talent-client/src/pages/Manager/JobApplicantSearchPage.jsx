@@ -20,13 +20,10 @@ const JobApplicantPage = (props) => {
     }, []);
 
     return(
-        <div>
-            <div>
+        <div className="job-search-page">
+                <p>Job</p>
                 <CandidateListSearch applicationList={applicationList}/>
-            </div>
-            <div>
                 <ApplicantList applicationList={applicationList}/>
-            </div>
         </div>
     );
 

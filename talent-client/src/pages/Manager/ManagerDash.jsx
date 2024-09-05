@@ -1,17 +1,20 @@
-import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
-import DataTable from "../../components/DataTable";
-import jobs from "../../data/jobs.json";
-import HeaderComponent from '../../components/Header';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Box, Container, Typography, Button } from '@mui/material';
+import DataForm from "../../components/DataForm";
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import WorkIcon from '@mui/icons-material/Work';
-import JobUpdate from "../../components/JobUpdate";
+import HeaderComponent from "../../components/Header";
+import axios from 'axios';
 
-import { Box, Container, Typography,Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from '@mui/material';
-
+const manager = {
+    id: 1,
+    name: "John Doe",
+    email: "john.doe@example.com"
+};
 
 export default function ManagerDash(props) {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -19,14 +22,42 @@ export default function ManagerDash(props) {
     const handleClose = () => {
         setOpen(false);
     }
+
+    const handleSave = async (jobs) => {
+        try {
+            const jobsWithManager = {
+                ...jobs,
+                manager: manager
+            };
+
+            await axios.post('http://localhost:8080/jobs', jobsWithManager, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            });
+            handleClose();
+        } catch (error) {
+            console.error('Error updating job:', error);
+        }
+    }
+
+    const fields = [
+        { name: 'job_title', label: 'Job Title', type: 'text', readonly: false },
+        { name: 'department', label: 'Department', type: 'text', readonly: false },
+        { name: 'job_description', label: 'Job Description', type: 'text', rows: 4 },
+        { name: 'additional_information', label: 'Additional Information', type: 'text', rows: 4 },
+        { name: 'listing_status', label: 'Job Status', type: 'select', options: ['OPEN', 'CLOSED'] }
+    ]
+
     return (
-        <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <HeaderComponent user={props.user}/>
-            <Container sx = {{flex: '1 0 auto', padding:'10px'}}>
-                <Typography variant = 'h4' align = 'center'>Welcome, Hiring Manager</Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+            <HeaderComponent user={props.user} />
+            <Container sx={{ flex: '1 0 auto', padding: '10px' }}>
+                <Typography variant='h4' align='center'>Welcome, Hiring Manager</Typography>
                 <Box
                     sx={{
-                        display:'flex',
+                        display: 'flex',
                         justifyContent: 'center',
                         gap: 2,
                         p: 2
@@ -34,52 +65,55 @@ export default function ManagerDash(props) {
                 >
                     <Button
                         component={Link}
-                        to={`/manager/1`} /*change 1 to be props.user.id */
+                        to={`/manager/${props.user.id}`}
                         variant="contained"
                         sx={{
-                            display:'flex',
-                            flexDirection:'column',
-                            alignItems:'center',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
                             gap: 1,
                             p: 2,
                             textAlign: 'center'
                         }}
                     >
-                        <DisplaySettingsIcon sx={{fontSize: 40}}/>
+                        <DisplaySettingsIcon sx={{ fontSize: 40 }} />
                         <Typography variant="button">View Your Postings</Typography>
                     </Button>
-        
-                <Button
+
+                    <Button
                         onClick={handleClickOpen}
                         variant="contained"
                         sx={{
-                            display:'flex',
-                            flexDirection:'column',
-                            alignItems:'center',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
                             gap: 1,
                             p: 2,
                             textAlign: 'center'
                         }}
                     >
-                        <WorkIcon sx={{fontSize: 40}}/>
+                        <WorkIcon sx={{ fontSize: 40 }} />
                         <Typography variant="button">Create A New Posting</Typography>
                     </Button>
-                    <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
-                    <DialogTitle>Create Job</DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
-                        <JobUpdate onClose={handleClose} specificUser={props.specificUser}/>
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                </DialogActions>
-            </Dialog>
+                    {
+                        open && (
+                            <DataForm
+                                open={open}
+                                onClose={handleClose}
+                                onSave={handleSave}
+                                onDelete={() => {}} // Empty onDelete function
+                                data={{}}
+                                fields={fields}
+                                modelTitle="Create New Job"
+                            />
+
+                        )
+                    }
                 </Box>
-                
-                
+
+
             </Container>
-            
+
         </Box>
     )
 }
