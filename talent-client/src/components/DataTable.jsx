@@ -4,7 +4,7 @@ import { Container, Box, Button } from '@mui/material';
 import DataForm from './DataForm';  // Adjust the import path if necessary
 import axios from 'axios';
 
-const DataTable = ({ data, modalTitle, buttonLabel, fields, cols, onDelete }) => {
+const DataTable = ({ data, modalTitle, buttonLabel, fields, cols, onDelete, onButtonClick }) => {
     // const [cols, setCols] = useState([]);
     const [rows, setRows] = useState([]);
 
@@ -90,7 +90,7 @@ const DataTable = ({ data, modalTitle, buttonLabel, fields, cols, onDelete }) =>
             <Box sx={{ height: 400, width: '100%' }}>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
                     {buttonLabel && (
-                        <Button variant='contained' color="primary">
+                        <Button onClick={onButtonClick} variant='contained' color="primary">
                             {buttonLabel}
                         </Button>
                     )}
