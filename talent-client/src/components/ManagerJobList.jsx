@@ -26,7 +26,7 @@ const ManagerJobList = (props) => {
             </div>
             </div>
             <div className='column'>
-                <JobApplicationDetails job={selectedjob}/>
+                <JobApplicationDetails job={selectedjob} user={props.user} specificUser={props.specificUser}/>
             </div>
 
         </div>
