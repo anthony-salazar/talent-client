@@ -7,6 +7,7 @@ import axios from 'axios';
 import DataForm from '../../components/DataForm';
 
 const JobDetails = (props) => {
+    console.log(props.user);
     const navigateApply = useNavigate();
     const [open, setOpen] = React.useState(false);
     const [userType, setUserType] = React.useState('candidate'); // Dummy usertype constant
@@ -18,7 +19,9 @@ const JobDetails = (props) => {
     const handleClose = () => {
         setOpen(false);
     }
-    const handleDelete = async () => {
+    const allowEditDelete = (props.user.type === "Hiring_Manager" || props.user.type === "Administrator" ) ? true : false;
+    const allowApply = (props.user.type === "Candidate" || props.user.type === "Administrator" ) ? true : false;
+    const allowClick = (props.job.id >= 0) ? true : false;    const handleDelete = async () => {
         try {
             await axios.delete('http://localhost:8080/jobs/' + props.job.id, { headers: {
                 'Content-Type' : 'application/json',
@@ -61,12 +64,12 @@ const JobDetails = (props) => {
 
             {userType === 'manager' || userType === 'admin' ? (
                 <>
-                    <Button variant="contained" onClick={handleClickOpen}>Update</Button>
-                    <Button variant="contained" sx={{ backgroundColor: 'red', color: 'white' , marginLeft: 2}} onClick={handleDelete}>Delete</Button>
+                    <Button variant="contained" onClick={handleClickOpen} sx={{ visibility: allowEditDelete? 'visible' : 'hidden'}}>Update</Button>
+                    <Button variant="contained" sx={{ backgroundColor: 'red', color: 'white' , marginLeft: 2, visibility: allowEditDelete? 'visible' : 'hidden'}} onClick={handleDelete}>Delete</Button>
                 </>
             ) : null}
 
-            <Button variant="contained" sx={{ backgroundColor: 'green', color: 'white' , marginLeft: 12}} onClick={() => navigateApply('/apply/'+ props.job.id)}>Apply</Button>
+            <Button variant="contained" sx={{ backgroundColor: 'green', color: 'white' , marginLeft: 12, visibility: allowApply? 'visible' : 'hidden'}} onClick={() => navigateApply('/apply/'+ props.job.id)}>Apply</Button>
             {
                 //once the update is clicked, the dialog will open
                 open && (
