@@ -5,18 +5,20 @@ import '../../App.css';
 import Header from "../../components/Header";
 import {Typography} from "@mui/material";
 import axios from 'axios';
+import { useParams } from "react-router-dom";
+import { getOpenJobsByManager } from "../../api/jobAPI";
 
 export default function ManagerJobsPage(props) {
     const [jobs, setJobs] = useState([]);
-
+    const params = useParams();
+    const id = params.managerId
     useEffect(() => {
-        axios.get('http://localhost:8080/jobs')
-            .then(response => {
-                setJobs(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
-            });
+        const managerJobs = async () => {
+            const temp = await getOpenJobsByManager(id)
+            console.log(temp)
+            setJobs(temp)
+        }
+        managerJobs()
     }, []);
 
     return (
@@ -27,7 +29,7 @@ export default function ManagerJobsPage(props) {
             <div >
                 <Typography variant="h4" component="h4">Your Job Postings</Typography>
                 {/* <SearchBar setJobs={setJobs}/> */}
-                <ManagerJobList jobs={jobs}/>
+                <ManagerJobList jobs={jobs} user={props.user} specificUser={props.specificUser}/>
             </div>
         </div>
     );
