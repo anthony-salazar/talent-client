@@ -44,7 +44,7 @@ const ApplicantDetails = (props) => {
         name: "application_status",
         label: "Job Status",
         type: "select",
-        options: ["OPEN", "CLOSED", "UNDER REVIEW"],
+        options: ["Open", "Closed", "Under Review"],
       },
     ];
     return (
