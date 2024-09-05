@@ -5,6 +5,8 @@ import axios from 'axios';
 const ApplicantCard = (props) => {
     const toApplicationDetails = () => {
         props.setApplication(props.application);
+        console.log(applicant);
+        props.setSelectedCandidate(applicant);
     }
     const [applicant, setApplicant] = useState({})
     useEffect(() => {

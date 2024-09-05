@@ -5,21 +5,23 @@ import '../../App.css';
 import Header from "../../components/Header";
 import {Typography} from "@mui/material";
 import axios from 'axios';
-import JobDetails from "./JobDetails";
 
 export default function JobSearch(props) {
     const [jobs, setJobs] = useState([]);
-
+    const [refresh, setRefresh] = useState(false);
     useEffect(() => {
-        axios.get('http://localhost:8080/jobs')
-            .then(response => {
-                setJobs(response.data);
-                console.log(jobs);
-            })
-            .catch(error => {
-                console.error('There was an error!', error);
+        const fetchJobs = async () => {
+            const response = await axios.get("http://localhost:8080/jobs").then(res => {
+                return res.data
             });
-    }, []);
+            setJobs(response);
+        };
+        fetchJobs();
+    }, [refresh]);
+
+    const refreshJobList = () => {
+        setRefresh(!refresh);
+    };
 
     return (
         <div>
@@ -29,7 +31,7 @@ export default function JobSearch(props) {
             <div className="job-search-page">
                 <Typography variant="h4" component="h4">Search Jobs</Typography>
                 <SearchBar setJobs={setJobs}/>
-                <JobList user={props.user} jobs={jobs}/>
+                <JobList user={props.user} jobs={jobs} refreshJobList={refreshJobList}/>
             </div>
         </div>
     );
