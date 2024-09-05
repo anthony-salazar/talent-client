@@ -66,7 +66,7 @@ export const deleteApplicationById = async(id) =>{
     }
 };
 
-//Add application 
+//Add application
 export const addApplication = async(application) =>{
     try{
         const response = await axios.post(`${baseApplicationURL}`, application);
@@ -77,7 +77,7 @@ export const addApplication = async(application) =>{
     }
 };
 
-//Update application 
+//Update application
 export const updateApplication = async(id, application) =>{
     try{
         const response = await axios.put(`${baseApplicationURL}/${id}`, application);
