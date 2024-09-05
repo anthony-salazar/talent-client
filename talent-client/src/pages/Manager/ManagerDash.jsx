@@ -7,13 +7,11 @@ import WorkIcon from '@mui/icons-material/Work';
 import HeaderComponent from "../../components/Header";
 import axios from 'axios';
 
-const manager = {
-    id: 1,
-    name: "John Doe",
-    email: "john.doe@example.com"
-};
 
 export default function ManagerDash(props) {
+
+    const manager = props.specificUser;
+
     const [open, setOpen] = useState(false);
     const handleClickOpen = () => {
         setOpen(true);
@@ -49,7 +47,7 @@ export default function ManagerDash(props) {
         { name: 'additional_information', label: 'Additional Information', type: 'text', rows: 4 },
         { name: 'listing_status', label: 'Job Status', type: 'select', options: ['OPEN', 'CLOSED'] }
     ]
-
+    console.log(props)
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
             <HeaderComponent user={props.user} />
