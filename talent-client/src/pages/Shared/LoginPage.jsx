@@ -40,9 +40,16 @@ export default function LoginPage(props) {
         
         let user = await loginUser({username, password}, setVisible);
         if (user) {
-            props.setUserType(user.type)
-            props.setUsername(user.name)
-            switch (user.type) {
+            if (!user.hasOwnProperty('user')) {
+                props.setSpecificUser({user: user})
+                props.setUser(user)
+                user = {user: user}
+            } else {
+                props.setSpecificUser(user)
+                props.setUser(user.user)
+                console.log(user.user)
+            }
+            switch (user.user.type) {
                 case 'Administrator':
                     navigate(RouteConstants.AdminDashboard)
                     break;

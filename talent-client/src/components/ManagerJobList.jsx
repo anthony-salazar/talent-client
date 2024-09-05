@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import JobCard from './JobCard';
 import '../App.css';
-import JobDetails from '../pages/Shared/JobDetails';
+import JobApplicationDetails from '../pages/Shared/JobApplicationDetails';
 
-const JobList = (props) => {
+const ManagerJobList = (props) => {
     const blankJob = {
         "id" : '',
         "manager_id": '',
@@ -16,6 +16,7 @@ const JobList = (props) => {
         "additional_information" : "",
         "listing_status": ""};
     const [selectedjob, setjob] = useState(blankJob);
+    //data needs to be filtered so that it only shows jobs posted by the current manager id
     return(
         <div className='job-container'>
             <div className='column'>
@@ -25,11 +26,11 @@ const JobList = (props) => {
             </div>
             </div>
             <div className='column'>
-                <JobDetails user={props.user} job={selectedjob} />
+                <JobApplicationDetails job={selectedjob} user={props.user} specificUser={props.specificUser}/>
             </div>
 
         </div>
     );
 }
 
-export default JobList;
+export default ManagerJobList;
