@@ -27,7 +27,12 @@ export default function ManageUsersPage(props) {
             }
             const data = await response.json(); // Parse response data
             console.log("resp", JSON.stringify(data));
-            setUsers(data); // Update state with fetched data
+            console.log(JSON.stringify(data))
+            console.log("****************");
+            console.log(JSON.stringify(users))
+                if (JSON.stringify(data) !== JSON.stringify(users)) { // Simple comparison
+                    setUsers(data);
+                }
           } catch (error) {
             console.error('Error fetching users:', error);
           }
@@ -69,7 +74,12 @@ export default function ManageUsersPage(props) {
         console.log("END SUBMIT")
         registerUser({username: username, password: password, type: userType})
         closeRegisterDialog();
+        onDataChange();
     };
+
+    const onDataChange = () => {
+        setUsers([]);
+    }
 
 
     const columns = [
@@ -89,6 +99,7 @@ export default function ManageUsersPage(props) {
             modalTitle="User Details"
             buttonLabel="Add New"
             onButtonClick={()=>{openRegisterDialog();}}
+            onDataChange={()=>{onDataChange();}}
             fields={[
               { name: 'username', label: 'Username', type: 'text' },
               { name: 'password', label: 'Password', type: 'text' },

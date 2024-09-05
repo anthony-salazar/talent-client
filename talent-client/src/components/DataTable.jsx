@@ -4,7 +4,7 @@ import { Container, Box, Button } from '@mui/material';
 import DataForm from './DataForm';  // Adjust the import path if necessary
 import axios from 'axios';
 
-const DataTable = ({ data, modalTitle, buttonLabel, fields, cols, onDelete, onButtonClick }) => {
+const DataTable = ({ data, modalTitle, buttonLabel, fields, cols, onDataChange, onButtonClick }) => {
     // const [cols, setCols] = useState([]);
     const [rows, setRows] = useState([]);
 
@@ -58,6 +58,7 @@ const DataTable = ({ data, modalTitle, buttonLabel, fields, cols, onDelete, onBu
             );
             console.log(res.data);
         }
+        onDataChange();
         setOpenModal(false);
     };
 
@@ -80,8 +81,10 @@ const DataTable = ({ data, modalTitle, buttonLabel, fields, cols, onDelete, onBu
                 console.log("delete response:" + response);
             };
             deleteUser();
+        
         }
         // Implement delete logic here
+        onDataChange();
         setOpenModal(false);
     };
 
