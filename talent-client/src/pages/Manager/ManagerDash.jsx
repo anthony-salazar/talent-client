@@ -98,8 +98,7 @@ export default function ManagerDash(props) {
                             <DataForm
                                 open={open}
                                 onClose={handleClose}
-                                onSave={handleSave}
-                                onDelete={() => {}} // Empty onDelete function
+                                onSave={handleSave}// Empty onDelete function
                                 data={{}}
                                 fields={fields}
                                 modelTitle="Create New Job"
