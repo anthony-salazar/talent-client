@@ -44,7 +44,7 @@ const JobDetails = (props) => {
     const allowApply = (props.user.type === "Candidate") ? true : false;
     const allowClick = (props.job.id >= 0) ? true : false;
     const handleDelete = async () => {
-        console.log("Delete clicked");
+        // console.log("Delete clicked");
         try {
             await axios.delete('http://localhost:8080/jobs/' + props.job.id, { headers: {
                 'Content-Type' : 'application/json',

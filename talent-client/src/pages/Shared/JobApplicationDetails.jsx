@@ -96,7 +96,7 @@ const JobApplicationDetails = (props) => {
       name: "listing_status",
       label: "Job Status",
       type: "select",
-      options: ["OPEN", "CLOSED"],
+      options: ["Open", "Closed"],
     },
   ];
 
