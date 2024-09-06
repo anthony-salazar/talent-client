@@ -45,7 +45,7 @@ export default function ManagerDash(props) {
         { name: 'department', label: 'Department', type: 'text', readonly: false },
         { name: 'job_description', label: 'Job Description', type: 'text', rows: 4 },
         { name: 'additional_information', label: 'Additional Information', type: 'text', rows: 4 },
-        { name: 'listing_status', label: 'Job Status', type: 'select', options: ['OPEN', 'CLOSED'] }
+        { name: 'listing_status', label: 'Job Status', type: 'select', options: ['Open', 'Closed'] }
     ]
     console.log(props)
     return (

@@ -9,17 +9,21 @@ import {Box, Typography } from "@mui/material";
 const JobApplicantPage = (props) => {
     const params = useParams();
     const jobID = params.jobId;
-    const [applicationList, setApplicationlist] = useState([]);
+    const [applicationList, setApplicationList] = useState([]);
     const [job, setjob] = useState({});
     const [refresh, setRefresh] = useState(false);
     useEffect(() => {
         const fetchData = async () => {
-            try{
-                const response = await axios.get('http://localhost:8080/applications/job/' + jobID).then(res => {return res.data});
-                setApplicationlist(response);
-            }
-            catch(err){
-                throw new Error('There error in Job Applicant Search Page');
+            try {
+                const response = await axios.get('http://localhost:8080/applications/job/' + jobID);
+                setApplicationList(response.data);
+            } catch (err) {
+                if (err.response && err.response.status === 404) {
+                    alert('No applications found');
+                } else {
+                    console.error('Error in Job Applicant Search Page 1:', err);
+                    // Handle the error here, such as displaying an error message to the user
+                }
             }
         };
         fetchData();
@@ -31,7 +35,7 @@ const JobApplicantPage = (props) => {
                 setjob(response);
             }
             catch(err){
-                throw new Error('There error in Job Applicant Search Page');
+                throw new Error('There error in Job Applicant Search Page 2');
             }
         };
         fetchData();

@@ -44,6 +44,7 @@ const JobDetails = (props) => {
     const allowApply = (props.user.type === "Candidate") ? true : false;
     const allowClick = (props.job.id >= 0) ? true : false;
     const handleDelete = async () => {
+        // console.log("Delete clicked");
         try {
             await axios.delete('http://localhost:8080/jobs/' + props.job.id, { headers: {
                 'Content-Type' : 'application/json',
@@ -72,8 +73,10 @@ const JobDetails = (props) => {
         {name: 'department', label: 'Department', type: 'text', readonly: false},
         {name: 'job_description', label: 'Job Description', type: 'text', rows:4},
         {name: 'additional_information', label: 'Additional Information', type: 'text', rows:4},
-        {name: 'listing_status', label: 'Job Status', type: 'select', options: ['OPEN', 'CLOSED']}
+        {name: 'listing_status', label: 'Job Status', type: 'select', options: ['Open', 'Closed']},
     ]
+
+    console.log("Job Details: ", props.job);
 
     return (
         <div>
@@ -94,7 +97,6 @@ const JobDetails = (props) => {
                         open = {open}
                         onClose={handleClose}
                         onSave={handleSave}
-                        onDelete={handleDelete}
                         data={props.job}
                         fields={fields}
                         modalTitle="Job Details"

@@ -8,6 +8,7 @@ import { getJobByID } from "../../api/jobAPI";
 import Grid from '@mui/material/Grid2'
 import { addApplication } from "../../api/applicationApi";
 import RouteConstants from "../../routeConstants";
+import { getApplicationById, updateApplication } from "../../api/applicationApi";
 
 function ApplicationFormPage(props) {
     const navigate = useNavigate()
@@ -23,12 +24,34 @@ function ApplicationFormPage(props) {
         console.log(temp)
         console.log(props.specificUser)
     }
-    const submitApplication = () => {
-        const application = {user: props.user, job: job, cover_letter: coverLetter, custom_resume: resume, application_status: "Open"}
-        addApplication(application)
-        navigate(RouteConstants.JobSearch)
-    }
-    useEffect(() => {fetchJob(); 
+    // const submitApplication = () => {
+    //     const application = {user: props.user, job: job, cover_letter: coverLetter, custom_resume: resume, application_status: "Open"}
+    //     addApplication(application)
+    //     navigate(RouteConstants.JobSearch)
+    // }
+
+    const submitApplication = async () => {
+      const application = {
+        user: props.user,
+        job: job,
+        cover_letter: coverLetter,
+        custom_resume: resume,
+        application_status: "Open",
+      };
+      try {
+        // console.log("Application: ", application);
+        const existingApplication = await getApplicationById(application.job.id);
+        if (existingApplication) {
+          updateApplication(application.job.id , application);
+        } else {
+          addApplication(application);
+        }
+      } catch (error) {
+        addApplication(application);
+      }
+      navigate(RouteConstants.JobSearch);
+    };
+    useEffect(() => {fetchJob();
         if (props.user.type === "Candidate") {
             setResume(props.specificUser.resume)
             console.log('Candidate')
@@ -64,7 +87,7 @@ function ApplicationFormPage(props) {
                             <Typography variant="body1"><strong>Date Posted: </strong>{job.date_listed}</Typography>
                         </Grid>
                     </Grid>
-                    
+
                     <FormControl onSubmit={(event) => event.preventDefault()} sx={{marginTop: '2vh'}}>
                         <Typography>Cover Letter</Typography>
                         <TextField value={coverLetter} multiline minRows='5' label="Cover Letter" onInput={(event) => setCL(event.target.value)}/>
