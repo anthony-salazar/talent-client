@@ -28,7 +28,6 @@ function App() {
   const logOutUser = () => {
     setUser({name: '', type: ''})
     setSpecificUser({name: '', type: ''})
-    navigate(RouteConstants.Home)
   }
   return (
     <div className="App">
