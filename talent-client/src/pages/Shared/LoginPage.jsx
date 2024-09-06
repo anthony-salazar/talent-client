@@ -43,10 +43,14 @@ export default function LoginPage(props) {
             if (!user.hasOwnProperty('user')) {
                 props.setSpecificUser({user: user})
                 props.setUser(user)
+                localStorage.setItem('user', JSON.stringify(user))
+                localStorage.setItem('specificUser', JSON.stringify({user:user}))
                 user = {user: user}
             } else {
                 props.setSpecificUser(user)
                 props.setUser(user.user)
+                localStorage.setItem('user', JSON.stringify(user.user))
+                localStorage.setItem('specificUser', JSON.stringify(user))
                 console.log(user.user)
             }
             switch (user.user.type) {

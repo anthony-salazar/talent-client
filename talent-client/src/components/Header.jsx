@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import userNavs from '../userNavs';
 
 export default function Header(props) {
-    const localType = (props.user.type === '') ? 'Guest' : props.user.type;
+    const [localType, setLocalType] = useState((!props.user.type) ? 'Guest' : props.user.type)
     console.log(userNavs[localType])
     const [loggedIn, setLoggedIn] = useState(false)
     const navigate = useNavigate()
@@ -19,11 +19,12 @@ export default function Header(props) {
         }
     }
     useEffect(() => {if (props.user.username && props.user.type){
-        setLoggedIn(true)
-    } else {
-        setLoggedIn(false)
-        props.logOut()
-    }}, [props.user])
+            setLoggedIn(true)
+        }
+        if (props.user.type) {
+            setLocalType(props.user.type)
+        }
+    }, [props.user])
     return(
         <AppBar position="static" color="primary">
             <Toolbar>

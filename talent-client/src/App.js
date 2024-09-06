@@ -26,9 +26,25 @@ function App() {
   const [user, setUser] = useState({name: '', type: ''})
   const navigate = useNavigate()
   const logOutUser = () => {
+    console.log("REFRESH")
     setUser({name: '', type: ''})
     setSpecificUser({name: '', type: ''})
+    localStorage.removeItem('user')
+    localStorage.removeItem('specificUser')
   }
+  useEffect(() => {
+    const tempUser = localStorage.getItem('user')
+    const tempSpecificUser = localStorage.getItem('specificUser')
+    if (tempUser && tempSpecificUser) {
+      setUser(JSON.parse(tempUser))
+      setSpecificUser(JSON.parse(tempSpecificUser))
+    } else {
+      localStorage.setItem('user', JSON.stringify(user))
+      localStorage.setItem('specificUser', JSON.stringify(specificUser))
+    }
+    console.log("2")
+  }, [])
+
   return (
     <div className="App">
       <Routes>
