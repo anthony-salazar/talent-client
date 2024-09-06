@@ -41,7 +41,7 @@ const JobApplicantPage = (props) => {
     };
     return(
         <Box sx = {{display: 'flex', flexDirection: 'column', height: '100vh'}}>
-            <Header user={props.user}/>
+            <Header user={props.user} specificUser={props.specificUser} logOut={props.logOut}/>
             <div className="job-search-page">
                     <Typography variant="h4" component="h4">Applications for {job.job_title} (Job ID: {job.id})</Typography>
                     <ApplicantList refreshList={refreshList} applicationList={applicationList}/>
